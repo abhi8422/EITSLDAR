@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        >
+        <EditText
+            android:id="@+id/SearchUnInspected"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="numberDecimal|number"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
+            android:drawablePadding="50dp"
+            android:background="@drawable/edit_search_round"
+            android:drawableRight="@drawable/ic_clear"
+            android:drawableTint="#3A3838"
+            android:hint="Enter Tag Number"
+            android:padding="15dp"
+            android:textColorHint="#727272"
+            />
+    </LinearLayout>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/uninspected_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/barcode_fab_uninspected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="5dp"
+            android:background="@color/zxing_transparent"
+            android:clickable="true"
+            android:src="@drawable/barcode"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:icon="@drawable/barcode"
+            app:iconSize="20dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/mainColor"
+        android:text="SEARCH"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</LinearLayout>

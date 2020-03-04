@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ViewStub
+                android:id="@+id/table_view_left_top_head_view_stub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ysn.com.view.TableScrollView
+                android:id="@+id/table_view_head_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <ViewStub
+                    android:id="@+id/table_view_head_view_stub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </ysn.com.view.TableScrollView>
+        </LinearLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/table_view_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srlEnableScrollContentWhenLoaded="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/table_view_first_column"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:overScrollMode="never" />
+
+                <ysn.com.view.TableScrollView
+                    android:id="@+id/table_view_content_scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/table_view_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="false"
+                        android:overScrollMode="never" />
+                </ysn.com.view.TableScrollView>
+            </LinearLayout>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</LinearLayout>

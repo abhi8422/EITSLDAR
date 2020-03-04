@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/cmptable_layout"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/nav_toolbar_cmptable_dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mainColor">
+
+            <TextView
+                android:id="@+id/txt_cmptable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingRight="10dp"
+                android:text="RNAME "
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:padding="6dp">
+
+        <EditText
+            android:layout_margin="@dimen/dp_4"
+            android:id="@+id/TagSearch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="numberDecimal|number"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
+            android:drawablePadding="50dp"
+            android:padding="8dp"
+            android:background="@drawable/edit_search_round"
+            android:drawableRight="@drawable/ic_clear"
+            android:drawableTint="#3A3838"
+            android:hint="Enter Tag Number"
+            android:textColorHint="#727272"
+            />
+    </LinearLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="115dp"
+        android:layout_height="match_parent">
+    <ysn.com.view.TableView
+        android:id="@+id/main_activity_table_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:tv_head_layout_res_id="@layout/layout_table_head"
+        app:tv_left_top_head_layout_res_id="@layout/layout_table_left_top_head" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/barcode_fab_inspected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:src="@drawable/barcode"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:icon="@drawable/barcode"
+            app:iconSize="20dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_cmptable"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_items"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

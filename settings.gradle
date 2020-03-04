@@ -1,0 +1,2 @@
+include ':app', ':ksoap2-android-2.5.2', ':kxml2', ':tableview'
+rootProject.name='Extranet'

@@ -1,0 +1,4 @@
+#Wed Mar 04 12:14:44 IST 2020
+base.0=/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

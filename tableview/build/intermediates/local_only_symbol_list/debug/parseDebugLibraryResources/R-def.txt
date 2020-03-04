@@ -1,0 +1,14 @@
+R_DEF: Internal format may change without notice
+local
+attr? tv_head_layout_res_id
+attr? tv_left_top_head_layout_res_id
+id table_view_content
+id table_view_content_scroll_view
+id table_view_first_column
+id table_view_head_scroll_view
+id table_view_head_view_stub
+id table_view_left_top_head_view_stub
+id table_view_refresh_layout
+layout item_table_view
+string app_name
+styleable TableView tv_left_top_head_layout_res_id tv_head_layout_res_id

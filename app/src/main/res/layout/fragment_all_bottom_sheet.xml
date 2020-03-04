@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".AllBottomSheetFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/FontStyle"
+        android:background="#8BC34A"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Select One Option"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/enter_backgorund_reading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Sub-Area Background Reading"
+        android:textAppearance="@style/FontStyle"
+        android:textColor="#252121"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <TextView
+        android:id="@+id/view_compoents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="View Components"
+        android:textAppearance="@style/FontStyle"
+        android:textColor="#252121"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/divider18"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <TextView
+        android:id="@+id/view_compoents_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="View Components (Grid)"
+        android:textAppearance="@style/FontStyle"
+        android:textColor="#252121"
+        android:textSize="16sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txt_mark_all_cmpminspcted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Mark All Components Inspected"
+        android:textAppearance="@style/FontStyle"
+        android:textColor="#252121"
+        android:textSize="16sp" />
+
+
+
+</LinearLayout>

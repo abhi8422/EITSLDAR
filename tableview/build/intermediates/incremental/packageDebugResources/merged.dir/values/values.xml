@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TableView</string>
+    <declare-styleable name="TableView">
+        <attr format="reference" name="tv_left_top_head_layout_res_id"/>
+        <attr format="reference" name="tv_head_layout_res_id"/>
+    </declare-styleable>
+</resources>

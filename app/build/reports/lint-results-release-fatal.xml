@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.5.3">
+
+    <issue
+        id="Instantiatable"
+        severity="Fatal"
+        message="This class should provide a default constructor (a public constructor with no arguments) (com.envigil.extranet.RouteDashboardAdapter)"
+        category="Correctness"
+        priority="6"
+        summary="Registered class is not instantiatable"
+        explanation="Activities, services, broadcast receivers etc. registered in the manifest file (or for custom views, in a layout file) must be &quot;instantiatable&quot; by the system, which means that the class must be public, it must have an empty public constructor, and if it&apos;s an inner class, it must be a static inner class."
+        errorLine1="    public RouteDashboardAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/java/com/envigil/extranet/RouteDashboardAdapter.java"
+            line="34"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        severity="Fatal"
+        message="This class should provide a default constructor (a public constructor with no arguments) (com.envigil.extranet.RouteInspectedAdapter)"
+        category="Correctness"
+        priority="6"
+        summary="Registered class is not instantiatable"
+        explanation="Activities, services, broadcast receivers etc. registered in the manifest file (or for custom views, in a layout file) must be &quot;instantiatable&quot; by the system, which means that the class must be public, it must have an empty public constructor, and if it&apos;s an inner class, it must be a static inner class."
+        errorLine1="    public RouteInspectedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/java/com/envigil/extranet/RouteInspectedAdapter.java"
+            line="31"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        severity="Fatal"
+        message="This class should provide a default constructor (a public constructor with no arguments) (com.envigil.extranet.RouteInspectedFragment)"
+        category="Correctness"
+        priority="6"
+        summary="Registered class is not instantiatable"
+        explanation="Activities, services, broadcast receivers etc. registered in the manifest file (or for custom views, in a layout file) must be &quot;instantiatable&quot; by the system, which means that the class must be public, it must have an empty public constructor, and if it&apos;s an inner class, it must be a static inner class."
+        errorLine1="    public RouteInspectedFragment(int id) {"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/java/com/envigil/extranet/RouteInspectedFragment.java"
+            line="37"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        severity="Fatal"
+        message="This class should provide a default constructor (a public constructor with no arguments) (com.envigil.extranet.RouteUninspectedAdapter)"
+        category="Correctness"
+        priority="6"
+        summary="Registered class is not instantiatable"
+        explanation="Activities, services, broadcast receivers etc. registered in the manifest file (or for custom views, in a layout file) must be &quot;instantiatable&quot; by the system, which means that the class must be public, it must have an empty public constructor, and if it&apos;s an inner class, it must be a static inner class."
+        errorLine1="    public RouteUninspectedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/java/com/envigil/extranet/RouteUninspectedAdapter.java"
+            line="33"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="NotSibling"
+        severity="Fatal"
+        message="`@+id/btn_save` is not a sibling in the same `ConstraintLayout`"
+        category="Correctness"
+        priority="6"
+        summary="Invalid Constraints"
+        explanation="Layout constraints in a given `ConstraintLayout` or `RelativeLayout` should reference other views within the same relative layout (but not itself!)"
+        errorLine1="            app:layout_constraintTop_toTopOf=&quot;@+id/btn_save&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/res/layout/bluetooth_activity.xml"
+            line="22"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NotSibling"
+        severity="Fatal"
+        message="`@+id/RBR_btn_cancel` is not a sibling in the same `ConstraintLayout`"
+        category="Correctness"
+        priority="6"
+        summary="Invalid Constraints"
+        explanation="Layout constraints in a given `ConstraintLayout` or `RelativeLayout` should reference other views within the same relative layout (but not itself!)"
+        errorLine1="            app:layout_constraintBottom_toTopOf=&quot;@+id/RBR_btn_cancel&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/res/layout/fragment_add_inspection_date.xml"
+            line="53"
+            column="13"/>
+    </issue>
+
+</issues>
