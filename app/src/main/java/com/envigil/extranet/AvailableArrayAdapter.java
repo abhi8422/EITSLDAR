@@ -161,11 +161,18 @@ public class AvailableArrayAdapter extends RecyclerView.Adapter<AvailableArrayAd
             });*/
         }
     }
+
+
+
     public void clear() {
         int size = routesList.size();
         routesList.clear();
         notifyItemRangeRemoved(0, size);
     }
+
+
+
+    //check route status
     public class CheckRouteStatus extends AsyncTask{
         int RouteID,WorkID;
         String result,name;

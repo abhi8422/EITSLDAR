@@ -3,6 +3,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Toast;
@@ -35,9 +36,20 @@ import com.envigil.extranet.models.TVA;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 import static com.envigil.extranet.AvailableWorkOrderFrag.availableRecyclerView;
 import static com.envigil.extranet.AvailableWorkOrderFrag.downaload_txt_view;
 import static com.envigil.extranet.AvailableWorkOrderFrag.progressBar;
@@ -51,7 +63,36 @@ public class DownloadRouteAsync extends AsyncTask {
     JSONObject jsonObject;
     SQLiteHelper sqLiteHelper;
     int workorderID;
+    static  FileHandler fh;
+    static  Logger logger;
 
+
+        static {
+        //Create a logging file
+        logger = Logger.getLogger("MyLog");
+        File logfile;
+        Calendar calendar=Calendar.getInstance();
+        SimpleDateFormat month_date = new SimpleDateFormat("dd-MMM hh:mm:ss");
+        String month_name = month_date.format(calendar.getTime());
+        try {
+            // This block configure the logger with handler and formatter
+            File folder = new File(Environment.getExternalStorageDirectory()+File.separator + "ExtranetDAEP_Log");
+            if(!folder.exists()){
+                folder.mkdirs();
+            }
+            logfile = new File(folder, "DownloadLog"+month_name+".txt");
+            fh = new FileHandler(logfile.getPath());
+            logger.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+            logger.info("Logging Started");
+
+    } catch (SecurityException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
     public DownloadRouteAsync(String name, Context context, int routeID, int workorderID) {
         this.context = context;
         this.name = name;
@@ -65,7 +106,7 @@ public class DownloadRouteAsync extends AsyncTask {
         progressBar.setVisibility(View.VISIBLE);
         downaload_txt_view.setVisibility(View.VISIBLE);
         availableRecyclerView.setVisibility(View.GONE);
-        System.out.println("Lock The Route");
+        logger.info("Lock the Route :: AsynLock().execute(); by sending 'L' ");
         new AsynLock().execute();
     }
 
@@ -524,10 +565,15 @@ public class DownloadRouteAsync extends AsyncTask {
             String Response;
             WebService webService = new WebService();
             Response = webService.setRoutesStatusAndroid(routeID, workorderID, "L");
+            logger.info("AsynLock Response: "+Response);
             if (Response.equals("setRoutesStatusAndroidResponse{setRoutesStatusAndroidResult=true; }")) {
                 sqLiteHelper = new SQLiteHelper(context);
                 webService = new WebService(context);
+                logger.info("Start Downloading the route");
                 result = webService.getRoutesData(routeID, workorderID);
+                //int Result=webService.getDownloadTest();
+                System.out.println("Result :: "+result);
+                logger.info("webService.getRoutesData() result :"+result);
                 System.out.println(result);
                 LResult=true;
             }
@@ -537,10 +583,10 @@ public class DownloadRouteAsync extends AsyncTask {
             return null;
         }
 
-        @Override
+       @Override
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
-          /*  if (!LResult){
+            if (!LResult){
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                 alertDialogBuilder.setMessage("There is problem with route downloading");
                 alertDialogBuilder.setCancelable(false);
@@ -559,7 +605,7 @@ public class DownloadRouteAsync extends AsyncTask {
                 });
                 AlertDialog alertDialog1 = alertDialogBuilder.create();
                 alertDialog1.show();
-            }*/
+            }
             if (result.trim().equals("")) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                 alertDialogBuilder.setMessage("There is problem with route downloading");
@@ -578,7 +624,8 @@ public class DownloadRouteAsync extends AsyncTask {
                 });
                 AlertDialog alertDialog1 = alertDialogBuilder.create();
                 alertDialog1.show();
-               // new AsynD().execute();
+                logger.info("if(result.equals()) Calling AsynD() to setn'D' ");
+                new AsynD().execute();
             } else {
                 try {
                     //    System.out.println("Api Result "+result);
@@ -649,9 +696,11 @@ public class DownloadRouteAsync extends AsyncTask {
                     ParseStreams(StreamsArray);
 
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    Writer writer = new StringWriter();
+                    e.printStackTrace(new PrintWriter(writer));
                     exception=true;
-                    Toast.makeText(context, "Catch Exception", Toast.LENGTH_SHORT).show();
+                    logger.info("Json Pasrsing Exception"+writer.toString());
+                    //Toast.makeText(context, "Catch Exception", Toast.LENGTH_SHORT).show();
                 }
                 if(exception){
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -660,13 +709,13 @@ public class DownloadRouteAsync extends AsyncTask {
                     alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            /*sqLiteHelper.deleteLeaks(routeID);
+                            sqLiteHelper.deleteLeaks(routeID);
                             sqLiteHelper.deleteInventory(routeID);
                             sqLiteHelper.deleteSubAreas(routeID);
                             sqLiteHelper.deleteRoutesConfig(routeID);
                             sqLiteHelper.deleteInventoryRule(routeID);
                             sqLiteHelper.deleteLeakRepair(routeID);
-                            sqLiteHelper.deleteRuleComponents(routeID);*/
+                            sqLiteHelper.deleteRuleComponents(routeID);
                             TestRecycler testRecycler = new TestRecycler(new SQLiteHelper(context).getAll());
                             DownloadedWorkOrderFrag.downloadedrecycler.setAdapter(testRecycler);
                             testRecycler.notifyDataSetChanged();
@@ -680,8 +729,10 @@ public class DownloadRouteAsync extends AsyncTask {
                     });
                     AlertDialog alertDialog1 = alertDialogBuilder.create();
                     alertDialog1.show();
-                   // new AsynD().execute();
+                    logger.info("if(exception) Calling AsynD() to setn'D' ");
+                    new AsynD().execute();
                 }else {
+                    logger.info("calling AsynInsert()");
                     new AsynInsert().execute();
                 }
 
@@ -695,6 +746,7 @@ public class DownloadRouteAsync extends AsyncTask {
                 String ResponseInsert;
                 WebService webService = new WebService();
                 ResponseInsert = webService.setRoutesStatusAndroid(routeID, workorderID, "I");
+                logger.info("AsynInsert() ResponseInsert: "+ResponseInsert);
                 if (ResponseInsert.equals("setRoutesStatusAndroidResponse{setRoutesStatusAndroidResult=true; }")) {
                     IResult=true;
                 }
@@ -709,6 +761,7 @@ public class DownloadRouteAsync extends AsyncTask {
             protected void onPostExecute(Object o) {
                 super.onPostExecute(o);
                 if (IResult){
+                    logger.info("Route has been downloaded successfully");
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                     alertDialogBuilder.setCancelable(false);
                     alertDialogBuilder.setMessage(name + " Route has been downloaded successfully");
@@ -730,12 +783,14 @@ public class DownloadRouteAsync extends AsyncTask {
                     alertDialog1.setCancelable(false);
                 }
                 else {
+                    logger.info("Deleting the route because AsynInsert response false");
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                     alertDialogBuilder.setCancelable(false);
                     alertDialogBuilder.setMessage("There is problem with route downloading");
                     alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            logger.info("Calling sqlitehelper to delete table");
                             sqLiteHelper.deleteLeakRepair(routeID);
                             sqLiteHelper.deleteLeaks(routeID);
                             sqLiteHelper.deleteInventory(routeID);
@@ -756,12 +811,13 @@ public class DownloadRouteAsync extends AsyncTask {
                     });
                     AlertDialog alertDialog1 = alertDialogBuilder.create();
                     alertDialog1.show();
-                    //new AsynD().execute();
+                    logger.info("Calling AsynD() after deleting table");
+                    new AsynD().execute();
                 }
             }
         }
 
-      /* public class AsynD extends AsyncTask {
+       public class AsynD extends AsyncTask {
 
             @Override
             protected Object doInBackground(Object[] objects) {
@@ -769,6 +825,6 @@ public class DownloadRouteAsync extends AsyncTask {
                 webService.setRoutesStatusAndroid(routeID, workorderID, "D");
                 return null;
             }
-        }*/
+        }
     }
 }

@@ -81,11 +81,12 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
     public InspectionUploadBottomSheetFragment(Context context) {
         // Required empty public constructor
         this.context=context;
+
+
+        //Create a logging file
         logger = Logger.getLogger("MyLog");
         File logfile;
         Calendar calendar=Calendar.getInstance();
-        int day=calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH)+1;
         SimpleDateFormat month_date = new SimpleDateFormat("dd-MMM hh:mm:ss");
         String month_name = month_date.format(calendar.getTime());
         try {

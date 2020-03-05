@@ -98,8 +98,8 @@
 52        android:testOnly="true"
 53        android:theme="@style/AppTheme"
 53-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:27:9-40
-54        android:usesCleartextTraffic="false"
-54-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:22:9-45
+54        android:usesCleartextTraffic="true"
+54-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:22:9-44
 55        android:windowSoftInputMode="stateHidden" >
 55-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:19:9-50
 56        <activity

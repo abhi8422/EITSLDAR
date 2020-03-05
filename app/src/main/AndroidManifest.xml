@@ -19,7 +19,7 @@
         android:windowSoftInputMode="stateHidden"
         android:allowBackup="false"
         android:fullBackupContent="false"
-        android:usesCleartextTraffic="false"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/logo1"
         android:label="LDAR"
         android:roundIcon="@mipmap/logo1_round"

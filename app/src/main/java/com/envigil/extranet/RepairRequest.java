@@ -129,9 +129,9 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         repairDateTime1 = repairDateTime[0];
         repairDateTime2 = repairDateTime[1];
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm a");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
         try {
-            leaktime = simpleDateFormat.parse(datetimeLeak);
+            leaktime = simpleDateFormat.parse(repairDateTime2);
             System.out.println("LeakTime ::"+leaktime);
         }
         catch (ParseException e){
@@ -203,6 +203,12 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
             hr_precede1 ="0";
         }
         pickedTime = hr_precede1 + mHour + ":" + mm_precede1 + mMinute +":00";
+       SimpleDateFormat dateFormat1=new SimpleDateFormat("hh:mm");
+        try {
+            time = dateFormat1.parse(pickedTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         Calendar calendar = Calendar.getInstance();
         mHour = calendar.get(Calendar.HOUR_OF_DAY);

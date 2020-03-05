@@ -23,5 +23,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="Gradle: ksoap2-android-2.5.2.ksoap2-android-2.5.2" level="project" />
   </component>
 </module>
