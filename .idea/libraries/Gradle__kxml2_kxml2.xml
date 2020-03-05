@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: kxml2.kxml2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/kxml2/kxml2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

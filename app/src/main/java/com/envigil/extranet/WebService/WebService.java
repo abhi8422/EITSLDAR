@@ -10,6 +10,8 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
+import java.sql.ResultSet;
+
 public class WebService {
 Context context;
     public WebService() {
@@ -33,6 +35,7 @@ Context context;
     String METHOD_NAME_RouteInspected="RouteInspected";
     String METHOD_NAME_getInspectionsByWorkOrder="getInspectionsByWorkOrderJSON";
     String METHOD_NAME_uploadComponentsJson="UploadComponentsJSON";
+    String METHOD_NAME_testDownlaod="counter";
     SoapObject result;
 
     /*public String getRouteSOAPHTTPUrl(int RouteID,int WorkID){
@@ -74,7 +77,29 @@ Context context;
         }
         return response.toString();
     }*/
+    public int getDownloadTest(){
+         int  Result=0;
+        SoapObject soapObject=new SoapObject(NAME_SPACE,METHOD_NAME_testDownlaod);
+        //soapObject.addProperty("WorkID","123");
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.dotNet=true;
+        envelope.setOutputSoapObject(soapObject);
+        SSLConection.allowAllSSL();
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL);
+        //HttpsTransportSE httpTransportSE=new HttpsTransportSE("www.avantienv.com/", 443, "web/getroutes.asmx?WSDL", 60000);
 
+        try {
+            httpTransportSE.call(SOAP_ACTION+"/"+METHOD_NAME_testDownlaod,envelope);
+            httpTransportSE.setTimeout(30);
+            result = (SoapObject) envelope.bodyIn;
+            Result=Integer.parseInt(result.getProperty(0).toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return Result;
+    }
     public String getRoutesData(int routeID,int workorder){
         String resultString="";
         SSLConection.allowAllSSL();
@@ -86,7 +111,8 @@ Context context;
         envelope.setOutputSoapObject(soapObject);
         SSLConection.allowAllSSL();
         SSLConection.allowAllSSL();
-        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL);
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL,1000000000);
+        /*httpTransportSE.setTimeout(15);*/
         /*SSLConection.allowAllSSL();  */
 
         try {
@@ -166,7 +192,7 @@ Context context;
         envelope.dotNet=true;
         envelope.setOutputSoapObject(soapObject);
         SSLConection.allowAllSSL();
-        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL);
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL,1000000000);
 
         try {
             httpTransportSE.call(SOAP_ACTION+"/"+METHOD_NAME_uploadComponentsJson,envelope);
@@ -256,7 +282,7 @@ Context context;
         SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.dotNet=true;
         envelope.setOutputSoapObject(soapObject);
-        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL,6000);
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL,60000);
         try {
             httpTransportSE.call(SOAP_ACTION+"/"+ METHOD_NAME_setRoutesStatus,envelope);
             responce = (SoapObject) envelope.bodyIn;

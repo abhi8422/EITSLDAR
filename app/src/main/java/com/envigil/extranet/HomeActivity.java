@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -72,11 +73,12 @@ public class HomeActivity extends AppCompatActivity {
     /*GPS data*/
 
     TabLayout tabLayout;
-    TextView devTag;
+    TextView devTag,versionname;
     public static ViewPager fraglayout;
     List<PermissionDeniedResponse> deniedPermissions = new ArrayList<PermissionDeniedResponse>();
     private DrawerLayout drawerLayout;
     SharedPreferences prefs = null;
+    String version;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -84,6 +86,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         devTag = findViewById(R.id.dev_tag);
+        versionname=findViewById(R.id.versionname);
+        setVersionName(HomeActivity.this);
+
 
         if (WebService.WSDL_URL.equals("http://98.173.13.62:8080/web/getroutes.asmx?WSDL")) {
             Animation animation = AnimationUtils.loadAnimation(this,R.anim.blinking_animation);
@@ -158,6 +163,17 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
+
+    private void setVersionName(Context context) {
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(getPackageName(), 0);
+            version = pInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        versionname.setText("Ver."+version);
+    }
+
 
     private void openSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);

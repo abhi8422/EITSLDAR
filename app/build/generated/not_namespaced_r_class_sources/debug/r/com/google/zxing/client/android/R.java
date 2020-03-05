@@ -42,19 +42,19 @@ public final class R {
         public static final int centerCrop = 0x7f0800d9;
         public static final int fitCenter = 0x7f080160;
         public static final int fitXY = 0x7f080162;
-        public static final int zxing_back_button = 0x7f080301;
-        public static final int zxing_barcode_scanner = 0x7f080302;
-        public static final int zxing_barcode_surface = 0x7f080303;
-        public static final int zxing_camera_closed = 0x7f080304;
-        public static final int zxing_camera_error = 0x7f080305;
-        public static final int zxing_decode = 0x7f080306;
-        public static final int zxing_decode_failed = 0x7f080307;
-        public static final int zxing_decode_succeeded = 0x7f080308;
-        public static final int zxing_possible_result_points = 0x7f080309;
-        public static final int zxing_preview_failed = 0x7f08030a;
-        public static final int zxing_prewiew_size_ready = 0x7f08030b;
-        public static final int zxing_status_view = 0x7f08030c;
-        public static final int zxing_viewfinder_view = 0x7f08030d;
+        public static final int zxing_back_button = 0x7f080302;
+        public static final int zxing_barcode_scanner = 0x7f080303;
+        public static final int zxing_barcode_surface = 0x7f080304;
+        public static final int zxing_camera_closed = 0x7f080305;
+        public static final int zxing_camera_error = 0x7f080306;
+        public static final int zxing_decode = 0x7f080307;
+        public static final int zxing_decode_failed = 0x7f080308;
+        public static final int zxing_decode_succeeded = 0x7f080309;
+        public static final int zxing_possible_result_points = 0x7f08030a;
+        public static final int zxing_preview_failed = 0x7f08030b;
+        public static final int zxing_prewiew_size_ready = 0x7f08030c;
+        public static final int zxing_status_view = 0x7f08030d;
+        public static final int zxing_viewfinder_view = 0x7f08030e;
     }
     public static final class layout {
         private layout() {}
