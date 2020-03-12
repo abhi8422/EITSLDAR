@@ -200,7 +200,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         last=intent.getBooleanExtra("last",false);
         grid = intent.getBooleanExtra("Grid",false);
 
-        //        Toast.makeText(this, "Leak Report Activity::"+SubID, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Leak Report Activity::"+SubID, Toast.LENGTH_SHORT).show();
 
         tvReadingRepo.setText(String.format("%.2f",Reading+0.00));
         tvUnit.setText(Unit);

@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.envigil.extranet"
-4    android:versionCode="1"
-5    android:versionName="1.0" >
+4    android:versionCode="2"
+5    android:versionName="2.0" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
@@ -89,15 +89,15 @@
 47        android:label="LDAR"
 47-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:24:9-29
 48        android:networkSecurityConfig="@xml/network_security_config"
-48-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:17:8-68
+48-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:17:9-69
 49        android:roundIcon="@mipmap/logo1_round"
 49-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:25:9-48
 50        android:supportsRtl="true"
 50-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:26:9-35
 51        android:theme="@style/AppTheme"
 51-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:27:9-40
-52        android:usesCleartextTraffic="false"
-52-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:22:9-45
+52        android:usesCleartextTraffic="true"
+52-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:22:9-44
 53        android:windowSoftInputMode="stateHidden" >
 53-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:19:9-50
 54        <activity

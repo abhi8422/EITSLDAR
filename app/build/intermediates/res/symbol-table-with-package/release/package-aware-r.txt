@@ -1450,6 +1450,7 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable button_layout
 drawable button_layout_onclick
 drawable calendar
+drawable close
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1487,6 +1488,7 @@ drawable ic_arrow_drop_down_black_24dp
 drawable ic_bluetooth
 drawable ic_bluetooth_reading
 drawable ic_calendar_black_24dp
+drawable ic_camera
 drawable ic_camera_component
 drawable ic_check_circle
 drawable ic_clear
@@ -1585,6 +1587,7 @@ id EndAmpm
 id FUNCTION
 id FixedBehind
 id FixedFront
+id Img
 id InLL1
 id InLL2
 id InLL3
@@ -1609,6 +1612,7 @@ id LL2
 id LL3
 id LL4
 id LeakDetected
+id LeakImage
 id LeakPathSpinner
 id LeakRateType
 id LeakReportBackBtn
@@ -1754,6 +1758,7 @@ id blocking
 id botitle
 id bottom
 id bt_config
+id btnClose
 id btn_can_report
 id btn_inspDate_save
 id btn_next
@@ -1893,6 +1898,7 @@ id exitUntilCollapsed
 id exit_app
 id expand_activities_button
 id expanded_menu
+id fab_camera
 id faci1
 id faci1_available
 id facides
@@ -2044,7 +2050,6 @@ id nav_view_cmptable
 id nav_view_component_dashboard
 id nav_view_inspections
 id nav_view_leak_repair
-id nav_view_leak_report
 id nav_view_perv_inspection
 id nav_view_route_dashboard
 id nav_view_screening_value
@@ -2310,6 +2315,7 @@ id upload_progress_layout
 id upload_progress_txt
 id upload_routes
 id useLogo
+id versionname
 id view_compoents
 id view_compoents_grid
 id view_offset_helper
@@ -2434,6 +2440,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_layout
 layout download_route_progress_dialog
 layout downloded_item
 layout fragment_add_inspection_date

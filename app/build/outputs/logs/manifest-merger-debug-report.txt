@@ -155,6 +155,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/appl
 		ADDED from /Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:20:9-36
 	android:theme
 		ADDED from /Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:27:9-40
+	android:networkSecurityConfig
+		ADDED from /Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:17:9-69
 	android:usesCleartextTraffic
 		ADDED from /Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:22:9-44
 	android:name
