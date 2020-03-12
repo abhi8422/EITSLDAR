@@ -41,7 +41,7 @@
                 android:layout_marginLeft="30dp"
                 android:textAppearance="@style/FontStyle"
                 android:textColor="@android:color/white"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="14dp" />
@@ -53,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:paddingBottom="8dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -446,15 +447,19 @@
             android:id="@+id/btn_sve_repair"
             android:layout_width="match_parent"
 
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/SC"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textAppearance="@style/FontStyle"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/button_layout"
             android:backgroundTint="@color/mainColor"
             android:text="SAVE"
+            android:textAppearance="@style/FontStyle"
             android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/SC" />
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view_leak_repair"

@@ -47,9 +47,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'com.karumi:dexter:6.0.1'
-    implementation project(path: ':ksoap2-android-2.5.2')
+    /*implementation project(path: ':ksoap2-android-2.5.2')*/
+    implementation project(path: ':ksoap2-android-assembly-3.4.0-jar-with-dependencies')
     implementation 'com.google.android.gms:play-services-location:17.0.0'
-    implementation project(path: ':kxml2')
+    /*implementation project(path: ':kxml2')*/
 
     //tableview
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-11'

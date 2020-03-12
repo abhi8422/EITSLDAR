@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,18 +12,26 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationManager;
-import android.nfc.Tag;
+import android.media.ExifInterface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Looper;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,6 +39,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -43,6 +53,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.KeyEventDispatcher;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -74,14 +85,13 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ikovac.timepickerwithseconds.MyTimePickerDialog;
 import com.ikovac.timepickerwithseconds.TimePicker;
 
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.io.Reader;
-import java.text.ParseException;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -101,9 +111,15 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     protected static final int REQUEST_CHECK_SETTINGS = 0x1;
     FusedLocationProviderClient fusedLocationProviderClient;
     /*GPS data*/
-
+    Uri uri;
+    File imgDIR, OP;
+    String Img_Path;
+    FloatingActionButton fabCamera;
+    String pictureFilePath;
     boolean PermOrLeak;
     boolean grid;
+    Bitmap photo;
+    byte[]image=null;
     TextView tvNetUnit,tvTagNo,tvBackRate,tvNetReading,tvReadingRepo,tvampm,tvComponentRepo, tvSizeRepo, tvDateRepo, tvTimeRepo,tvLocationReport, tvLeakInspection, tvPPM, tvDPM, tvLEL, tvUnit;
     ImageView  imgComponent,LeakReportBackBtn;
     Button btnSaveRepo;
@@ -152,6 +168,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         tvSizeRepo = findViewById(R.id.tv_size_report_);
         tvLocationReport = findViewById(R.id.tv_location_report);
         LeakReportBackBtn=findViewById(R.id.LeakReportBackBtn);
+        fabCamera = findViewById(R.id.fab_camera);
         LeakReportBackBtn.setOnClickListener(this);
         tvDateRepo = findViewById(R.id.date_report_);
         tvTimeRepo = findViewById(R.id.time_report);
@@ -373,10 +390,10 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                     }
                     int count = sqLiteHelper.countLeaks(RouteId,SubID,InvId);
                     if (count == 0){
-                        sqLiteHelper.InsertLeaks(LeakId,InvId,InvTag,LeakPathTypeid,LeakTypeId,getcompId,leakBit1,leakBit5,LeakFloat1, leakRate,LeakTime,DateTime,leakLAT,leakLNG,false);
+                        sqLiteHelper.InsertLeaks(LeakId,InvId,InvTag,LeakPathTypeid,LeakTypeId,getcompId,leakBit1,leakBit5,LeakFloat1, leakRate,LeakTime,DateTime,leakLAT,leakLNG,false,Img_Path);
                     }
                     else {
-                        sqLiteHelper.UpdateLeaks(InvId,LeakPathTypeid,LeakTypeId,leakBit1,leakBit5,leakRate,LeakTime,DateTime);
+                        sqLiteHelper.UpdateLeaks(InvId,LeakPathTypeid,LeakTypeId,leakBit1,leakBit5,leakRate,LeakTime,DateTime,Img_Path);
                     }
 
                     //Leak Report Bottom Fragment In Fragment Folder.
@@ -417,10 +434,76 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
 
         });
 
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        final Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        imgDIR = new File(Environment.getExternalStorageDirectory() +
+                File.separator +"Android"+File.separator+"data"+File.separator + "Extranet_IMG"+File.separator+RouteId);
+        String fileName = RouteId + "_" + InvId;
+        OP = new File(imgDIR,fileName + ".jpeg");
+        if (!imgDIR.exists()){
+            imgDIR.mkdirs();
+        }
 
+        fabCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkPermissions1()) {
+                    takePicture.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(OP));
+                    startActivityForResult(takePicture, 11);
+                } else {
+                    requestPermissions1();
+                }
+            }
+        });
+        imgComponent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog builder = new Dialog(LeakReportActivity.this);
+                builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                builder.getWindow().setBackgroundDrawable(
+                        new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                uri=Uri.fromFile(new File(OP.getAbsolutePath()));
+                builder.setContentView(R.layout.dialog_layout);
+                ImageButton close=builder.findViewById(R.id.btnClose);
+
+                ImageView img = builder.findViewById(R.id.Img);
+                img.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
+                img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
+                img.setAdjustViewBounds(false);
+
+                img.setImageURI(uri);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        builder.dismiss();
+                    }
+                });
+
+                builder.show();
+            }
+        });
 
         tvTimeRepo.setOnClickListener(this);
     }
+
+    private boolean checkPermissions1() {
+        int result = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void requestPermissions1() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            Toast.makeText(this, "Write External Storage permission allows us to save files. Please allow this permission in App Settings.", Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_ID);
+        }
+    }
+
     /* Changes for the GPS Co-ordinates */
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
@@ -675,11 +758,23 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
 
         if (resultCode == RESULT_OK)
         {
-            if (requestCode == SELECT_FROM_CAMERA)
+            if (requestCode == 11)
             {
-                Bundle extras = data.getExtras();
-                Bitmap componentBitmap = (Bitmap) extras.get("data");
-                imgComponent.setImageBitmap(componentBitmap);
+                if (OP.exists()){
+                    Bitmap componentBitmap = null;
+                    try {
+                        componentBitmap = handleSamplingAndRotationBitmap(getApplicationContext(), Uri.fromFile(OP.getAbsoluteFile()));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    imgComponent.setVisibility(View.VISIBLE);
+                    imgComponent.setImageBitmap(componentBitmap);
+                    System.out.println(OP.getAbsolutePath());
+                    Img_Path=OP.getAbsolutePath();
+                }
+                else {
+                    OP.mkdirs();
+                }
             }
         }
     }
@@ -799,5 +894,92 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     protected void onDestroy() {
         super.onDestroy();
         save_leak_flag=false;
+    }
+
+    public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)
+            throws IOException {
+        int MAX_HEIGHT = 1024;
+        int MAX_WIDTH = 1024;
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        InputStream imageStream = context.getContentResolver().openInputStream(selectedImage);
+        BitmapFactory.decodeStream(imageStream, null, options);
+        imageStream.close();
+
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, MAX_WIDTH, MAX_HEIGHT);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        imageStream = context.getContentResolver().openInputStream(selectedImage);
+        Bitmap img = BitmapFactory.decodeStream(imageStream, null, options);
+
+        img = rotateImageIfRequired(context, img, selectedImage);
+        return img;
+    }
+    private static int calculateInSampleSize(BitmapFactory.Options options,
+                                             int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            // Calculate ratios of height and width to requested height and width
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+            // Choose the smallest ratio as inSampleSize value, this will guarantee a final image
+            // with both dimensions larger than or equal to the requested height and width.
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+
+            // This offers some additional logic in case the image has a strange
+            // aspect ratio. For example, a panorama may have a much larger
+            // width than height. In these cases the total pixels might still
+            // end up being too large to fit comfortably in memory, so we should
+            // be more aggressive with sample down the image (=larger inSampleSize).
+
+            final float totalPixels = width * height;
+
+            // Anything more than 2x the requested pixels we'll sample down further
+            final float totalReqPixelsCap = reqWidth * reqHeight * 2;
+
+            while (totalPixels / (inSampleSize * inSampleSize) > totalReqPixelsCap) {
+                inSampleSize++;
+            }
+        }
+        return inSampleSize;
+    }
+    private static Bitmap rotateImageIfRequired(Context context, Bitmap img, Uri selectedImage) throws IOException {
+
+        InputStream input = context.getContentResolver().openInputStream(selectedImage);
+        ExifInterface ei;
+        if (Build.VERSION.SDK_INT > 23)
+            ei = new ExifInterface(input);
+        else
+            ei = new ExifInterface(selectedImage.getPath());
+
+        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return rotateImage(img, 90);
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return rotateImage(img, 180);
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return rotateImage(img, 270);
+            default:
+                return img;
+        }
+    }
+    private static Bitmap rotateImage(Bitmap img, int degree) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degree);
+        Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
+        img.recycle();
+        return rotatedImg;
     }
 }

@@ -14,7 +14,7 @@
 
 
     <application
-       android:networkSecurityConfig="@xml/network_security_config"
+
         android:name=".LogFileHandling.LogFileHandling"
         android:windowSoftInputMode="stateHidden"
         android:allowBackup="false"

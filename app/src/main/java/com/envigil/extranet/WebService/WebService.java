@@ -5,10 +5,13 @@ import android.content.Context;
 
 
 import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.MarshalBase64;
+import org.kobjects.base64.Base64;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.sql.ResultSet;
 
@@ -35,7 +38,7 @@ Context context;
     String METHOD_NAME_RouteInspected="RouteInspected";
     String METHOD_NAME_getInspectionsByWorkOrder="getInspectionsByWorkOrderJSON";
     String METHOD_NAME_uploadComponentsJson="UploadComponentsJSON";
-    String METHOD_NAME_testDownlaod="counter";
+    String METHOD_NAME_uploadLeakImage="UploadLeakImage";
     SoapObject result;
 
     /*public String getRouteSOAPHTTPUrl(int RouteID,int WorkID){
@@ -77,7 +80,7 @@ Context context;
         }
         return response.toString();
     }*/
-    public int getDownloadTest(){
+    /*public int getDownloadTest(){
          int  Result=0;
         SoapObject soapObject=new SoapObject(NAME_SPACE,METHOD_NAME_testDownlaod);
         //soapObject.addProperty("WorkID","123");
@@ -99,7 +102,7 @@ Context context;
             e.printStackTrace();
         }
         return Result;
-    }
+    }*/
     public String getRoutesData(int routeID,int workorder){
         String resultString="";
         SSLConection.allowAllSSL();
@@ -288,6 +291,30 @@ Context context;
             responce = (SoapObject) envelope.bodyIn;
             result=responce.toString();
             System.out.println("setRoutesStatus responce::"+responce);
+            System.out.println("setRoutesStatus result ::"+result);
+        } catch (IOException | XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String uploadLeakImage(byte[] imageByte,String FileName,int InspId){
+        SoapObject response=null;
+        String result=null;
+        SoapObject soapObject = new SoapObject(NAME_SPACE,METHOD_NAME_uploadLeakImage);
+        soapObject.addProperty("image", Base64.encode(imageByte));
+        soapObject.addProperty("fileName",FileName);
+        soapObject.addProperty("iInspID",InspId);
+        SoapSerializationEnvelope envelope=new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.dotNet=true;
+        envelope.setOutputSoapObject(soapObject);
+       MarshalBase64 marshalBase64=new MarshalBase64();
+       marshalBase64.register(envelope);
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL);
+        try {
+            httpTransportSE.call(SOAP_ACTION+"/"+ METHOD_NAME_uploadLeakImage,envelope);
+            response = (SoapObject) envelope.bodyIn;
+            result=response.toString();
+            System.out.println("setRoutesStatus response::"+response);
             System.out.println("setRoutesStatus result ::"+result);
         } catch (IOException | XmlPullParserException e) {
             e.printStackTrace();

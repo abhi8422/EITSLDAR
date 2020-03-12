@@ -51,7 +51,7 @@ public class ShowLeaksActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         rvShowLeaks.setLayoutManager(layoutManager);
-        showLeaksAdapter = new ShowLeaksAdapter(sqLiteHelper.viewAllLeaks(routeID));
+        showLeaksAdapter = new ShowLeaksAdapter(sqLiteHelper.viewAllLeaks(routeID),getApplicationContext());
 
         rvShowLeaks.setAdapter(showLeaksAdapter);
         configureNavDrawer();

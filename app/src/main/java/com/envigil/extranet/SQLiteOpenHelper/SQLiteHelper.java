@@ -285,7 +285,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             "," + COL_LEAK_InvTag + " TEXT, " + COL_LEAK_LeakPathTypeID + " INTEGER," + COL_LEAK_LeakTypeID + " INTEGER, " + COL_LEAK_CompID + " INTEGER," +
             COL_LEAK_LeakBit1 + " BOOLEAN, " + COL_LEAK_LeakBit2 + " BOOLEAN, " + COL_LEAK_LeakBit4 + " BOOLEAN, " + COL_LEAK_LeakBit5 + " BOOLEAN, " +
             COL_LEAK_LeakFloat1 + " FLOAT, " + COL_LEAK_LeakRate + " FLOAT, " + COL_LEAK_LeakTime + " FLOAT, " + COL_LEAK_LeakDate + " DATE, " +
-            COL_LEAK_Status + " INTEGER , " + COL_LEAK_LeakLat + " FLOAT, " + COL_LEAK_LeakLng + "  FLOAT, " + COL_LEAK_PRODUCT_IMAGE + " BLOZZZ)";
+            COL_LEAK_Status + " INTEGER , " + COL_LEAK_LeakLat + " FLOAT, " + COL_LEAK_LeakLng + "  FLOAT, " + COL_LEAK_PRODUCT_IMAGE + " TEXT)";
     sqLiteDatabase.execSQL(createLeaks);
 
     String createLeakRepairTypes = "create table " + TAB_LeakRepairTypes + " (" + COL_LRT_LeakRepairTypeID + " INTEGER," + COL_LRT_LeakRepairTypeName + " TEXT" +
@@ -1688,6 +1688,38 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return RuleCompTypeId;
     }
 
+    //For Deleting LeakImage
+    public String LeakImagePath(int InvId){
+        String Path=null;
+        SQLiteDatabase database=getWritableDatabase();
+        String q= "Select LeakImage From Leaks Where InvID = "+InvId;
+        Cursor cursor=database.rawQuery(q,null);
+        while (cursor.moveToNext()){
+            Path=cursor.getString(cursor.getColumnIndex("LeakImage"));
+        }
+        cursor.close();
+        database.close();
+        return Path;
+    }
+
+    //Get all leak image paths
+    public List<String> getAllLeakImagePath(int routeId){
+        List<String> ImagePathList = new ArrayList<>();
+        String path;
+        SQLiteDatabase database=getWritableDatabase();
+        String q="Select LeakImage from Leaks where InvID IN (Select InvID from Inventory where RouteID = "+routeId+")";
+        Cursor cursor=database.rawQuery(q, null);
+        cursor.moveToFirst();
+        if (!cursor.isAfterLast()){
+            do {
+                path=cursor.getString(cursor.getColumnIndex("LeakImage"));
+                ImagePathList.add(path);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        database.close();
+        return ImagePathList;
+    }
     //Delete Previous LeakRepair
     public void deleteReInspectLeakRepair(int InvId){
         SQLiteDatabase database=getWritableDatabase();
@@ -1879,7 +1911,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
 
     //izhar
-    public void UpdateLeaks(int InvId,int LeakPathTypeId,int LeakTypeId,boolean leakBit1,boolean leakBit5,float leakRate,float leakTime,String leakDate){
+    public void UpdateLeaks(int InvId,int LeakPathTypeId,int LeakTypeId,boolean leakBit1,boolean leakBit5,float leakRate,float leakTime,String leakDate,String image){
         SQLiteDatabase database = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("InvID",InvId);
@@ -1890,6 +1922,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("LeakRate",leakRate);
         contentValues.put("LeakTime",leakTime);
         contentValues.put("LeakDate", leakDate);
+        contentValues.put("LeakImage",image);
         database.update(TAB_Leaks,contentValues,"InvID = " + InvId,null);
         database.close();
     }
@@ -1910,7 +1943,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         cursorCount.close();
         return noOfLeaks;
     }
-    public void InsertLeaks(int LeakId,int InvId,String InvTag,int LeakPathTypeId,int LeakTypeId,int compId, Boolean leakBit1, Boolean leakBit5,float LeakFloat1,Float leakRate,float leakTime,String leakDate, Float lat, Float lng, Boolean status) {
+    public void InsertLeaks(int LeakId,int InvId,String InvTag,int LeakPathTypeId,int LeakTypeId,int compId, Boolean leakBit1, Boolean leakBit5,float LeakFloat1,Float leakRate,float leakTime,String leakDate, Float lat, Float lng, Boolean status,String image) {
         SQLiteDatabase database = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("LeakID",LeakId);
@@ -1930,6 +1963,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("LeakLat",lat);
         contentValues.put("LeakLng",lng);
         contentValues.put("Status",status);
+        contentValues.put("LeakImage",image);
         database.insert(TAB_Leaks,null,contentValues);
         database.close();
         /*Changes*/
@@ -2212,29 +2246,30 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return firstorder;
     }
 
+
     public List<ShowLeaksPojo> viewAllLeaks(int routeID){
         String TagNo,Subarea,Service,Component,repairTypeName;
         String leakPathName,leakCritical,leakEssential,AreaName;
         float componentSize,leakRate,repairRate;
         int leakTypeID;
-
+        String Path=null;
         List<ShowLeaksPojo> showLeaksPojoList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String query = "SELECT InvOrder as InvOrder, InvTag as InvTag, SubID as SubID, StrTypeID as StrTypeID, CompID as CompID, InvSize as InvSize, " +
                 "LeakRate as LeakRate, LeakRepairRate as LeakRepairRate, LeakRepairTypeAbbr as LeakRepairTypeAbbr, " +
                 "SubName as SubName, AreaName as AreaName, StrTypeName as StrTypeName, CompName as CompName, LeakPathTypeAbbr as LeakPathTypeAbbr, " +
-                "LeakTypeID as LeakTypeID, CRITICAL as CRITICAL,ESSENTIAL as ESSENTIAL " +
+                "LeakTypeID as LeakTypeID, CRITICAL as CRITICAL,ESSENTIAL as ESSENTIAL,LeakImage as LeakImage " +
                 "FROM " +
                 "( " +
 //                "-- Query returns Leaks only without Leak Repairs\n" +
                 "SELECT X.InvOrder, X.InvTag, X.SubID,  X.StrTypeID, X.CompID,   X.InvSize, " +
                 "X.LeakRate,\"\" as LeakRepairRate , \"--\" as LeakRepairTypeAbbr, " +
                 "SubAreas.SubName as SubName, SubAreas.AreaName as AreaName, StreamTypes.StrTypeName as StrTypeName, Components.CompName as CompName, " +
-                " X.LeakPathTypeAbbr as LeakPathTypeAbbr, X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL " +
+                " X.LeakPathTypeAbbr as LeakPathTypeAbbr, X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage " +
                 "FROM " +
                 "( " +
                 "SELECT A.InvOrder, A.InvTag, B.InvTag, A.SubID, A.CompID, A.InvSize, A.StrTypeID, B.LeakRate, B.LeakPathTypeID, B.LeakTypeID, " +
-                "B.LeakPathTypeAbbr, " +
+                "B.LeakPathTypeAbbr, B.LeakImage, " +
                 "CASE WHEN B.LeakBit1 = 1 THEN 'CRITICAL' " +
                 "END AS [CRITICAL], " +
                 "CASE WHEN B.LeakBit5 = 1 THEN 'ESSENTIAL' " +
@@ -2242,7 +2277,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "FROM Inventory A INNER JOIN " +
                 "( " +
                 "SELECT Leaks.LeakId, Leaks.InvTag, Leaks.LeakRate, Leaks.LeakPathTypeID, Leaks.LeakTypeID, " +
-                "Leaks.LeakBit1, Leaks.LeakBit5, LeakPathTypes.LeakPathTypeAbbr " +
+                "Leaks.LeakBit1, Leaks.LeakBit5, LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage " +
                 "FROM Leaks INNER JOIN LeakPathTypes ON Leaks.LeakPathTypeID = LeakPathTypes.LeakPathTypeID " +
 //                "--INNER JOIN LeakRepairTypes ON LeakRepairTypes.LeakRepairTypeID = Leaks.LeakRepairTypeID\n" +
                 "WHERE LeakId NOT IN " +
@@ -2259,17 +2294,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "SELECT X.InvOrder, X.InvTag as InvTag, X.SubID, X.StrTypeID, X.CompID, X.InvSize as InvSize, " +
                 "X.LeakRate as LeakRate, X.LeakRepairRate as LeakRepairRate, X.LeakRepairTypeAbbr as LeakRepairTypeAbbr, " +
                 "SubAreas.SubName as SubName, SubAreas.AreaName as AreaName, StreamTypes.StrTypeName as StrTypeName, Components.CompName as CompName, " +
-                "X.LeakPathTypeAbbr as LeakPathTypeAbbr,X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL " +
+                "X.LeakPathTypeAbbr as LeakPathTypeAbbr,X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage " +
                 "FROM " +
                 "( " +
                 "SELECT A.InvOrder, A.InvTag, A.SubID, A.StrTypeID, A.CompID, A.InvSize, " +
-                "B.LeakRate, B.LeakRepairRate, B.LeakRepairTypeAbbr,B.LeakPathTypeAbbr,B.LeakTypeID,B.CRITICAL,B.ESSENTIAL " +
+                "B.LeakRate, B.LeakRepairRate, B.LeakRepairTypeAbbr,B.LeakPathTypeAbbr,B.LeakTypeID,B.CRITICAL,B.ESSENTIAL,B.LeakImage " +
                 "FROM Inventory A INNER JOIN " +
                 "( " +
                 "SELECT Leaks.LeakID, Leaks.InvTag, Leaks.LeakRate,Leaks.LeakTypeID, " +
                 "LeakRepairs.LeakID, LeakRepairs.LeakRepairRate, LeakRepairs.LeakRepairTypeID, " +
                 "LeakRepairTypes.LeakRepairTypeID, LeakRepairTypes.LeakRepairTypeAbbr, " +
-                "LeakPathTypes.LeakPathTypeAbbr, " +
+                "LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage, " +
                 "CASE WHEN Leaks.LeakBit1 = 1 THEN 'CRITICAL' " +
                 "END AS [CRITICAL], " +
                 "CASE WHEN Leaks.LeakBit5 = 1 THEN 'ESSENTIAL' " +
@@ -2303,7 +2338,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 leakTypeID = cursor.getInt(cursor.getColumnIndex("LeakTypeID"));
                 leakCritical = cursor.getString(cursor.getColumnIndex("CRITICAL"));
                 leakEssential = cursor.getString(cursor.getColumnIndex("ESSENTIAL"));
+                Path=cursor.getString(cursor.getColumnIndex("LeakImage"));
                 ShowLeaksPojo showLeaksPojo = new ShowLeaksPojo(TagNo, Subarea, AreaName, Service, Component, repairTypeName, leakPathName, componentSize, leakRate, repairRate, leakTypeID, leakCritical, leakEssential);
+                showLeaksPojo.setRouteID(routeID);
+                showLeaksPojo.setPath(Path);
                 showLeaksPojoList.add(showLeaksPojo);
             } while (cursor.moveToNext());
         }

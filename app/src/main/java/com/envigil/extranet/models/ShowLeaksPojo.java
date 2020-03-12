@@ -5,7 +5,9 @@ public class ShowLeaksPojo {
     String repairType,leakPathName,leakCritical,leakEssential;
     float componentSize,leakRate,repairRate;
     int leakTypeID;
-
+    int RouteID;
+    int InvId;
+    String Path;
     public ShowLeaksPojo(String tagNO, String subArea, String areaName, String serviceType, String componentName, String repairType, String leakPathName, float componentSize, float leakRate, float repairRate, int leakTypeID, String leakCritical, String leakEssential) {
         this.tagNO = tagNO;
         this.subArea = subArea;
@@ -20,6 +22,23 @@ public class ShowLeaksPojo {
         this.leakCritical = leakCritical;
         this.leakEssential = leakEssential;
         this.areaName = areaName;
+    }
+
+    public String getPath() {
+        return Path;
+    }
+
+    public void setPath(String path) {
+        Path = path;
+    }
+
+
+    public int getRouteID() {
+        return RouteID;
+    }
+
+    public void setRouteID(int routeID) {
+        RouteID = routeID;
     }
 
     public String getTagNO() {

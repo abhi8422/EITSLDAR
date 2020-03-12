@@ -441,7 +441,7 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                 builder.show();
             }
             /*pickedTime.compareTo(repairDateTime2) < 0*/
-            else if (leaktime.before(time)){
+            else if (pickedTime.compareTo(repairDateTime2) < 0){
                 AlertDialog.Builder builder = new AlertDialog.Builder(RepairRequest.this);
                 builder.setCancelable(false);
                 builder.setTitle("Invalid Repair Time");

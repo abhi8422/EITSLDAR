@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Extranet.iml" filepath="$PROJECT_DIR$/Extranet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ksoap2-android-2.5.2/ksoap2-android-2.5.2.iml" filepath="$PROJECT_DIR$/ksoap2-android-2.5.2/ksoap2-android-2.5.2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kxml2/kxml2.iml" filepath="$PROJECT_DIR$/kxml2/kxml2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksoap2-android-assembly-3.4.0-jar-with-dependencies/ksoap2-android-assembly-3.4.0-jar-with-dependencies.iml" filepath="$PROJECT_DIR$/ksoap2-android-assembly-3.4.0-jar-with-dependencies/ksoap2-android-assembly-3.4.0-jar-with-dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/tableview/tableview.iml" filepath="$PROJECT_DIR$/tableview/tableview.iml" />
     </modules>
   </component>

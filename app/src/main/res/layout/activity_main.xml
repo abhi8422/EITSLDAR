@@ -72,7 +72,10 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/fraglayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </androidx.viewpager.widget.ViewPager>
 
     </LinearLayout>
 

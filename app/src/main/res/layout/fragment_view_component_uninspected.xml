@@ -63,12 +63,16 @@
 
     <Button
         android:id="@+id/search_btn"
+        style="@style/FontStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@color/mainColor"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/button_layout"
         android:text="SEARCH"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="visible" />
 

@@ -60,6 +60,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
@@ -113,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(fraglayout);
         //new UpdateAsync().execute();
 
-        Dexter.withActivity(this).withPermissions(READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,ACCESS_FINE_LOCATION).withListener(new MultiplePermissionsListener() {
+        Dexter.withActivity(this).withPermissions(READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,ACCESS_FINE_LOCATION,CAMERA).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport report) {
                 if (report.areAllPermissionsGranted()){

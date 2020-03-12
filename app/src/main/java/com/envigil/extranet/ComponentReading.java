@@ -49,6 +49,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
     //Permit threshold or leak thershold
     boolean PermOrLeak;
     boolean grid;
-    Chronometer chronometer;
+    static Chronometer chronometer;
     boolean running=false;
     static int i=0;
     boolean next=false,last = false;
@@ -329,7 +330,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
 
 //                Toast.makeText(ComponentReading.this, "InvID : "+InvId,  Toast.LENGTH_SHORT).show();
                     v.startAnimation(AnimationUtils.loadAnimation(ComponentReading.this, R.animator.animate));
-                    chronometer.setBase(SystemClock.elapsedRealtime());
+
                     for (int i = 0; i < readinglistPojos.size(); i++) {
 
 //            Toast.makeText(getApplicationContext(),"Value of CompName: "+ componentsListPojo.getInspected(),Toast.LENGTH_SHORT).show();
@@ -424,7 +425,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                     btnNext.setClickable(true);
                     v.startAnimation(AnimationUtils.loadAnimation(ComponentReading.this, R.animator.animate));
                     edReading.setText(" ");
-                    chronometer.setBase(SystemClock.elapsedRealtime());
+
                     for (int i = 0; i < readinglistPojos.size(); i++) {
                         ComponentsListPojo componentsListPojo = readinglistPojos.get(0);
                         tvComponent.setText(String.valueOf(componentsListPojo.getCompName()));
@@ -612,7 +613,14 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                     public void onClick(DialogInterface dialog, int id) {
 
                                         //Delete Previous LeakRepair and Leaks.
-
+                                        // Delete Leak Image if existed.
+                                        String path=sqLiteHelper.LeakImagePath(InvId);
+                                        if (path!=null){
+                                            File fp=new File(path);
+                                            if (fp.exists()){
+                                                fp.delete();
+                                            }
+                                        }
                                         sqLiteHelper.deleteReInspectLeakRepair(InvId);
                                         sqLiteHelper.deleteReInspectLeak(InvId);
 
@@ -1398,6 +1406,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
          public void run() {
              layout.setVisibility(View.GONE);
              scrollView.setVisibility(View.VISIBLE);
+             chronometer.setBase(SystemClock.elapsedRealtime());
          }
      }
 

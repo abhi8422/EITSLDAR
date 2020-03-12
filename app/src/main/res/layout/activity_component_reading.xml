@@ -73,10 +73,11 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <ScrollView
+            android:id="@+id/scroll_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/scroll_layout">
+            android:paddingBottom="8dp">
 
             <LinearLayout
                 android:id="@+id/frag_container"
@@ -126,6 +127,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:background="@android:color/darker_gray" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -451,12 +453,12 @@
                         android:id="@+id/tv_comp_dpm"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:layout_weight="1"
                         android:background="#8BC34A"
                         android:gravity="center"
                         android:text="DPM"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="4dp"
                         android:textColor="#FFFFFF"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -473,17 +475,19 @@
                         android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/dpm_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
                         android:hint="Enter DPM Reading">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/dpm_reading"
                             android:layout_width="match_parent"
@@ -708,13 +712,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/btn_previous"
                 android:layout_width="30dp"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="0dp"
@@ -726,7 +731,7 @@
             <Button
                 android:id="@+id/btn_save"
                 android:layout_width="80dp"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
@@ -744,7 +749,7 @@
             <ImageButton
                 android:id="@+id/btn_next"
                 android:layout_width="30dp"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
                 android:layout_gravity="bottom"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
