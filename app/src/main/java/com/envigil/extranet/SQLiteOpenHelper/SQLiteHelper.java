@@ -52,6 +52,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
     List<GetAllRooutesPojo> resultstring=new ArrayList<>();
@@ -2251,25 +2252,25 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String TagNo,Subarea,Service,Component,repairTypeName;
         String leakPathName,leakCritical,leakEssential,AreaName;
         float componentSize,leakRate,repairRate;
-        int leakTypeID;
-        String Path=null;
+        int leakTypeID,InvID,CompID;
+        String Path="\"\" as LeakRepairRate , \"--\" as LeakRepairTypeAbbr,";
         List<ShowLeaksPojo> showLeaksPojoList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String query = "SELECT InvOrder as InvOrder, InvTag as InvTag, SubID as SubID, StrTypeID as StrTypeID, CompID as CompID, InvSize as InvSize, " +
                 "LeakRate as LeakRate, LeakRepairRate as LeakRepairRate, LeakRepairTypeAbbr as LeakRepairTypeAbbr, " +
                 "SubName as SubName, AreaName as AreaName, StrTypeName as StrTypeName, CompName as CompName, LeakPathTypeAbbr as LeakPathTypeAbbr, " +
-                "LeakTypeID as LeakTypeID, CRITICAL as CRITICAL,ESSENTIAL as ESSENTIAL,LeakImage as LeakImage " +
+                "LeakTypeID as LeakTypeID, CRITICAL as CRITICAL,ESSENTIAL as ESSENTIAL,LeakImage as LeakImage ,InvID as InvID " +
                 "FROM " +
                 "( " +
 //                "-- Query returns Leaks only without Leak Repairs\n" +
                 "SELECT X.InvOrder, X.InvTag, X.SubID,  X.StrTypeID, X.CompID,   X.InvSize, " +
                 "X.LeakRate,\"\" as LeakRepairRate , \"--\" as LeakRepairTypeAbbr, " +
                 "SubAreas.SubName as SubName, SubAreas.AreaName as AreaName, StreamTypes.StrTypeName as StrTypeName, Components.CompName as CompName, " +
-                " X.LeakPathTypeAbbr as LeakPathTypeAbbr, X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage " +
+                " X.LeakPathTypeAbbr as LeakPathTypeAbbr, X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage,X.InvID as InvID " +
                 "FROM " +
                 "( " +
                 "SELECT A.InvOrder, A.InvTag, B.InvTag, A.SubID, A.CompID, A.InvSize, A.StrTypeID, B.LeakRate, B.LeakPathTypeID, B.LeakTypeID, " +
-                "B.LeakPathTypeAbbr, B.LeakImage, " +
+                "B.LeakPathTypeAbbr, B.LeakImage, B.InvID, " +
                 "CASE WHEN B.LeakBit1 = 1 THEN 'CRITICAL' " +
                 "END AS [CRITICAL], " +
                 "CASE WHEN B.LeakBit5 = 1 THEN 'ESSENTIAL' " +
@@ -2277,7 +2278,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "FROM Inventory A INNER JOIN " +
                 "( " +
                 "SELECT Leaks.LeakId, Leaks.InvTag, Leaks.LeakRate, Leaks.LeakPathTypeID, Leaks.LeakTypeID, " +
-                "Leaks.LeakBit1, Leaks.LeakBit5, LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage " +
+                "Leaks.LeakBit1, Leaks.LeakBit5, LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage,Leaks.InvID " +
                 "FROM Leaks INNER JOIN LeakPathTypes ON Leaks.LeakPathTypeID = LeakPathTypes.LeakPathTypeID " +
 //                "--INNER JOIN LeakRepairTypes ON LeakRepairTypes.LeakRepairTypeID = Leaks.LeakRepairTypeID\n" +
                 "WHERE LeakId NOT IN " +
@@ -2294,17 +2295,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "SELECT X.InvOrder, X.InvTag as InvTag, X.SubID, X.StrTypeID, X.CompID, X.InvSize as InvSize, " +
                 "X.LeakRate as LeakRate, X.LeakRepairRate as LeakRepairRate, X.LeakRepairTypeAbbr as LeakRepairTypeAbbr, " +
                 "SubAreas.SubName as SubName, SubAreas.AreaName as AreaName, StreamTypes.StrTypeName as StrTypeName, Components.CompName as CompName, " +
-                "X.LeakPathTypeAbbr as LeakPathTypeAbbr,X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage " +
+                "X.LeakPathTypeAbbr as LeakPathTypeAbbr,X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage ,X.InvID  as InvID  " +
                 "FROM " +
                 "( " +
                 "SELECT A.InvOrder, A.InvTag, A.SubID, A.StrTypeID, A.CompID, A.InvSize, " +
-                "B.LeakRate, B.LeakRepairRate, B.LeakRepairTypeAbbr,B.LeakPathTypeAbbr,B.LeakTypeID,B.CRITICAL,B.ESSENTIAL,B.LeakImage " +
+                "B.LeakRate, B.LeakRepairRate, B.LeakRepairTypeAbbr,B.LeakPathTypeAbbr,B.LeakTypeID,B.CRITICAL,B.ESSENTIAL,B.LeakImage,B.InvID " +
                 "FROM Inventory A INNER JOIN " +
                 "( " +
                 "SELECT Leaks.LeakID, Leaks.InvTag, Leaks.LeakRate,Leaks.LeakTypeID, " +
                 "LeakRepairs.LeakID, LeakRepairs.LeakRepairRate, LeakRepairs.LeakRepairTypeID, " +
                 "LeakRepairTypes.LeakRepairTypeID, LeakRepairTypes.LeakRepairTypeAbbr, " +
-                "LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage, " +
+                "LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage, Leaks.InvID,  " +
                 "CASE WHEN Leaks.LeakBit1 = 1 THEN 'CRITICAL' " +
                 "END AS [CRITICAL], " +
                 "CASE WHEN Leaks.LeakBit5 = 1 THEN 'ESSENTIAL' " +
@@ -2339,10 +2340,14 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 leakCritical = cursor.getString(cursor.getColumnIndex("CRITICAL"));
                 leakEssential = cursor.getString(cursor.getColumnIndex("ESSENTIAL"));
                 Path=cursor.getString(cursor.getColumnIndex("LeakImage"));
+                InvID=cursor.getInt(cursor.getColumnIndex("InvID"));
+                CompID=cursor.getInt(cursor.getColumnIndex("CompID"));
                 ShowLeaksPojo showLeaksPojo = new ShowLeaksPojo(TagNo, Subarea, AreaName, Service, Component, repairTypeName, leakPathName, componentSize, leakRate, repairRate, leakTypeID, leakCritical, leakEssential);
                 showLeaksPojo.setRouteID(routeID);
                 showLeaksPojo.setPath(Path);
                 showLeaksPojoList.add(showLeaksPojo);
+                showLeaksPojo.setInvId(InvID);
+                showLeaksPojo.setCompID(CompID);
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -2563,10 +2568,53 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }catch (CursorIndexOutOfBoundsException e){
             e.printStackTrace();
             cursor.close();
+            database.close();
             return true;
         }
     }
 
+//get subid from subareaname for leak edit repair
+    public int getSubId(String SubName){
+        int subid;
+        SQLiteDatabase database=getWritableDatabase();
+        String query="Select SubID from SubAreas where SubName="+"'"+SubName+"'";
+        Cursor cursor=database.rawQuery(query,null);
+        cursor.moveToFirst();
+        subid=cursor.getInt (cursor.getColumnIndex("SubID"));
+        cursor.close();
+        database.close();
+        return subid;
+    }
+
+    //get PathName from pathAbbrivation for leak edit repair
+    public String getLeakPathName(String pathAbbr){
+        String pathName;
+        SQLiteDatabase database=getWritableDatabase();
+        String query="Select LeakPathTypeName from LeakPathTypes where LeakPathTypeAbbr="+"'"+pathAbbr+"'";
+        Cursor cursor=database.rawQuery(query,null);
+        cursor.moveToFirst();
+        pathName=cursor.getString (cursor.getColumnIndex("LeakPathTypeName"));
+        cursor.close();
+        database.close();
+        return pathName;
+    }
+
+    //check if comp is inspected
+    public boolean compIsInspected(int InvId){
+        int flag;
+        SQLiteDatabase database=getWritableDatabase();
+        String query="Select Inspected from Inventory where InvID="+InvId;
+        Cursor cursor=database.rawQuery(query,null);
+        cursor.moveToFirst();
+        flag=cursor.getInt (cursor.getColumnIndex("Inspected"));
+        cursor.close();
+        database.close();
+        if (flag>0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 
 }

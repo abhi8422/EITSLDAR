@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <domain-config cleartextTrafficPermitted="false">
+    <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">www.avantienv.com</domain>
     <pin-set expiration="2018-01-01">
         <pin digest="SHA-256">aETy9S4IFGbfFRd+ZDiO87ozk6VCxA7aPXPRKIxMsHE=</pin>

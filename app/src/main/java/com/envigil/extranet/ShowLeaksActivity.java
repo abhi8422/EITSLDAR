@@ -33,7 +33,8 @@ public class ShowLeaksActivity extends AppCompatActivity {
     RecyclerView rvShowLeaks;
     ShowLeaksAdapter showLeaksAdapter;
     DrawerLayout drawerLayout;
-
+    //flag to identify the flow from editleakrepair
+    public static boolean leakedit_Flag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,6 @@ public class ShowLeaksActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         routeID = intent.getIntExtra("RouteID",0);
-
         tvRouteShow = findViewById(R.id.tv_route_show);
         rvShowLeaks = findViewById(R.id.rv_show_leaks);
         sqLiteHelper = new SQLiteHelper(this);
@@ -147,4 +147,6 @@ public class ShowLeaksActivity extends AppCompatActivity {
         startActivity(new Intent(ShowLeaksActivity.this,HomeActivity.class));
         finish();
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.envigil.extranet;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -27,17 +28,20 @@ import com.envigil.extranet.models.ShowLeaksPojo;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationHandler;
 import java.util.List;
+
+import static com.envigil.extranet.ShowLeaksActivity.leakedit_Flag;
 
 public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.ShowLeaksViewHolder> {
 
     List<ShowLeaksPojo> showLeaksPojos;
     SQLiteHelper sqLiteHelper;
     Context context;
+    int InvId;
     public ShowLeaksAdapter(List<ShowLeaksPojo> leaksPojos,Context context) {
         this.showLeaksPojos = leaksPojos;
         this.context=context;
-
     }
 
 
@@ -52,6 +56,8 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
     public void onBindViewHolder(ShowLeaksViewHolder holder, int position) {
         sqLiteHelper =new SQLiteHelper(context);
         ShowLeaksPojo leaksPojo = showLeaksPojos.get(position);
+        //inv id for edit leak and repair
+        InvId=leaksPojo.getInvId();
         holder.tvTagShowNo.setText(leaksPojo.getTagNO());
         holder.tvSubareaShow.setText(leaksPojo.getSubArea());
         holder.tvAreaName.setText(leaksPojo.getAreaName());
@@ -130,7 +136,7 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
     public class ShowLeaksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvTagShowNo,tvSubareaShow,tvComponentShow,tvSizeShow,tvService,tvLeakTypeShow,tvAreaName,tvLeakRateType,tvRepairRateType;
         TextView tvLeakRateShow,tvRepairRateShow,tvRepairTypeShow,tvLeakPathShow,tvLeakCritical,tvLeakEssential;
-        ImageView LeakImage;
+        ImageView LeakImage,editleak;
 
         public ShowLeaksViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -150,36 +156,64 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
             tvLeakRateType=itemView.findViewById(R.id.LeakRateType);
             tvRepairRateType=itemView.findViewById(R.id.RepairRateType);
             LeakImage =itemView.findViewById(R.id.LeakImage);
+            editleak=itemView.findViewById(R.id.edit_leak_img);
             LeakImage.setOnClickListener(this);
+            editleak.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            final Dialog builder = new Dialog(v.getContext());
-            builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            builder.getWindow().setBackgroundDrawable(
-                    new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            switch (v.getId()){
+                case R.id.LeakImage: final Dialog builder = new Dialog(v.getContext());
+                    builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    builder.getWindow().setBackgroundDrawable(
+                            new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-            int pos=getAdapterPosition();
-            String path=showLeaksPojos.get(pos).getPath();
-            Uri uri=Uri.fromFile(new File(path));
-            builder.setContentView(R.layout.dialog_layout);
-            Dialog dialog;
-            ImageButton close=builder.findViewById(R.id.btnClose);
-            ImageView img = builder.findViewById(R.id.Img);
-            img.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
-            img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
-            img.setAdjustViewBounds(false);
+                    int pos=getAdapterPosition();
+                    String path=showLeaksPojos.get(pos).getPath();
+                    Uri uri=Uri.fromFile(new File(path));
+                    builder.setContentView(R.layout.dialog_layout);
+                    ImageButton close=builder.findViewById(R.id.btnClose);
+                    ImageView img = builder.findViewById(R.id.Img);
+                    img.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
+                    img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
+                    img.setAdjustViewBounds(false);
+                    img.setImageURI(uri);
+                    close.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            builder.dismiss();
+                        }
+                    });
+                    builder.show();
+                    break;
 
-            img.setImageURI(uri);
-            close.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    builder.dismiss();
-                }
-            });
+                case R.id.edit_leak_img:
+                    leakedit_Flag=true;
+                    int id=getAdapterPosition();
+                    ShowLeaksPojo showLeaksPojo=showLeaksPojos.get(id);
+                    int subid;
+                    String unit=getUnit(id);
+                    subid=new SQLiteHelper(context).getSubId(showLeaksPojo.getSubArea());
+                    Intent leakReportActivity = new Intent(context,LeakReportActivity.class);
+                    leakReportActivity.putExtra("CompId",showLeaksPojo.getCompID());
+                    leakReportActivity.putExtra("SubId",subid);
+                    leakReportActivity.putExtra("LeakRate",showLeaksPojo.getLeakRate());
+                    leakReportActivity.putExtra("Unit",unit);
+                    leakReportActivity.putExtra("RouteID",showLeaksPojo.getRouteID());
+                    leakReportActivity.putExtra("InvID",showLeaksPojo.getInvId());
+                    leakReportActivity.putExtra("PermOrLeak",false);
+                    leakReportActivity.putExtra("last",false);
+                    leakReportActivity.putExtra("Grid",false);
+                    leakReportActivity.putExtra("LeakPath",showLeaksPojo.getLeakPathName());
+                    leakReportActivity.putExtra("RepairType",showLeaksPojo.getRepairType());
+                    leakReportActivity.putExtra("Critical",showLeaksPojo.isLeakCritical());
+                    leakReportActivity.putExtra("Essential",showLeaksPojo.isLeakEssential());
+                    leakReportActivity.putExtra("ImagePath",showLeaksPojo.getPath());
+                    leakReportActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(leakReportActivity);
+            }
 
-            builder.show();
         }
     }
 
@@ -268,5 +302,23 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
         Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
         img.recycle();
         return rotatedImg;
+    }
+
+
+    //get leak unit
+    public String getUnit(int id){
+
+        ShowLeaksPojo showLeaksPojo=showLeaksPojos.get(id);
+        int leakTypeID = showLeaksPojo.getLeakTypeID();
+        if (leakTypeID == 1){
+            return "PPM";
+        }
+        else if (leakTypeID == 2){
+            return "DPM";
+        }
+        else {
+            return "LEL";
+        }
+
     }
 }

@@ -1,11 +1,8 @@
 package com.envigil.extranet;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,9 +23,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.os.StrictMode;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.text.Html;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -37,8 +32,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -49,26 +42,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.KeyEventDispatcher;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.envigil.extranet.Bluetooth.Bluetooth;
 import com.envigil.extranet.SQLiteOpenHelper.SQLiteHelper;
 import com.envigil.extranet.TableOfComponents.ComponentsTable;
-import com.envigil.extranet.fragments.LeakReportBottom;
 import com.envigil.extranet.models.ComponentsListPojo;
 import com.envigil.extranet.models.LeakPathTypes;
-import com.envigil.extranet.models.ReasonSkipped;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
@@ -79,7 +60,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -98,11 +78,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static com.envigil.extranet.ComponentReading.ppm_flag;
+import static com.envigil.extranet.ShowLeaksActivity.leakedit_Flag;
 
 public class LeakReportActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -113,45 +92,35 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     /*GPS data*/
     Uri uri;
     File imgDIR, OP;
-    String Img_Path;
+    String Img_Path,DateTime,Unit,InvTag,AM_PM,leakpath,repairtype,Critical,Essential,img_path,path;
     FloatingActionButton fabCamera;
-    String pictureFilePath;
     boolean PermOrLeak;
     boolean grid;
-    Bitmap photo;
-    byte[]image=null;
     TextView tvNetUnit,tvTagNo,tvBackRate,tvNetReading,tvReadingRepo,tvampm,tvComponentRepo, tvSizeRepo, tvDateRepo, tvTimeRepo,tvLocationReport, tvLeakInspection, tvPPM, tvDPM, tvLEL, tvUnit;
     ImageView  imgComponent,LeakReportBackBtn;
     Button btnSaveRepo;
     Switch criticalSwitch, esentialSwitch;
-    EditText edReadingRepo;
     int leakcompId;
     int UnitNumber;
     int SubID,LeakId;
-    String DateTime;
-    private int mDay, mMonth, mYear;
     private int mHour, mMinute, mSeconds;
     static int SELECT_FROM_CAMERA = 0;
-    LeakReportBottom leakReportBottom;
     SQLiteHelper sqLiteHelper;
     List<ComponentsListPojo> leaksListPojo = new ArrayList<>();
     List<LeakPathTypes> LeakPathTypePojo = new ArrayList<>();
     List<String> LeakPathTypeName =new ArrayList<>();
     List<Integer> LeakPathTypeID = new ArrayList<>();
     float BackgroundReading,LeakFloat1;
-    String Unit;
-    int RouteId,InvId;
+   public  static int RouteId,InvId;
     boolean leakBit1, leakBit5;
     float leakLAT, leakLNG;
     Spinner LeakPathSpinner;
     int PermId;
     int[] FacId,CompStrTypeIDs,PRIdPRTime;
     int RuleId,LeakTypeId,LeakTime,CompTypeId,StrId,StrTypeId,RuleCompTypeId,Status,LeakPathTypeid;
-    String InvTag;
     AlertDialog.Builder builder;
-    String AM_PM;
     float Reading;
-    private DrawerLayout drawerLayout;
+    BottomSheetDialog bottomSheetDialog;
     public static boolean last,save_leak_flag;
 
 
@@ -189,7 +158,9 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         //Drawer
         /*configureNavDrawer();
         configureToolbar();*/
-        Intent intent = this.getIntent();
+
+        //Intent
+        final Intent intent = this.getIntent();
         leakcompId = intent.getIntExtra("CompId",0);
         SubID = intent.getIntExtra("SubId",0);
         Reading=intent.getFloatExtra("LeakRate",0f);
@@ -199,6 +170,11 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         PermOrLeak=intent.getBooleanExtra("PermOrLeak", false);
         last=intent.getBooleanExtra("last",false);
         grid = intent.getBooleanExtra("Grid",false);
+        leakpath=intent.getStringExtra("LeakPath");
+        repairtype=intent.getStringExtra("RepiarType");
+        Critical=intent.getStringExtra("Critical");
+        Essential=intent.getStringExtra("Essential");
+        img_path=intent.getStringExtra("ImagePath");
 
         // Toast.makeText(this, "Leak Report Activity::"+SubID, Toast.LENGTH_SHORT).show();
 
@@ -214,12 +190,12 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         //Leak Path Type Spinner
         LeakPathTypeName.add("Select Leak Path ");
         LeakPathTypeID.add(0);
+
         //Populating ReasonSkipped Dropdown
         LeakPathTypePojo = sqLiteHelper.getLeakPathType(leakcompId);
 
         for(int i=0;i<LeakPathTypePojo.size();i++){
             LeakPathTypes leakPathTypes=LeakPathTypePojo.get(i);
-
             if (!leakPathTypes.getLeakPathTypeName().equals(" ")){
                 LeakPathTypeName.add(leakPathTypes.getLeakPathTypeName());
                 LeakPathTypeID.add(leakPathTypes.getLeakPathTypeID());
@@ -228,6 +204,46 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_layout,LeakPathTypeName);
         LeakPathSpinner.setAdapter(adapter);
+
+        //set eakpath to spinner when flow comes from edit leak and repair
+        if(leakedit_Flag){
+            SQLiteHelper sqLiteHelper=new SQLiteHelper(getApplicationContext());
+            if(sqLiteHelper.compIsInspected(InvId)){
+                sqLiteHelper.deleteReInspectLeakRepair(InvId);
+                sqLiteHelper.deleteReInspectLeak(InvId);
+            }
+            if(leakpath!=null){
+                path=leakpath;
+            }
+            LeakPathSpinner.setSelection(getLeakPathTypeid(sqLiteHelper.getLeakPathName(path)));
+            LeakPathTypeid=getLeakPathTypeid(sqLiteHelper.getLeakPathName(path));
+            if(Critical!=null){
+                criticalSwitch.setChecked(true);
+                leakBit1=true;
+            }
+            if(Essential!=null){
+                esentialSwitch.setChecked(true);
+                leakBit5=true;
+            }
+            if(img_path!=null){
+                Img_Path=img_path;
+                File fp=new File(img_path);
+                if (fp.exists()){
+                    imgComponent.setVisibility(View.VISIBLE);
+//                Bitmap bit=BitmapFactory.decodeFile(fp.getAbsolutePath());
+                    Bitmap bit= null;
+                    try {
+                        bit = handleSamplingAndRotationBitmap(getApplicationContext(), Uri.fromFile(fp.getAbsoluteFile()));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    imgComponent.setImageBitmap(bit);
+                }
+                else {
+                    imgComponent.setVisibility(View.GONE);
+                }
+            }
+        }
         LeakPathSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -268,12 +284,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             break;
         }
 
-
-
-
-        String curr_date = new SimpleDateFormat("MM/dd/yyyy",Locale.US).format(new Date());
         tvDateRepo.setText(getDate(RouteId));
-
         Calendar calendar = Calendar.getInstance();
         mHour = calendar.get(Calendar.HOUR_OF_DAY);
         mMinute = calendar.get(Calendar.MINUTE);
@@ -335,10 +346,6 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                 //LeakTypeID.
                 String getUnit = tvUnit.getText().toString();
                 //Float Type LeakReading.
-
-                //Boolean.
-                boolean ifCritical = criticalSwitch.isSelected();
-                boolean ifEssential = esentialSwitch.isSelected();
                 //Time and Date.
                 DateTime= getDate+" "+getTime;
                 System.out.println(DateTime);
@@ -398,7 +405,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
 
                     //Leak Report Bottom Fragment In Fragment Folder.
                     View dialogView = getLayoutInflater().inflate(R.layout.fragment_leak_reporting_bottom, null);
-                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LeakReportActivity.this);
+                    bottomSheetDialog= new BottomSheetDialog(LeakReportActivity.this);
                     bottomSheetDialog.setContentView(dialogView);
                     bottomSheetDialog.show();
                     Intent intent1 = new Intent();
@@ -778,45 +785,41 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             }
         }
     }
-    private int readNum(String s){
-        try {
-            return Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            return 0;
-        }
-    }
 
-
-    public void OpenRepairRequest(View view) {
-        startActivity(new Intent(this, RepairRequest.class).putExtra("CompId",leakcompId));
-    }
 
     public void OpenRepair(View view) {
-        leakReportBottom = new LeakReportBottom();
         startActivity(new Intent(this, RepairRequest.class).putExtra("CompId",leakcompId).putExtra("RouteID",RouteId).putExtra("InvID",InvId).putExtra("Grid",grid).putExtra("LeakID",LeakId).putExtra("SubID",SubID).putExtra("Unit",Unit).putExtra("PermOrLeak",PermOrLeak).putExtra("LeakDateTime",DateTime).putExtra("LeakRate",Reading).putExtra("last",last));
 //        leakReportBottom.dismiss();
         finish();
     }
 
     public void Cancel(View view) {
-        if (last){
+        if(leakedit_Flag){
+            leakedit_Flag=false;
+            int routeid=RouteId;
+            startActivity(new Intent(LeakReportActivity.this,ShowLeaksActivity.class).putExtra("RouteID",routeid));
+            bottomSheetDialog.dismiss();
+        }else {
+            if (last){
             /*startActivity(new Intent(LeakReportActivity.this, ComponentDashboard.class).putExtra("SubId",SubID).putExtra("RouteID",RouteId));
             finish();*/
 //            grid=ComponentReading.grid;
-            if (grid){
-                startActivity(new Intent(LeakReportActivity.this, ComponentsTable.class).putExtra("SubId",SubID).putExtra("RouteID",RouteId));
-                finish();
+                if (grid){
+                    startActivity(new Intent(LeakReportActivity.this, ComponentsTable.class).putExtra("SubId",SubID).putExtra("RouteID",RouteId));
+                    finish();
+                }
+                else {
+                    startActivity(new Intent(LeakReportActivity.this, ComponentDashboard.class).putExtra("SubId",SubID).putExtra("RouteID",RouteId));
+                    finish();
+                }            finish();
             }
             else {
-                startActivity(new Intent(LeakReportActivity.this, ComponentDashboard.class).putExtra("SubId",SubID).putExtra("RouteID",RouteId));
+                boolean next =true;
+                startActivity(new Intent(LeakReportActivity.this, ComponentReading.class).putExtra("CompId",leakcompId).putExtra("SubId",SubID).putExtra("RouteID",RouteId).putExtra("InvID",InvId).putExtra("next",next).putExtra("Grid",grid));
                 finish();
-            }            finish();
+            }
         }
-        else {
-            boolean next =true;
-            startActivity(new Intent(LeakReportActivity.this, ComponentReading.class).putExtra("CompId",leakcompId).putExtra("SubId",SubID).putExtra("RouteID",RouteId).putExtra("InvID",InvId).putExtra("next",next).putExtra("Grid",grid));
-            finish();
-        }
+
 
     }
 
@@ -982,4 +985,16 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         img.recycle();
         return rotatedImg;
     }
+
+    public int getLeakPathTypeid(String leakPath){
+        int a=0;
+        for (int i=0;i<=LeakPathTypeName.size();i++){
+            if(leakPath.equals(LeakPathTypeName.get(i))){
+                a=i;
+                break;
+            }
+        }
+        return  a;
+    }
+
 }

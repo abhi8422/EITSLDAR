@@ -23,16 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/repairback"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:paddingRight="5dp"
-                android:src="@drawable/ic_arrow_back"
-                android:textAppearance="@style/FontStyle"
-                android:visibility="gone"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"

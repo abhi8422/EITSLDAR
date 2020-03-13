@@ -6,6 +6,25 @@ public class ShowLeaksPojo {
     float componentSize,leakRate,repairRate;
     int leakTypeID;
     int RouteID;
+
+    public int getCompID() {
+        return CompID;
+    }
+
+    public void setCompID(int compID) {
+        CompID = compID;
+    }
+
+    int CompID;
+
+    public int getInvId() {
+        return InvId;
+    }
+
+    public void setInvId(int invId) {
+        InvId = invId;
+    }
+
     int InvId;
     String Path;
     public ShowLeaksPojo(String tagNO, String subArea, String areaName, String serviceType, String componentName, String repairType, String leakPathName, float componentSize, float leakRate, float repairRate, int leakTypeID, String leakCritical, String leakEssential) {

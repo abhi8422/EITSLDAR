@@ -54,13 +54,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import static com.envigil.extranet.ShowLeaksActivity.leakedit_Flag;
+
 public class RepairRequest extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvunit,tvampm,tvTagNo,tvCompoRepair, tvSizeRepair, tvLocaRepair, tvDateRepair, tvTimeRepair;
     static EditText edPostLeak;
     static EditText liveReading;
     Button btnSveRepair;
-    ImageView imgRepairDate, imgRepairTime,RepairBackBtn;
+    ImageView imgRepairDate, imgRepairTime;
     static Double max = 0.0;
     static int i=0;
     String datetimeLeak;
@@ -106,7 +108,6 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         imgRepairDate = findViewById(R.id.repair_date_reading);
         imgRepairTime = findViewById(R.id.repair_time_reading);
         btnSveRepair = findViewById(R.id.btn_sve_repair);
-        RepairBackBtn = findViewById(R.id.repairback);
         tvLocaRepair = findViewById(R.id.tv_location_repair);
         tvTagNo=findViewById(R.id.TagNo);
         tvampm=findViewById(R.id.AM_PM);
@@ -168,15 +169,6 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                 return false;
             }
         });
-
-        RepairBackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RepairRequest.this, LeakReportActivity.class));
-                finish();
-            }
-        });
-
         tvDateRepair.setText(getDate(RouteID));
 
         final Calendar calendar1 = Calendar.getInstance();
@@ -471,7 +463,10 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                 System.out.println(dateTime);
                 leakRepairTypeId = LeakRepairTypeId;
                 leakRepairRate = Float.parseFloat(edPostLeak.getText().toString());
-//&& dateTime.compareTo(datetimeLeak) < 0
+                //insert leak Repiar
+                sqLiteHelper.InsertLeakRepair(LeakRepairId,LeakId,empId,leakRepairTypeId,leakRepairRate,dateTime);
+
+                //&& dateTime.compareTo(datetimeLeak) < 0
                 AlertDialog.Builder builder = new AlertDialog.Builder(RepairRequest.this);
                 builder.setCancelable(false);
                 builder.setTitle("Repair Request Successful");
@@ -479,25 +474,29 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sqLiteHelper.InsertLeakRepair(LeakRepairId,LeakId,empId,leakRepairTypeId,leakRepairRate,dateTime);
-                        if (last){
-                            if (grid){
-                                startActivity(new Intent(RepairRequest.this, ComponentsTable.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID));
+                        if(leakedit_Flag){
+                            startActivity(new Intent(RepairRequest.this,ShowLeaksActivity.class).putExtra("RouteID",RouteID));
+                        }else{
+                            if (last){
+                                if (grid){
+                                    startActivity(new Intent(RepairRequest.this, ComponentsTable.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID));
+                                    finish();
+                                }
+                                else {
+                                    startActivity(new Intent(RepairRequest.this, ComponentDashboard.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID));
+                                    finish();
+                                }
+                                dialog.cancel();
                                 finish();
                             }
                             else {
-                                startActivity(new Intent(RepairRequest.this, ComponentDashboard.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID));
+                                boolean next=true;
+                                startActivity(new Intent(RepairRequest.this, ComponentReading.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("next",next).putExtra("Grid",grid));
+                                dialog.cancel();
                                 finish();
                             }
-                            dialog.cancel();
-                            finish();
                         }
-                        else {
-                            boolean next=true;
-                            startActivity(new Intent(RepairRequest.this, ComponentReading.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("next",next).putExtra("Grid",grid));
-                            dialog.cancel();
-                            finish();
-                        }
+
 
                     }
                 });
@@ -606,10 +605,14 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        boolean next=true;
-        startActivity(new Intent(RepairRequest.this,LeakReportActivity.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("Unit",Unit).putExtra("PermOrLeak",PermOrLeak).putExtra("LeakRate",leakRate).putExtra("Grid",grid));
+        if(leakedit_Flag){
+            startActivity(new Intent(RepairRequest.this,ShowLeaksActivity.class).putExtra("RouteID",RouteID));
+            leakedit_Flag=false;
+        }else {
+            startActivity(new Intent(RepairRequest.this,LeakReportActivity.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("Unit",Unit).putExtra("PermOrLeak",PermOrLeak).putExtra("LeakRate",leakRate).putExtra("Grid",grid));
 //        startActivity(new Intent(RepairRequest.this, ComponentReading.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("next",next).putExtra("Grid",grid));
-        finish();
+            finish();
+        }
     }
 
    /* public static Handler RepairRequestHadler=new Handler(new Handler.Callback() {
