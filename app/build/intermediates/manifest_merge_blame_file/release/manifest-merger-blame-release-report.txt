@@ -2,281 +2,281 @@
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.envigil.extranet"
 4    android:versionCode="2"
-5    android:versionName="2.0" >
+5    android:versionName="2.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml
+8-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml
+9-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-11-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:5:5-79
-11-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:5:22-76
+11-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:5:22-76
 12    <uses-permission android:name="android.permission.BLUETOOTH" />
-12-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:6:5-68
-12-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:6:22-65
+12-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:6:5-68
+12-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:6:22-65
 13    <uses-permission android:name="android.permission.INTERNET" />
-13-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:7:5-66
-13-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:7:22-64
+13-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:7:5-66
+13-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:7:22-64
 14    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-14-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:8:5-73
-14-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:8:22-71
+14-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:8:5-73
+14-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:8:22-71
 15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-15-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:9:5-80
-15-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:9:22-78
+15-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:9:5-80
+15-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:9:22-78
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-16-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:10:5-79
-16-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:10:22-77
+16-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:10:5-79
+16-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:10:22-77
 17    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-17-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:11:5-78
-17-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:11:22-76
+17-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:11:5-78
+17-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:11:22-76
 18    <uses-permission android:name="android.permission.CAMERA" />
-18-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:12:5-64
-18-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:12:22-62
+18-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:12:5-64
+18-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:12:22-62
 19
 20    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
 21    <uses-feature
-21-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:24:5-26:36
+21-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:24:5-26:36
 22        android:name="android.hardware.camera"
-22-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:25:9-47
+22-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:25:9-47
 23        android:required="false" />
-23-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:26:9-33
+23-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:26:9-33
 24    <uses-feature
-24-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:27:5-29:36
+24-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:27:5-29:36
 25        android:name="android.hardware.camera.front"
-25-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:28:9-53
+25-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:28:9-53
 26        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
-26-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:29:9-33
+26-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:29:9-33
 27    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
 28    <uses-feature
-28-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:32:5-34:36
+28-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:32:5-34:36
 29        android:name="android.hardware.camera.autofocus"
-29-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:33:9-57
+29-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:33:9-57
 30        android:required="false" />
-30-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:34:9-33
+30-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:34:9-33
 31    <uses-feature
-31-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:35:5-37:36
+31-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:35:5-37:36
 32        android:name="android.hardware.camera.flash"
-32-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:36:9-53
+32-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:36:9-53
 33        android:required="false" />
-33-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:37:9-33
+33-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:37:9-33
 34    <uses-feature
-34-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:38:5-40:36
+34-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:38:5-40:36
 35        android:name="android.hardware.screen.landscape"
-35-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:39:9-57
+35-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:39:9-57
 36        android:required="false" />
-36-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:40:9-33
+36-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:40:9-33
 37    <uses-feature
-37-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:41:5-43:36
+37-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:41:5-43:36
 38        android:name="android.hardware.wifi"
-38-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:42:9-45
+38-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:42:9-45
 39        android:required="false" />
-39-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:43:9-33
+39-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:43:9-33
 40
 41    <application
-41-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:16:5-84:19
+41-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:16:5-85:19
 42        android:name="com.envigil.extranet.LogFileHandling.LogFileHandling"
-42-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:18:9-56
+42-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:18:9-56
 43        android:allowBackup="false"
-43-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:20:9-36
+43-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:20:9-36
 44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-44-->[androidx.core:core:1.1.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:24:18-86
+44-->[androidx.core:core:1.1.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:18-86
 45        android:fullBackupContent="false"
-45-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:21:9-42
+45-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:21:9-42
 46        android:icon="@mipmap/logo1"
-46-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:23:9-37
+46-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:23:9-37
 47        android:label="LDAR"
-47-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:24:9-29
+47-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:24:9-29
 48        android:networkSecurityConfig="@xml/network_security_config"
-48-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:17:9-69
+48-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:17:9-69
 49        android:roundIcon="@mipmap/logo1_round"
-49-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:25:9-48
+49-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:25:9-48
 50        android:supportsRtl="true"
-50-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:26:9-35
+50-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:26:9-35
 51        android:theme="@style/AppTheme"
-51-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:27:9-40
+51-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:27:9-40
 52        android:usesCleartextTraffic="true"
-52-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:22:9-44
+52-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:22:9-44
 53        android:windowSoftInputMode="stateHidden" >
-53-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:19:9-50
+53-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:19:9-50
 54        <activity
-54-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:29:9-30:61
+54-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:30:9-31:61
 55            android:name="com.envigil.extranet.RouteUninspectedAdapter"
-55-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:29:19-58
+55-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:30:19-58
 56            android:screenOrientation="portrait" />
-56-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:30:13-49
+56-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:31:13-49
 57        <activity android:name="com.envigil.extranet.TableOfComponents.ComponentsTable" />
-57-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:31:9-32:15
-57-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:31:19-68
+57-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:32:9-33:15
+57-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:32:19-68
 58        <activity
-58-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:33:9-34:51
+58-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:34:9-35:51
 59            android:name="com.envigil.extranet.RouteInspectedAdapter"
-59-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:33:19-56
+59-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:34:19-56
 60            android:screenOrientation="portrait" />
-60-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:34:13-49
+60-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:35:13-49
 61        <activity android:name="com.envigil.extranet.AddInspectionDate.AddInspectionDate" >
-61-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:35:9-37:20
-61-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:35:19-70
+61-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:36:9-38:20
+61-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:36:19-70
 62        </activity>
 63        <activity
-63-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:38:9-47:20
+63-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:39:9-48:20
 64            android:name="com.envigil.extranet.InternetCheck"
-64-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:38:19-48
+64-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:39:19-48
 65            android:screenOrientation="portrait" >
-65-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:39:13-49
+65-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:40:13-49
 66            <intent-filter>
-66-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:41:13-45:29
+66-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:42:13-46:29
 67                <action android:name="android.intent.action.SEND" />
-67-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:42:17-69
-67-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:42:25-66
+67-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:43:17-69
+67-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:43:25-66
 68
 69                <category android:name="android.intent.category.DEFAULT" />
-69-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:43:17-76
-69-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:43:27-73
+69-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:44:17-76
+69-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:44:27-73
 70
 71                <data android:mimeType="text/*" />
-71-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:44:17-51
-71-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:44:23-48
+71-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:45:17-51
+71-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:45:23-48
 72            </intent-filter>
 73        </activity>
 74        <activity
-74-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:48:9-49:51
+74-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:49:9-50:51
 75            android:name="com.envigil.extranet.RouteDashboardAdapter"
-75-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:48:19-56
+75-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:49:19-56
 76            android:screenOrientation="portrait" />
-76-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:49:13-49
+76-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:50:13-49
 77        <activity
-77-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:50:9-51:51
+77-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:51:9-52:51
 78            android:name="com.envigil.extranet.ShowLeaksActivity"
-78-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:50:19-52
+78-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:51:19-52
 79            android:screenOrientation="portrait" />
-79-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:51:13-49
+79-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:52:13-49
 80        <activity
-80-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:52:9-53:51
+80-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:53:9-54:51
 81            android:name="com.envigil.extranet.RouteInspectedFragment"
-81-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:52:19-57
+81-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:53:19-57
 82            android:screenOrientation="portrait" />
-82-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:53:13-49
+82-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:54:13-49
 83        <activity
-83-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:54:9-55:51
+83-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:55:9-56:51
 84            android:name="com.envigil.extranet.RouteDashboard"
-84-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:54:19-49
+84-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:55:19-49
 85            android:screenOrientation="portrait" />
-85-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:55:13-49
+85-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:56:13-49
 86        <activity
-86-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:56:9-57:61
+86-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:57:9-58:61
 87            android:name="com.envigil.extranet.ComponentDashboard"
-87-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:56:19-53
+87-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:57:19-53
 88            android:screenOrientation="portrait" />
-88-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:57:13-49
+88-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:58:13-49
 89        <activity
-89-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:58:9-59:51
+89-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:59:9-60:51
 90            android:name="com.envigil.extranet.ComponentReading"
-90-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:58:19-51
+90-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:59:19-51
 91            android:screenOrientation="portrait" />
-91-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:59:13-49
+91-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:60:13-49
 92        <activity
-92-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:60:9-61:51
+92-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:61:9-62:51
 93            android:name="com.envigil.extranet.Inspections"
-93-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:60:19-46
+93-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:61:19-46
 94            android:screenOrientation="portrait" />
-94-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:61:13-49
+94-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:62:13-49
 95        <activity
-95-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:62:9-63:51
+95-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:63:9-64:51
 96            android:name="com.envigil.extranet.ScannerActivity"
-96-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:62:19-50
+96-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:63:19-50
 97            android:screenOrientation="portrait" />
-97-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:63:13-49
+97-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:64:13-49
 98        <activity
-98-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:64:9-65:51
+98-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:65:9-66:51
 99            android:name="com.envigil.extranet.LeakReportActivity"
-99-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:64:19-53
+99-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:65:19-53
 100            android:screenOrientation="portrait" />
-100-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:65:13-49
+100-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:66:13-49
 101        <activity
-101-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:66:9-69:20
+101-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:67:9-70:20
 102            android:name="com.envigil.extranet.RepairRequest"
-102-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:66:19-48
+102-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:67:19-48
 103            android:screenOrientation="portrait" >
-103-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:67:13-49
+103-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:68:13-49
 104        </activity>
 105        <activity
-105-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:70:9-73:20
+105-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:71:9-74:20
 106            android:name="com.envigil.extranet.PrevInspection"
-106-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:70:19-49
+106-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:71:19-49
 107            android:screenOrientation="portrait" >
-107-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:71:13-49
+107-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:72:13-49
 108        </activity>
 109        <activity
-109-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:74:9-75:51
+109-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:75:9-76:51
 110            android:name="com.envigil.extranet.Bluetooth.Bluetooth"
-110-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:74:19-54
+110-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:75:19-54
 111            android:screenOrientation="portrait" />
-111-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:75:13-49
+111-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:76:13-49
 112        <activity
-112-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:76:9-83:20
+112-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:77:9-84:20
 113            android:name="com.envigil.extranet.HomeActivity"
-113-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:76:19-47
+113-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:77:19-47
 114            android:screenOrientation="portrait" >
-114-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:77:13-49
+114-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:78:13-49
 115            <intent-filter>
-115-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:78:13-82:29
+115-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:79:13-83:29
 116                <action android:name="android.intent.action.MAIN" />
-116-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:79:17-69
-116-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:79:25-66
+116-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:80:17-69
+116-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:80:25-66
 117                <action android:name="android.intent.action.VIEW" />
-117-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:80:17-68
-117-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:80:25-66
+117-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:81:17-68
+117-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:81:25-66
 118
 119                <category android:name="android.intent.category.LAUNCHER" />
-119-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:81:17-77
-119-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/AndroidManifest.xml:81:27-74
+119-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:82:17-77
+119-->C:\Users\Sudarshan\AndroidStudioProjects\Extranet13Mar\app\src\main\AndroidManifest.xml:82:27-74
 120            </intent-filter>
 121        </activity>
 122        <activity
-122-->[com.karumi:dexter:6.0.2] /Users/apple/.gradle/caches/transforms-2/files-2.1/ff8aa114c850c8bb504dee7f1bab2e28/dexter-6.0.2/AndroidManifest.xml:27:9-29:72
+122-->[com.karumi:dexter:6.0.2] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\48c870bfed5dc7f8e7c5085a4d2eabd5\jetified-dexter-6.0.2\AndroidManifest.xml:27:9-29:72
 123            android:name="com.karumi.dexter.DexterActivity"
-123-->[com.karumi:dexter:6.0.2] /Users/apple/.gradle/caches/transforms-2/files-2.1/ff8aa114c850c8bb504dee7f1bab2e28/dexter-6.0.2/AndroidManifest.xml:28:13-60
+123-->[com.karumi:dexter:6.0.2] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\48c870bfed5dc7f8e7c5085a4d2eabd5\jetified-dexter-6.0.2\AndroidManifest.xml:28:13-60
 124            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-124-->[com.karumi:dexter:6.0.2] /Users/apple/.gradle/caches/transforms-2/files-2.1/ff8aa114c850c8bb504dee7f1bab2e28/dexter-6.0.2/AndroidManifest.xml:29:13-69
+124-->[com.karumi:dexter:6.0.2] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\48c870bfed5dc7f8e7c5085a4d2eabd5\jetified-dexter-6.0.2\AndroidManifest.xml:29:13-69
 125        <activity
-125-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:46:9-52:63
+125-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:46:9-52:63
 126            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-126-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:47:13-74
+126-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:47:13-74
 127            android:clearTaskOnLaunch="true"
-127-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:48:13-45
+127-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:48:13-45
 128            android:screenOrientation="sensorLandscape"
-128-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:49:13-56
+128-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:49:13-56
 129            android:stateNotNeeded="true"
-129-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:50:13-42
+129-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:50:13-42
 130            android:theme="@style/zxing_CaptureTheme"
-130-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:51:13-54
+130-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:51:13-54
 131            android:windowSoftInputMode="stateAlwaysHidden" />
-131-->[com.journeyapps:zxing-android-embedded:3.5.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/0963977b1f9b404472faf87a93690584/jetified-zxing-android-embedded-3.5.0/AndroidManifest.xml:52:13-60
+131-->[com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\dd832276efb2e41300c1cde8898d5669\jetified-zxing-android-embedded-3.5.0\AndroidManifest.xml:52:13-60
 132
 133        <service
-133-->[androidx.room:room-runtime:2.2.2] /Users/apple/.gradle/caches/transforms-2/files-2.1/16bae69b8e7536ae1a363b2679cefb07/room-runtime-2.2.2/AndroidManifest.xml:25:9-27:40
+133-->[androidx.room:room-runtime:2.2.2] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\5eddb50415edbdb73088433ff3df2460\room-runtime-2.2.2\AndroidManifest.xml:25:9-27:40
 134            android:name="androidx.room.MultiInstanceInvalidationService"
-134-->[androidx.room:room-runtime:2.2.2] /Users/apple/.gradle/caches/transforms-2/files-2.1/16bae69b8e7536ae1a363b2679cefb07/room-runtime-2.2.2/AndroidManifest.xml:26:13-74
+134-->[androidx.room:room-runtime:2.2.2] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\5eddb50415edbdb73088433ff3df2460\room-runtime-2.2.2\AndroidManifest.xml:26:13-74
 135            android:exported="false" />
-135-->[androidx.room:room-runtime:2.2.2] /Users/apple/.gradle/caches/transforms-2/files-2.1/16bae69b8e7536ae1a363b2679cefb07/room-runtime-2.2.2/AndroidManifest.xml:27:13-37
+135-->[androidx.room:room-runtime:2.2.2] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\5eddb50415edbdb73088433ff3df2460\room-runtime-2.2.2\AndroidManifest.xml:27:13-37
 136
 137        <activity
-137-->[com.google.android.gms:play-services-base:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+137-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
 138            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-138-->[com.google.android.gms:play-services-base:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+138-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
 139            android:exported="false"
-139-->[com.google.android.gms:play-services-base:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+139-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
 140            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-140-->[com.google.android.gms:play-services-base:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+140-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
 141
 142        <meta-data
-142-->[com.google.android.gms:play-services-basement:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/60842e1d826412a4a2e3dcaa3da893bf/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+142-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\c39f27975e2128f358c90a3c3f9b8fee\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 143            android:name="com.google.android.gms.version"
-143-->[com.google.android.gms:play-services-basement:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/60842e1d826412a4a2e3dcaa3da893bf/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+143-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\c39f27975e2128f358c90a3c3f9b8fee\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
 144            android:value="@integer/google_play_services_version" />
-144-->[com.google.android.gms:play-services-basement:17.0.0] /Users/apple/.gradle/caches/transforms-2/files-2.1/60842e1d826412a4a2e3dcaa3da893bf/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+144-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Sudarshan\.gradle\caches\transforms-2\files-2.1\c39f27975e2128f358c90a3c3f9b8fee\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 145    </application>
 146
 147</manifest>

@@ -155,6 +155,7 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
 
         @Override
         public void onClick(View v) {
+            Bitmap bitmap,bitmap1=null;
             final Dialog builder = new Dialog(v.getContext());
             builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
             builder.getWindow().setBackgroundDrawable(
@@ -162,7 +163,9 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
 
             int pos=getAdapterPosition();
             String path=showLeaksPojos.get(pos).getPath();
-            Uri uri=Uri.fromFile(new File(path));
+//            Uri uri=Uri.fromFile(new File(path));
+            bitmap=BitmapFactory.decodeFile(path);
+            bitmap1=RotateImg(path,bitmap);
             builder.setContentView(R.layout.dialog_layout);
             Dialog dialog;
             ImageButton close=builder.findViewById(R.id.btnClose);
@@ -171,7 +174,7 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
             img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
             img.setAdjustViewBounds(false);
 
-            img.setImageURI(uri);
+            img.setImageBitmap(bitmap1);
             close.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -181,6 +184,26 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
 
             builder.show();
         }
+    }
+    public static Bitmap RotateImg(String Path, Bitmap bitmap){
+        Bitmap rotatedBitmap = null;
+        try {
+            ExifInterface exif = new ExifInterface(Path);
+            int rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            int rotationInDegrees = exifToDegrees(rotation);
+            Matrix matrix = new Matrix();
+            if (rotation != 0f) {matrix.preRotate(rotationInDegrees);}
+            rotatedBitmap = Bitmap.createBitmap(bitmap,0,0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }catch(IOException ex){
+            System.out.println(ex.toString());
+        }
+        return rotatedBitmap;
+    }
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
+        return 0;
     }
 
     public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)

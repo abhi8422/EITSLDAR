@@ -13,6 +13,7 @@ import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.ColorDrawable;
@@ -28,6 +29,7 @@ import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +65,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.envigil.extranet.Bluetooth.Bluetooth;
 import com.envigil.extranet.SQLiteOpenHelper.SQLiteHelper;
 import com.envigil.extranet.TableOfComponents.ComponentsTable;
-import com.envigil.extranet.fragments.LeakReportBottom;
+
 import com.envigil.extranet.models.ComponentsListPojo;
 import com.envigil.extranet.models.LeakPathTypes;
 import com.envigil.extranet.models.ReasonSkipped;
@@ -132,7 +134,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     private int mDay, mMonth, mYear;
     private int mHour, mMinute, mSeconds;
     static int SELECT_FROM_CAMERA = 0;
-    LeakReportBottom leakReportBottom;
+
     SQLiteHelper sqLiteHelper;
     List<ComponentsListPojo> leaksListPojo = new ArrayList<>();
     List<LeakPathTypes> LeakPathTypePojo = new ArrayList<>();
@@ -459,11 +461,15 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         imgComponent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bitmap bitmap = null,bitmap1=null;
                 final Dialog builder = new Dialog(LeakReportActivity.this);
                 builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 builder.getWindow().setBackgroundDrawable(
                         new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                uri=Uri.fromFile(new File(OP.getAbsolutePath()));
+//                uri=Uri.fromFile(new File(OP.getAbsolutePath()));
+                Options opts;
+                bitmap=BitmapFactory.decodeFile(OP.getAbsolutePath());
+                bitmap1=RotateImg(OP.getAbsolutePath(),bitmap);
                 builder.setContentView(R.layout.dialog_layout);
                 ImageButton close=builder.findViewById(R.id.btnClose);
 
@@ -472,7 +478,8 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                 img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
                 img.setAdjustViewBounds(false);
 
-                img.setImageURI(uri);
+//                img.setImageURI(uri);
+                img.setImageBitmap(bitmap1);
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -767,6 +774,8 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+
                     imgComponent.setVisibility(View.VISIBLE);
                     imgComponent.setImageBitmap(componentBitmap);
                     System.out.println(OP.getAbsolutePath());
@@ -778,21 +787,8 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             }
         }
     }
-    private int readNum(String s){
-        try {
-            return Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            return 0;
-        }
-    }
-
-
-    public void OpenRepairRequest(View view) {
-        startActivity(new Intent(this, RepairRequest.class).putExtra("CompId",leakcompId));
-    }
 
     public void OpenRepair(View view) {
-        leakReportBottom = new LeakReportBottom();
         startActivity(new Intent(this, RepairRequest.class).putExtra("CompId",leakcompId).putExtra("RouteID",RouteId).putExtra("InvID",InvId).putExtra("Grid",grid).putExtra("LeakID",LeakId).putExtra("SubID",SubID).putExtra("Unit",Unit).putExtra("PermOrLeak",PermOrLeak).putExtra("LeakDateTime",DateTime).putExtra("LeakRate",Reading).putExtra("last",last));
 //        leakReportBottom.dismiss();
         finish();
@@ -827,73 +823,31 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         return date;
     }
 
-   /* private void configureToolbar() {
-        Toolbar nav_toolbar = findViewById(R.id.nav_toolbar_leak_summary);
-        setSupportActionBar(nav_toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
-
-    private void configureNavDrawer() {
-        drawerLayout = findViewById(R.id.activity_leak_report);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_leak_report);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction, fragmentTransaction1, fragmentTransaction2;
-                int menuId = item.getItemId();
-
-
-                if (menuId == R.id.home_app) {
-                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.example.mainapplication");
-                    startActivity(intent);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    finish();
-                } else if (menuId == R.id.inspect_routes) {
-                    finish();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (menuId == R.id.down_routes) {
-//                    fraglayout.setCurrentItem(1);
-//                    startActivity(new Intent(ComponentDashboard.this,HomeActivity.class));
-                    HomeActivity.fraglayout.setCurrentItem(1);
-                    finish();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (menuId == R.id.upload_routes) {
-//                    fraglayout.setCurrentItem(0);
-                    finish();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (menuId == R.id.bt_config) {
-                    startActivity(new Intent(LeakReportActivity.this, Bluetooth.class));
-
-//                    Toast.makeText(getApplicationContext(),"Redirecting to bluetooth configuration",Toast.LENGTH_SHORT).show();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    moveTaskToBack(true);
-                    finish();
-                }
-                return true;
-            }
-        });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId){
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return true;
-    }*/
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         save_leak_flag=false;
+    }
+
+    public static Bitmap RotateImg(String Path, Bitmap bitmap){
+        Bitmap rotatedBitmap = null;
+        try {
+            ExifInterface exif = new ExifInterface(Path);
+            int rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            int rotationInDegrees = exifToDegrees(rotation);
+            Matrix matrix = new Matrix();
+            if (rotation != 0f) {matrix.preRotate(rotationInDegrees);}
+            rotatedBitmap = Bitmap.createBitmap(bitmap,0,0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }catch(IOException ex){
+            System.out.println(ex.toString());
+        }
+        return rotatedBitmap;
+    }
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
+        return 0;
     }
 
     public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)

@@ -24,7 +24,8 @@
         android:label="LDAR"
         android:roundIcon="@mipmap/logo1_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
 
         <activity android:name=".RouteUninspectedAdapter"
             android:screenOrientation="portrait"></activity>

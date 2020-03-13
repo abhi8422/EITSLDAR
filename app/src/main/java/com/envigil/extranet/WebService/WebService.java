@@ -28,8 +28,8 @@ Context context;
     String METHOD_NAME="getRoutesByWorkOrderJson";
     String METHOD_getRoutesData="getRoutesData";*/
     //new
-    public static String WSDL_URL="http://98.173.13.62:8080/web/getroutes.asmx?WSDL";
-    /*public static String WSDL_URL="https://www.avantienv.com/web/getroutes.asmx?WSDL";*/
+//    public static String WSDL_URL="http://98.173.13.62:8080/web/getroutes.asmx?WSDL";
+    public static String WSDL_URL="https://www.avantienv.com/web/getroutes.asmx?WSDL";
     String SOAP_ACTION="Avanti";
     String NAME_SPACE="Avanti";
     String METHOD_NAME_getRoutesDataJSON="getRoutesDataJSON";
@@ -309,7 +309,7 @@ Context context;
         envelope.setOutputSoapObject(soapObject);
        MarshalBase64 marshalBase64=new MarshalBase64();
        marshalBase64.register(envelope);
-        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL);
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL,1000000000);
         try {
             httpTransportSE.call(SOAP_ACTION+"/"+ METHOD_NAME_uploadLeakImage,envelope);
             response = (SoapObject) envelope.bodyIn;
