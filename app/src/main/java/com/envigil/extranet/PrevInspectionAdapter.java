@@ -72,8 +72,10 @@ public class PrevInspectionAdapter extends RecyclerView.Adapter<PrevInspectionAd
         public void onClick(View v) {
             int i =getLayoutPosition();
             int InspID=prevInspectionModels.get(i).getInspectionID();
+            boolean partial=PrevInspection.partial;
             Bundle bundle=new Bundle();
             bundle.putInt("InspID",InspID);
+            bundle.putBoolean("Partially",partial);
             if( UploadRouteData.routeinspdate.equals(prevInspectionModels.get(i).getInspectionDate())){
                 AppCompatActivity appCompatActivity = (AppCompatActivity) v.getContext();
                 InspectionUploadBottomSheetFragment  inspectionUploadBottomSheetFragment =new InspectionUploadBottomSheetFragment(v.getContext());

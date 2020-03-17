@@ -10,6 +10,11 @@ public class LeakRepairs {
     float LeakRepairRate;
     Date LeakRepairDate;
 
+
+
+    public LeakRepairs() {
+    }
+
     public LeakRepairs(int leakRepairID, int leakID, int empID, int leakRepairTypeID, float leakRepairRate, Date leakRepairDate) {
         LeakRepairID = leakRepairID;
         LeakID = leakID;

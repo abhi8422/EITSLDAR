@@ -30,6 +30,7 @@ import androidx.core.os.EnvironmentCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
+import android.os.StrictMode;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -84,6 +85,7 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
     TextView upload;
     ProgressDialog progressDialog;
     int InspID;
+    boolean partial;
     List<String> LeakImagePath=new ArrayList<>();
     JSONArray resultSet;
     JSONObject jsonObject=new JSONObject();
@@ -107,6 +109,8 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
         int month = calendar.get(Calendar.MONTH)+1;
         SimpleDateFormat month_date = new SimpleDateFormat("dd-MMM hh:mm:ss");
         String month_name = month_date.format(calendar.getTime());
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
         try {
             // This block configure the logger with handler and formatter
             File folder = new File(Environment.getExternalStorageDirectory()+File.separator + "ExtranetDAEP_Log");
@@ -136,7 +140,6 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
             ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_CONTACTS,Manifest.permission.WRITE_EXTERNAL_STORAGE},101);
         }
         //Logging
-
     }
 
     @Override
@@ -147,26 +150,23 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
         // Inflate the layout for this fragment
         Bundle bundle=getArguments();
         InspID=bundle.getInt("InspID",0);
+        partial=bundle.getBoolean("Partially",false);
         int RouteId=PrevInspection.RouteID;
         System.out.println(RouteId);
         upload = view.findViewById(R.id.tv_upload);
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isInternetAvailable() == true){
+                if (isInternetAvailable() == true) {
                     if (SystemClock.elapsedRealtime() - mLastClickTime < 3000) {
                         return;
                     }
                     mLastClickTime = SystemClock.elapsedRealtime();
-                    //Check If all sub areas have Background.
-                    int subBackEnteredcheck=sqLiteHelper.checkSubBackEntered(PrevInspection.RouteID);
-                    int subAreacnt=sqLiteHelper.getSubareasCnt(PrevInspection.RouteID);
-                    System.out.println("SubBackEntered :"+subAreacnt);
-                    if (subAreacnt==subBackEnteredcheck){
-                        int AllCompInspected=sqLiteHelper.checkAllComponentsInspected(PrevInspection.RouteID);
-                        int AllCompCnt=sqLiteHelper.getAllCompCnt(PrevInspection.RouteID);
-                        System.out.println("AllCompInspected :"+AllCompCnt);
-                        if (AllCompCnt==AllCompInspected){
+                    if (partial) {
+                        System.out.println("Partial Block");
+                        int subBackEnteredcheck = sqLiteHelper.checkSubBackEntered(PrevInspection.RouteID);
+                        int subAreacnt = sqLiteHelper.getSubareasCnt(PrevInspection.RouteID);
+                        if (subAreacnt == subBackEnteredcheck) {
                             try {
                                 getInventoryJArray();
                                 getLeaksJArray();
@@ -175,12 +175,12 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
                                 e.printStackTrace();
                                 StringWriter errors = new StringWriter();
                                 e.printStackTrace(new PrintWriter(errors));
-                                logger.info("Upload onClick():: "+errors.toString());
+                                logger.info("Upload onClick():: " + errors.toString());
                             }
-                            Result=jsonObject.toString();
+                            Result = jsonObject.toString();
                             System.out.println(Result);
-                            logger.info("Upload Result "+Result);
-                            progressDialog=new ProgressDialog(v.getContext(),ProgressDialog.STYLE_SPINNER);
+                            logger.info("Upload Result " + Result);
+                            progressDialog = new ProgressDialog(v.getContext(), ProgressDialog.STYLE_SPINNER);
                             progressDialog.setTitle("Uploading Route...");
                             progressDialog.setCancelable(false);
                             progressDialog.setContentView(R.layout.progress_dialog_upload_component);
@@ -190,29 +190,62 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
                             upload_progress_bar.setVisibility(View.VISIBLE);*/
                             new Async(Result).execute();
                         }
+                    } else {
+                        //Check If all sub areas have Background.
+                        int subBackEnteredcheck = sqLiteHelper.checkSubBackEntered(PrevInspection.RouteID);
+                        int subAreacnt = sqLiteHelper.getSubareasCnt(PrevInspection.RouteID);
+                        System.out.println("SubBackEntered :" + subAreacnt);
+                        if (subAreacnt == subBackEnteredcheck) {
+                            int AllCompInspected = sqLiteHelper.checkAllComponentsInspected(PrevInspection.RouteID);
+                            int AllCompCnt = sqLiteHelper.getAllCompCnt(PrevInspection.RouteID);
+                            System.out.println("AllCompInspected :" + AllCompCnt);
+                            if (AllCompCnt == AllCompInspected) {
+                                try {
+                                    getInventoryJArray();
+                                    getLeaksJArray();
+                                    getLeakRepairJArray();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    StringWriter errors = new StringWriter();
+                                    e.printStackTrace(new PrintWriter(errors));
+                                    logger.info("Upload onClick():: " + errors.toString());
+                                }
+                                Result = jsonObject.toString();
+                                System.out.println(Result);
+                                logger.info("Upload Result " + Result);
+                                progressDialog = new ProgressDialog(v.getContext(), ProgressDialog.STYLE_SPINNER);
+                                progressDialog.setTitle("Uploading Route...");
+                                progressDialog.setCancelable(false);
+                                progressDialog.setContentView(R.layout.progress_dialog_upload_component);
+                                progressDialog.show();/*
+                            rvPrevInsp.setVisibility(View.GONE);
+                            upload_progress_txt.setVisibility(View.VISIBLE);
+                            upload_progress_bar.setVisibility(View.VISIBLE);*/
+                                new Async(Result).execute();
+                            }
+                        }
                     }
                 }
-                else {
-                builder = new AlertDialog.Builder(context);
-                builder.setTitle("Not connected to internet!!");
-                builder.setMessage("Check your internet connection and try again.");
-                builder.setCancelable(false);
-                builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (isInternetAvailable() == true){
-                            startActivity(new Intent(context, Inspections.class));
-                        }
-                        else {
-                            startActivity(new Intent(context, PrevInspection.class));
-                        }
-                        dialogInterface.cancel();
+                else{
+                        builder = new AlertDialog.Builder(context);
+                        builder.setTitle("Not connected to internet!!");
+                        builder.setMessage("Check your internet connection and try again.");
+                        builder.setCancelable(false);
+                        builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if (isInternetAvailable() == true) {
+                                    startActivity(new Intent(context, Inspections.class));
+                                } else {
+                                    startActivity(new Intent(context, PrevInspection.class));
+                                }
+                                dialogInterface.cancel();
+                            }
+                        });
+                        builder.create();
+                        builder.show();
                     }
-                });
-                builder.create();
-                builder.show();
-            }
-            }
+                }
         });
         return view;
     }
@@ -288,12 +321,18 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
 //        File myPath = getContext().getDatabasePath("Montrose.sqliteDatabase.db");// Set path to your database
 
         String myTable = "InspectionResults :::";//Set name of your table
-int count=0;
+        int count=0;
 //or you can use `context.getDatabasePath("my_db_test.db")`
-
+        String searchQuery;
         SQLiteDatabase myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
-        String searchQuery = "SELECT InvID, RouteID,"+InspID+" As InspID, CompTypeID, Timestamp, Reading, Background, Inspected, ReasonSkippedID FROM Inventory Where RouteID = "+PrevInspection.RouteID;
+        if (partial){
+            searchQuery = "SELECT InvID, RouteID,"+InspID+" As InspID, CompTypeID, Timestamp, Reading, Background, Inspected, ReasonSkippedID FROM Inventory Where RouteID = "+PrevInspection.RouteID +" AND Inspected = 1";
+
+        }
+        else {
+            searchQuery = "SELECT InvID, RouteID,"+InspID+" As InspID, CompTypeID, Timestamp, Reading, Background, Inspected, ReasonSkippedID FROM Inventory Where RouteID = "+PrevInspection.RouteID;
+        }
         Cursor cursor = myDataBase.rawQuery(searchQuery, null );
 
         resultSet     = new JSONArray();
@@ -421,19 +460,22 @@ int count=0;
                 }
                 else{
                     progressDialog.dismiss();
-                    logger.info("Async Deleting Routes From Local DB Where RouteID:"+PrevInspection.RouteID);
-                    sqLiteHelper.deleteLeakRepair(PrevInspection.RouteID);
-                    sqLiteHelper.deleteLeaks(PrevInspection.RouteID);
-                    sqLiteHelper.deleteInventory(PrevInspection.RouteID);
-                    sqLiteHelper.deleteSubAreas(PrevInspection.RouteID);
-                    sqLiteHelper.deleteRoutesConfig(PrevInspection.RouteID);
-
-                //sqLiteHelper.deleteInventoryRule(PrevInspection.RouteID);
-              //sqLiteHelper.deleteRuleComponents(PrevInspection.RouteID);
-                progressDialog.dismiss();
-              /*  rvPrevInsp.setVisibility(View.VISIBLE);
-                upload_progress_txt.setVisibility(View.GONE);
-                upload_progress_bar.setVisibility(View.GONE);*/
+                    if (partial){
+                        System.out.println("Partial DELETE");
+                        sqLiteHelper.resetInspDate(PrevInspection.RouteID);
+                        sqLiteHelper.partialDeleteLeakRepairs(PrevInspection.RouteID);
+                        sqLiteHelper.partialDeleteLeaks(PrevInspection.RouteID);
+                        sqLiteHelper.partialDeleteInventory(PrevInspection.RouteID);
+                        sqLiteHelper.partialDeleteSubArea(PrevInspection.RouteID);
+                    }
+                    else {
+                        logger.info("Async Deleting Routes From Local DB Where RouteID:"+PrevInspection.RouteID);
+                        sqLiteHelper.deleteLeakRepair(PrevInspection.RouteID);
+                        sqLiteHelper.deleteLeaks(PrevInspection.RouteID);
+                        sqLiteHelper.deleteInventory(PrevInspection.RouteID);
+                        sqLiteHelper.deleteSubAreas(PrevInspection.RouteID);
+                        sqLiteHelper.deleteRoutesConfig(PrevInspection.RouteID);
+                    }
                     builder = new AlertDialog.Builder(getContext());
                     //Setting message manually and performing action on button click
                     builder.setMessage("Components were uploaded Successfully ")
@@ -567,17 +609,22 @@ int count=0;
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
             progressDialog.dismiss();
-            logger.info("Async Deleting Routes From Local DB Where RouteID:"+PrevInspection.RouteID);
-            sqLiteHelper.deleteLeakRepair(PrevInspection.RouteID);
-            sqLiteHelper.deleteLeaks(PrevInspection.RouteID);
-            sqLiteHelper.deleteInventory(PrevInspection.RouteID);
-            sqLiteHelper.deleteSubAreas(PrevInspection.RouteID);
-            sqLiteHelper.deleteRoutesConfig(PrevInspection.RouteID);
-
-//                progressDialog.dismiss();
-              /*  rvPrevInsp.setVisibility(View.VISIBLE);
-                upload_progress_txt.setVisibility(View.GONE);
-                upload_progress_bar.setVisibility(View.GONE);*/
+            if (partial){
+                System.out.println("Partial DELETE");
+                sqLiteHelper.resetInspDate(PrevInspection.RouteID);
+                sqLiteHelper.partialDeleteLeakRepairs(PrevInspection.RouteID);
+                sqLiteHelper.partialDeleteLeaks(PrevInspection.RouteID);
+                sqLiteHelper.partialDeleteInventory(PrevInspection.RouteID);
+                sqLiteHelper.partialDeleteSubArea(PrevInspection.RouteID);
+            }
+            else {
+                logger.info("Async Deleting Routes From Local DB Where RouteID:"+PrevInspection.RouteID);
+                sqLiteHelper.deleteLeakRepair(PrevInspection.RouteID);
+                sqLiteHelper.deleteLeaks(PrevInspection.RouteID);
+                sqLiteHelper.deleteInventory(PrevInspection.RouteID);
+                sqLiteHelper.deleteSubAreas(PrevInspection.RouteID);
+                sqLiteHelper.deleteRoutesConfig(PrevInspection.RouteID);
+            }
             builder = new AlertDialog.Builder(getContext());
             //Setting message manually and performing action on button click
             builder.setMessage("Components were uploaded Successfully ")

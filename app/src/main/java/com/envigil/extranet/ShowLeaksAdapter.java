@@ -165,20 +165,22 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.LeakImage: final Dialog builder = new Dialog(v.getContext());
+                Bitmap bitmap1,bitmap2;
                     builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     builder.getWindow().setBackgroundDrawable(
                             new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
                     int pos=getAdapterPosition();
                     String path=showLeaksPojos.get(pos).getPath();
-                    Uri uri=Uri.fromFile(new File(path));
+                    //Uri uri=Uri.fromFile(new File(path));
+                    bitmap1=BitmapFactory.decodeFile(path);
+                    bitmap2=RotateImg(path,bitmap1);
                     builder.setContentView(R.layout.dialog_layout);
                     ImageButton close=builder.findViewById(R.id.btnClose);
                     ImageView img = builder.findViewById(R.id.Img);
                     img.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
                     img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
                     img.setAdjustViewBounds(false);
-                    img.setImageURI(uri);
+                    img.setImageBitmap(bitmap2);
                     close.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -199,6 +201,7 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
                     leakReportActivity.putExtra("CompId",showLeaksPojo.getCompID());
                     leakReportActivity.putExtra("SubId",subid);
                     leakReportActivity.putExtra("LeakRate",showLeaksPojo.getLeakRate());
+                    leakReportActivity.putExtra("RepairRate",showLeaksPojo.getRepairRate());
                     leakReportActivity.putExtra("Unit",unit);
                     leakReportActivity.putExtra("RouteID",showLeaksPojo.getRouteID());
                     leakReportActivity.putExtra("InvID",showLeaksPojo.getInvId());
@@ -210,11 +213,36 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
                     leakReportActivity.putExtra("Critical",showLeaksPojo.isLeakCritical());
                     leakReportActivity.putExtra("Essential",showLeaksPojo.isLeakEssential());
                     leakReportActivity.putExtra("ImagePath",showLeaksPojo.getPath());
+                    leakReportActivity.putExtra("EmpId",showLeaksPojo.getEmpID());
+                    leakReportActivity.putExtra("RepairTypeName",showLeaksPojo.getRepairTypeName());
+                    leakReportActivity.putExtra("RepairDate",showLeaksPojo.getRepairDate());
+                    leakReportActivity.putExtra("LeakDate",showLeaksPojo.getLeakDate());
                     leakReportActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(leakReportActivity);
             }
 
         }
+
+    }
+    public static Bitmap RotateImg(String Path, Bitmap bitmap){
+        Bitmap rotatedBitmap = null;
+        try {
+            ExifInterface exif = new ExifInterface(Path);
+            int rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            int rotationInDegrees = exifToDegrees(rotation);
+            Matrix matrix = new Matrix();
+            if (rotation != 0f) {matrix.preRotate(rotationInDegrees);}
+            rotatedBitmap = Bitmap.createBitmap(bitmap,0,0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }catch(IOException ex){
+            System.out.println(ex.toString());
+        }
+        return rotatedBitmap;
+    }
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
+        return 0;
     }
 
     public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)

@@ -70,13 +70,13 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
     String repairDateTime1,repairDateTime2,pickedTime;
     Date date,time,leaktime;
     int addid,LeakRepairId,empId,leakRepairTypeId;
-    String dateTime;
-    float leakRepairRate;
+    String dateTime,RepairDate,RepairType;
+    float leakRepairRate,repairRate;
     Spinner repairtypeSpinner,employeeSpinner;
     boolean last,PermOrLeak;
     boolean grid;
     int repaircompID,SubId,RouteID,InvID;
-    int employeeID,LeakRepairTypeId,LeakId;
+    int employeeID,LeakRepairTypeId,LeakId,EmpID;
     private int mDay, mMonth, mYear;
     private int mHour, mMinute, mSeconds;
     SQLiteHelper sqLiteHelper;
@@ -126,6 +126,10 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         InvID = intent.getIntExtra("InvID",0);
         grid = intent.getBooleanExtra("Grid",false);
         datetimeLeak = intent.getStringExtra("LeakDateTime");
+        EmpID=intent.getIntExtra("EmpId",0);
+        RepairDate=intent.getStringExtra("RepairDate");
+        RepairType=intent.getStringExtra("RepairTypeName");
+        repairRate=intent.getFloatExtra("RepairRate",0.0f);
         repairDateTime = datetimeLeak.split(" ");
         repairDateTime1 = repairDateTime[0];
         repairDateTime2 = repairDateTime[1];
@@ -147,7 +151,11 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         }
 
         leakRate = intent.getFloatExtra("LeakRate",0.0f);
-        edPostLeak.setHint(String.valueOf(leakRate));
+        if(leakedit_Flag){
+            edPostLeak.setText(String.valueOf(repairRate));
+        }else {
+            edPostLeak.setText(String.valueOf(leakRate));
+        }
         last = intent.getBooleanExtra("last", false);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -225,8 +233,20 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
             hr_precede ="0";
         }
         String Date = hr_precede + mHour + ":" + mm_precede + mMinute + ":00";
-        tvTimeRepair.setText(Date);
-        tvampm.setText(AM_PM);
+        if(leakedit_Flag){
+            if(!RepairDate.equals("--")){
+                String[] repairDate=RepairDate.split(" ");
+                tvTimeRepair.setText(repairDate[1]);
+                tvampm.setText(repairDate[2]);
+            }else {
+                tvTimeRepair.setText(Date);
+                tvampm.setText(AM_PM);
+            }
+        }else {
+            tvTimeRepair.setText(Date);
+            tvampm.setText(AM_PM);
+        }
+
 
 
         imgRepairDate.setOnClickListener(this);
@@ -254,6 +274,12 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         employeeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         employeeSpinner.setAdapter(employeeAdapter);
 
+        //flag to check the navigation flow comes from leak and repair edit.
+        if(leakedit_Flag){
+            employeeSpinner.setSelection(getEmployeeSpinnerPosition(EmpID));
+            employeeID=getEmployeeSpinnerPosition(EmpID);
+        }
+
         employeeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -278,11 +304,17 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
             leakRepairTypeID.add(leakRepairTypes.getLeakRepairTypeID());
             leaskReapirTypeName.add(leakRepairTypes.getLeakRepairTypeName());
         }
+
         /* Repair Type Spinner Working */
         ArrayAdapter<String> repairAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, leaskReapirTypeName);
         repairAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         repairtypeSpinner.setAdapter(repairAdapter);
 
+        //flag to check the navigation flow comes from leak and repair edit.
+        if(leakedit_Flag){
+            repairtypeSpinner.setSelection(getRepairTypeSpinnerPosition(RepairType));
+            LeakRepairTypeId=getRepairTypeSpinnerPosition(RepairType);
+        }
         repairtypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -294,6 +326,9 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
 
             }
         });
+
+
+
         Bluetooth.RepairRequest=true;
     }
 
@@ -475,6 +510,7 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if(leakedit_Flag){
+                            leakedit_Flag=false;
                             startActivity(new Intent(RepairRequest.this,ShowLeaksActivity.class).putExtra("RouteID",RouteID));
                         }else{
                             if (last){
@@ -677,4 +713,51 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         Bluetooth.RepairRequest=false;
        // RepairRequestHadler.removeCallbacksAndMessages(null);
     }
+
+    public int getEmployeeSpinnerPosition(int id){
+        int position=0;
+        for (int i=0;i<=employeesListID.size();i++){
+            if(employeesListID.get(i)==id){
+                position=i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int getRepairTypeSpinnerPosition(String type){
+        int position=0;
+        if(!type.equals("--")){
+            for (int i=0;i<=leaskReapirTypeName.size();i++){
+                String a=leaskReapirTypeName.get(i);
+                if(a.equals(type)){
+                    position=i;
+                    break;
+                }
+            }
+        }
+        return position;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

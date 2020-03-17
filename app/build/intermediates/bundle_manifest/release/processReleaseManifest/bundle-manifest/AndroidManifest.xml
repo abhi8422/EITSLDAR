@@ -45,7 +45,6 @@
         android:fullBackupContent="false"
         android:icon="@mipmap/logo1"
         android:label="LDAR"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/logo1_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"

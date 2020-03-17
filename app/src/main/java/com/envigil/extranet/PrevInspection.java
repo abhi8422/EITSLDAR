@@ -56,6 +56,7 @@ public class PrevInspection extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     SQLiteHelper sqLiteHelper;
     TextView routename,routedate;
+    public static boolean partial;
     public static RecyclerView rvPrevInsp;
     public static TextView    upload_progress_txt;
     public static ProgressBar upload_progress_bar;
@@ -76,6 +77,7 @@ public class PrevInspection extends AppCompatActivity {
         Intent intent=getIntent();
         WorkID=intent.getIntExtra("WorkId",0);
         RouteID=intent.getIntExtra("RouteID",0);
+        partial=intent.getBooleanExtra("Partially",false);
         upload_progress_bar=findViewById(R.id.upload_progress_layout);
         upload_progress_txt=findViewById(R.id.upload_progress_txt);
 
@@ -93,7 +95,7 @@ public class PrevInspection extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(PrevInspection.this, Inspections.class).putExtra("WorkID",WorkID).putExtra("RouteID",RouteID));
+                            startActivity(new Intent(PrevInspection.this, Inspections.class).putExtra("WorkID",WorkID).putExtra("RouteID",RouteID).putExtra("Partially",partial));
                             finish();
                         }
                     },1500);
@@ -168,7 +170,7 @@ public class PrevInspection extends AppCompatActivity {
                 PrevInspectionModel prevInspectionModel =new PrevInspectionModel(InspectionDate,EmployeeName,InspectionStartT,InspectionEndT);
                 prevInspectionModel.setInspectionID(InspectionID);
                 PrevInspectionsList.add(prevInspectionModel);
-                System.out.println("Result List"+PrevInspectionsList);
+                //System.out.println("Result List"+PrevInspectionsList);
                 prevInspectionAdapter = new PrevInspectionAdapter(PrevInspectionsList);
                 rvPrevInsp.setAdapter(prevInspectionAdapter);
             } catch (JSONException e) {

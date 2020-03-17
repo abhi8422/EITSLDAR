@@ -28,7 +28,7 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
     int routeID,workId;
     String inspection,routeName,inspDate;
     String DAEP;
-    TextView RouteBackgroundReading,ViewSubArea,UploadRoute,viewLeaks;
+    TextView RouteBackgroundReading,ViewSubArea,UploadRoute,viewLeaks,UploadRoutePartially;
     static RouteReadingBottomSheetFrag routeReadingBottomSheetFrag;
     AlertDialog.Builder builder;
     SQLiteHelper sqLiteHelper;
@@ -60,6 +60,7 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
         ViewSubArea = view.findViewById(R.id.ViewSubArea);
         UploadRoute = view.findViewById(R.id.UploadRoute);
         viewLeaks = view.findViewById(R.id.ViewLeaks);
+        UploadRoutePartially=view.findViewById(R.id.UploadRoutePartially);
         sqLiteHelper=new SQLiteHelper(getContext());
 
         if(!new SQLiteHelper(view.getContext()).getRouteConfigDate(routeID).equals("0")){
@@ -72,6 +73,10 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
                     startActivity(new Intent(getContext(), AddInspectionDate.class).putExtra("RouteID",routeID).putExtra("RouteName",routeName));
                 }
             });
+        }
+
+        if (inspection.equals("true")||inspection.equals("1")){
+            UploadRoutePartially.setVisibility(View.GONE);
         }
 
         RouteBackgroundReading.setOnClickListener(new View.OnClickListener() {
@@ -183,6 +188,58 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
                         //Toast.makeText(getContext(), "Route Inspection Is Not Done You Cannot Upload The Route", Toast.LENGTH_SHORT).show();
                     }
                 }
+        });
+
+        UploadRoutePartially.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int compCnt,compCntTotal;
+                final boolean partially=true;
+                compCnt=sqLiteHelper.checkAllComponentsInspected(routeID);
+                compCntTotal=sqLiteHelper.getAllCompCnt(routeID);
+                if (compCnt==0){
+                    builder = new AlertDialog.Builder(getContext());
+                    //Setting message manually and performing action on button click
+                    builder.setMessage("Cannot Upload the Route")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("No Component Inspected ");
+                    alert.show();
+                }
+                else {
+                    builder = new AlertDialog.Builder(getContext());
+                    //Setting message manually and performing action on button click
+                    builder.setMessage("Only "+compCnt+" Of "+compCntTotal+" Components are Inspected ! Do you want to upload it partially ?")
+                            .setCancelable(false)
+                            .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(getActivity(),PrevInspection.class).putExtra("WorkId",workId).putExtra("RouteID",routeID).putExtra("Partially",partially));
+                                    getActivity().getSupportFragmentManager().beginTransaction().remove(DownloadedBottomSheetFrag.this).commit();
+                                }
+                            })
+                            .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("Upload Route Partially ?");
+                    alert.show();
+                }
+
+            }
         });
 
         return view;

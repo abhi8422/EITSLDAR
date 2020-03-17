@@ -86,11 +86,10 @@ public class ShowLeaksActivity extends AppCompatActivity {
     private void configureNavDrawer() {
         drawerLayout = findViewById(R.id.activity_show_leaks);
         NavigationView navigationView = findViewById(R.id.nav_view_show_leaks);
+        navigationView.getMenu().removeItem(R.id.upload_routes);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction, fragmentTransaction1, fragmentTransaction2;
                 int menuId = item.getItemId();
 
                 if (menuId == R.id.home_app){
@@ -110,11 +109,11 @@ public class ShowLeaksActivity extends AppCompatActivity {
                     finish();
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }
-                else if (menuId == R.id.upload_routes){
+                /*else if (menuId == R.id.upload_routes){
 
                     finish();
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }
+                }*/
                 else if (menuId == R.id.bt_config){
                     startActivity(new Intent(ShowLeaksActivity.this, Bluetooth.class));
 

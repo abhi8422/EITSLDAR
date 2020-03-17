@@ -536,12 +536,12 @@
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable_abc_list_selector_holo_dark.xml.flat",
-        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/drawable/abc_list_selector_holo_dark.xml"
-    },
-    {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable_abc_list_selector_holo_dark.xml.flat",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/layout_custom_toast_subbackground.xml.flat",
@@ -616,6 +616,10 @@
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/bb28b9f73851b015c728313811a41484/material-1.1.0-alpha09/res/color/mtrl_extended_fab_bg_color_selector.xml"
     },
     {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-mdpi_ic_edit_green_24dp.png.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-mdpi/ic_edit_green_24dp.png"
+    },
+    {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/layout_content_main.xml.flat",
         "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/res/layout/content_main.xml"
     },
@@ -680,12 +684,12 @@
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/ddf6a25e6e3e5e2af441269b48288beb/appcompat-resources-1.1.0/res/drawable/abc_vector_test.xml"
     },
     {
-        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/res/drawable-xhdpi-v4/common_full_open_on_phone.png"
-    },
-    {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xxxhdpi_ic_camera.png.flat",
         "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-xxxhdpi/ic_camera.png"
+    },
+    {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/res/drawable-xhdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
@@ -986,6 +990,10 @@
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-hdpi_ic_edit_green_24dp.png.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-hdpi/ic_edit_green_24dp.png"
     },
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
@@ -1292,6 +1300,10 @@
         "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/res/mipmap-xxhdpi/logo1.png"
     },
     {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-anydpi-v21_ic_edit_green_24dp.xml.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-anydpi-v21/ic_edit_green_24dp.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable_search.png.flat",
         "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/src/main/res/drawable/search.png"
     },
@@ -1392,6 +1404,10 @@
         "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-mdpi/ic_arrow_drop_down_black_24dp.png"
     },
     {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xhdpi_ic_edit_green_24dp.png.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-xhdpi/ic_edit_green_24dp.png"
+    },
+    {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
@@ -1410,6 +1426,10 @@
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/color_design_icon_tint.xml.flat",
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/bb28b9f73851b015c728313811a41484/material-1.1.0-alpha09/res/color/design_icon_tint.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-ldpi_ic_edit_green_24dp.png.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-ldpi/ic_edit_green_24dp.png"
     },
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -1442,6 +1462,10 @@
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable_abc_edit_text_material.xml.flat",
         "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xxhdpi_ic_edit_green_24dp.png.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-xxhdpi/ic_edit_green_24dp.png"
     },
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/color_mtrl_navigation_item_text_color.xml.flat",
@@ -3126,6 +3150,10 @@
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xxhdpi_ic_arrow_drop_down_black_24dp.png.flat",
         "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-xxhdpi/ic_arrow_drop_down_black_24dp.png"
+    },
+    {
+        "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/drawable-xxxhdpi_ic_edit_green_24dp.png.flat",
+        "source": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/generated/res/pngs/release/drawable-xxxhdpi/ic_edit_green_24dp.png"
     },
     {
         "merged": "/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/app/build/intermediates/res/merged/release/layout_mtrl_calendar_horizontal.xml.flat",

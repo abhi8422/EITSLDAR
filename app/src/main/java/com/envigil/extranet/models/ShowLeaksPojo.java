@@ -2,10 +2,52 @@ package com.envigil.extranet.models;
 
 public class ShowLeaksPojo {
     String tagNO,subArea,serviceType,componentName,areaName;
-    String repairType,leakPathName,leakCritical,leakEssential;
+    String repairType;
+    String leakPathName;
+    String leakCritical;
+    String leakEssential;
+    String RepairTypeName;
+    String RepairDate;
+
+    public String getLeakDate() {
+        return LeakDate;
+    }
+
+    public void setLeakDate(String leakDate) {
+        LeakDate = leakDate;
+    }
+
+    String LeakDate;
     float componentSize,leakRate,repairRate;
     int leakTypeID;
     int RouteID;
+
+    public String getRepairTypeName() {
+        return RepairTypeName;
+    }
+
+    public void setRepairTypeName(String repairTypeName) {
+        RepairTypeName = repairTypeName;
+    }
+
+    public String getRepairDate() {
+        return RepairDate;
+    }
+
+    public void setRepairDate(String repairDate) {
+        RepairDate = repairDate;
+    }
+
+    public int getEmpID() {
+        return EmpID;
+    }
+
+    public void setEmpID(int empID) {
+        EmpID = empID;
+    }
+
+    int EmpID;
+
 
     public int getCompID() {
         return CompID;

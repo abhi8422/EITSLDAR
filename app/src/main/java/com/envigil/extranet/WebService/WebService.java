@@ -11,8 +11,8 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
+
 import java.sql.ResultSet;
 
 public class WebService {
@@ -309,7 +309,7 @@ Context context;
         envelope.setOutputSoapObject(soapObject);
        MarshalBase64 marshalBase64=new MarshalBase64();
        marshalBase64.register(envelope);
-        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL);
+        HttpTransportSE httpTransportSE=new HttpTransportSE(WSDL_URL,999999999);
         try {
             httpTransportSE.call(SOAP_ACTION+"/"+ METHOD_NAME_uploadLeakImage,envelope);
             response = (SoapObject) envelope.bodyIn;

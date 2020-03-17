@@ -32,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -45,6 +46,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.envigil.extranet.SQLiteOpenHelper.SQLiteHelper;
 import com.envigil.extranet.TableOfComponents.ComponentsTable;
@@ -92,19 +94,25 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     /*GPS data*/
     Uri uri;
     File imgDIR, OP;
-    String Img_Path,DateTime,Unit,InvTag,AM_PM,leakpath,repairtype,Critical,Essential,img_path,path;
+    String Img_Path,DateTime,Unit,InvTag,AM_PM,leakpath,repairtype,Critical,Essential,img_path,path,RepairDate,RepairType,LeakDate;
     FloatingActionButton fabCamera;
+    String pictureFilePath;
     boolean PermOrLeak;
     boolean grid;
+    Bitmap photo;
+    byte[]image=null;
     TextView tvNetUnit,tvTagNo,tvBackRate,tvNetReading,tvReadingRepo,tvampm,tvComponentRepo, tvSizeRepo, tvDateRepo, tvTimeRepo,tvLocationReport, tvLeakInspection, tvPPM, tvDPM, tvLEL, tvUnit;
     ImageView  imgComponent,LeakReportBackBtn;
     Button btnSaveRepo;
     Switch criticalSwitch, esentialSwitch;
+    EditText edReadingRepo;
     int leakcompId;
     int UnitNumber;
     int SubID,LeakId;
+    private int mDay, mMonth, mYear;
     private int mHour, mMinute, mSeconds;
     static int SELECT_FROM_CAMERA = 0;
+
     SQLiteHelper sqLiteHelper;
     List<ComponentsListPojo> leaksListPojo = new ArrayList<>();
     List<LeakPathTypes> LeakPathTypePojo = new ArrayList<>();
@@ -113,11 +121,11 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     float BackgroundReading,LeakFloat1;
    public  static int RouteId,InvId;
     boolean leakBit1, leakBit5;
-    float leakLAT, leakLNG;
+    float leakLAT, leakLNG,repairRate;
     Spinner LeakPathSpinner;
     int PermId;
     int[] FacId,CompStrTypeIDs,PRIdPRTime;
-    int RuleId,LeakTypeId,LeakTime,CompTypeId,StrId,StrTypeId,RuleCompTypeId,Status,LeakPathTypeid;
+    int RuleId,LeakTypeId,LeakTime,CompTypeId,StrId,StrTypeId,RuleCompTypeId,Status,LeakPathTypeid,EmpID;
     AlertDialog.Builder builder;
     float Reading;
     BottomSheetDialog bottomSheetDialog;
@@ -129,7 +137,6 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leak_report);
-
         sqLiteHelper = new SQLiteHelper(getApplicationContext());
         tvBackRate = findViewById(R.id.tv_back_rate);
         tvComponentRepo = findViewById(R.id.tv_component_report);
@@ -158,9 +165,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         //Drawer
         /*configureNavDrawer();
         configureToolbar();*/
-
-        //Intent
-        final Intent intent = this.getIntent();
+        Intent intent = this.getIntent();
         leakcompId = intent.getIntExtra("CompId",0);
         SubID = intent.getIntExtra("SubId",0);
         Reading=intent.getFloatExtra("LeakRate",0f);
@@ -175,6 +180,11 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         Critical=intent.getStringExtra("Critical");
         Essential=intent.getStringExtra("Essential");
         img_path=intent.getStringExtra("ImagePath");
+        EmpID=intent.getIntExtra("EmpId",0);
+        RepairDate=intent.getStringExtra("RepairDate");
+        RepairType=intent.getStringExtra("RepairTypeName");
+        LeakDate=intent.getStringExtra("LeakDate");
+        repairRate=intent.getFloatExtra("RepairRate",0.0f);
 
         // Toast.makeText(this, "Leak Report Activity::"+SubID, Toast.LENGTH_SHORT).show();
 
@@ -209,7 +219,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         if(leakedit_Flag){
             SQLiteHelper sqLiteHelper=new SQLiteHelper(getApplicationContext());
             if(sqLiteHelper.compIsInspected(InvId)){
-                sqLiteHelper.deleteReInspectLeakRepair(InvId);
+                //sqLiteHelper.deleteReInspectLeakRepair(InvId);
                 sqLiteHelper.deleteReInspectLeak(InvId);
             }
             if(leakpath!=null){
@@ -308,8 +318,24 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             hr_precede ="0";
         }
         String Time =hr_precede+ mHour + ":" + mm_precede + mMinute+":00";
-        tvTimeRepo.setText(Time);
-        tvampm.setText(AM_PM);
+        if(LeakDate!=null){
+            if(!LeakDate.equals("--")){
+                if(leakedit_Flag){
+                    String[] time=LeakDate.split(" ");
+                    tvTimeRepo.setText(time[1]);
+                    tvampm.setText(time[2]);
+                }else {
+                    tvTimeRepo.setText(Time);
+                    tvampm.setText(AM_PM);
+                }
+            }else {
+                tvTimeRepo.setText(Time);
+                tvampm.setText(AM_PM);
+            }
+        }else {
+            tvTimeRepo.setText(Time);
+            tvampm.setText(AM_PM);
+        }
 
         criticalSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -413,6 +439,9 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                     intent1.putExtra("SubId",SubID);
                     intent1.putExtra("Unit",Unit);
                     intent1.putExtra("Grid",grid);
+                    intent1.putExtra("EmpId",EmpID);
+                    intent1.putExtra("RepairDate",RepairDate);
+                    intent1.putExtra("RepairTypeName",RepairType);
                 }
                 else{
                     builder = new AlertDialog.Builder(LeakReportActivity.this);
@@ -466,11 +495,15 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         imgComponent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bitmap bitmap = null,bitmap1=null;
                 final Dialog builder = new Dialog(LeakReportActivity.this);
                 builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 builder.getWindow().setBackgroundDrawable(
                         new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                uri=Uri.fromFile(new File(OP.getAbsolutePath()));
+//                uri=Uri.fromFile(new File(OP.getAbsolutePath()));
+                BitmapFactory.Options opts;
+                bitmap=BitmapFactory.decodeFile(OP.getAbsolutePath());
+                bitmap1=RotateImg(OP.getAbsolutePath(),bitmap);
                 builder.setContentView(R.layout.dialog_layout);
                 ImageButton close=builder.findViewById(R.id.btnClose);
 
@@ -479,7 +512,8 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                 img.getLayoutParams().width=ViewGroup.LayoutParams.WRAP_CONTENT;
                 img.setAdjustViewBounds(false);
 
-                img.setImageURI(uri);
+//                img.setImageURI(uri);
+                img.setImageBitmap(bitmap1);
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -643,34 +677,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             mMinute = calendar.get(Calendar.MINUTE);
             mSeconds = calendar.get(Calendar.SECOND);
 
-           /* TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    String AM_PM = " AM";
-                    String mm_precede = "",hr_precede="";
-                    if (hourOfDay >= 12) {
-                        AM_PM = " PM";
-                        if (hourOfDay >=13 && hourOfDay < 24) {
-                            hourOfDay -= 12;
-                        }
-                        else {
-                            hourOfDay = 12;
-                        }
-                    } else if (hourOfDay == 0) {
-                        hourOfDay = 12;
-                    }
-                    if (minute < 10) {
-                        mm_precede = "0";
-                    }
-                    if (hourOfDay<10){
-                        hr_precede ="0";
-                    }
-                    String Date =hr_precede+ hourOfDay + ":" + mm_precede + minute+":00";
-                    tvTimeRepo.setText(Date);
-                    tvampm.setText(AM_PM);
-                }
-            }, mHour, mMinute,false);
-            timePickerDialog.show();*/
+
             MyTimePickerDialog myTimePickerDialog=new MyTimePickerDialog(this, new MyTimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute, int seconds) {
@@ -788,7 +795,12 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
 
 
     public void OpenRepair(View view) {
-        startActivity(new Intent(this, RepairRequest.class).putExtra("CompId",leakcompId).putExtra("RouteID",RouteId).putExtra("InvID",InvId).putExtra("Grid",grid).putExtra("LeakID",LeakId).putExtra("SubID",SubID).putExtra("Unit",Unit).putExtra("PermOrLeak",PermOrLeak).putExtra("LeakDateTime",DateTime).putExtra("LeakRate",Reading).putExtra("last",last));
+        startActivity(new Intent(this, RepairRequest.class).putExtra("CompId",leakcompId).
+                putExtra("RouteID",RouteId).putExtra("InvID",InvId).putExtra("Grid",grid).
+                putExtra("LeakID",LeakId).putExtra("SubID",SubID).putExtra("Unit",Unit).
+                putExtra("PermOrLeak",PermOrLeak).putExtra("LeakDateTime",DateTime).
+                putExtra("LeakRate",Reading).putExtra("last",last).putExtra("EmpId",EmpID).
+                putExtra("RepairDate",RepairDate).putExtra("RepairTypeName",RepairType).putExtra("RepairRate",repairRate));
 //        leakReportBottom.dismiss();
         finish();
     }
@@ -897,6 +909,27 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     protected void onDestroy() {
         super.onDestroy();
         save_leak_flag=false;
+    }
+
+    public static Bitmap RotateImg(String Path, Bitmap bitmap){
+        Bitmap rotatedBitmap = null;
+        try {
+            ExifInterface exif = new ExifInterface(Path);
+            int rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            int rotationInDegrees = exifToDegrees(rotation);
+            Matrix matrix = new Matrix();
+            if (rotation != 0f) {matrix.preRotate(rotationInDegrees);}
+            rotatedBitmap = Bitmap.createBitmap(bitmap,0,0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }catch(IOException ex){
+            System.out.println(ex.toString());
+        }
+        return rotatedBitmap;
+    }
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
+        return 0;
     }
 
     public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)

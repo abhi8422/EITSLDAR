@@ -1495,6 +1495,7 @@ drawable ic_clear
 drawable ic_clear_black_24dp
 drawable ic_date
 drawable ic_edit_black_24dp
+drawable ic_edit_green_24dp
 drawable ic_exit_to_app_black_24dp
 drawable ic_file_download_black_24dp
 drawable ic_file_upload_black_24dp
@@ -1672,6 +1673,7 @@ id UnLL2
 id UnLL3
 id UnLL4
 id UploadRoute
+id UploadRoutePartially
 id ViewLeaks
 id ViewSubArea
 id accessibility_action_clickable_span
@@ -1886,6 +1888,7 @@ id ed_reading
 id ed_reinspect
 id ed_repair
 id ed_travel
+id edit_leak_img
 id edit_query
 id emp1_spinner
 id end
@@ -2091,7 +2094,6 @@ id repair_date_reading
 id repair_rate_show
 id repair_time_reading
 id repair_type_show
-id repairback
 id right
 id right_icon
 id right_side
