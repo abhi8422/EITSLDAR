@@ -483,6 +483,53 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                 builder.show();
             }
             else{
+                if(new SQLiteHelper(getApplicationContext()).isLeakIDIsPresent(LeakId)){
+                    empId = employeeID;
+                    dateTime = tvDateRepair.getText().toString()+" "+tvTimeRepair.getText().toString() + AM_PM;
+                    System.out.println(dateTime);
+                    leakRepairTypeId = LeakRepairTypeId;
+                    leakRepairRate = Float.parseFloat(edPostLeak.getText().toString());
+                    //update leak Repiar
+                    sqLiteHelper.updateLeakReapir(LeakId,empId,leakRepairTypeId,leakRepairRate,dateTime);
+
+                    //&& dateTime.compareTo(datetimeLeak) < 0
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RepairRequest.this);
+                    builder.setCancelable(false);
+                    builder.setTitle("Repair Request Successful");
+                    builder.setMessage("Repair request was sent successfully");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if(leakedit_Flag){
+                                leakedit_Flag=false;
+                                startActivity(new Intent(RepairRequest.this,ShowLeaksActivity.class).putExtra("RouteID",RouteID));
+                            }else{
+                                if (last){
+                                    if (grid){
+                                        startActivity(new Intent(RepairRequest.this, ComponentsTable.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID));
+                                        finish();
+                                    }
+                                    else {
+                                        startActivity(new Intent(RepairRequest.this, ComponentDashboard.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID));
+                                        finish();
+                                    }
+                                    dialog.cancel();
+                                    finish();
+                                }
+                                else {
+                                    boolean next=true;
+                                    startActivity(new Intent(RepairRequest.this, ComponentReading.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("next",next).putExtra("Grid",grid));
+                                    dialog.cancel();
+                                    finish();
+                                }
+                            }
+
+
+                        }
+                    });
+                    builder.create();
+                    builder.show();
+                }else{
                 //Get All Data And Insert Into Leak Repairs table
                 //Get LeakRepair Id from the table and whose value is max +1.
                 addid = sqLiteHelper.getmaxLeakRepairID();
@@ -538,25 +585,7 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
                 });
                 builder.create();
                 builder.show();
-                /*if (leakRepairRate < leakRate ){
-                }
-//                else if (leakRepairRate < leakRate && dateTime.compareTo(datetimeLeak) > 0){
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(RepairRequest.this);
-//                    builder.setCancelable(false);
-//                    builder.setTitle("Date Time Error");
-//                    builder.setMessage("Repair DateTime cannot be previous than Leak DateTime");
-//                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                           dialog.dismiss();
-//                        }
-//                    });
-//                    builder.create();
-//                    builder.show();
-//                }
-                else{
-                    edPostLeak.setError("Leak value Cannot be greater than Leak Rate");
-                }*/
+            }
             }
 
         }

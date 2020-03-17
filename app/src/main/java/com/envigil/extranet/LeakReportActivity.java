@@ -108,7 +108,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
     EditText edReadingRepo;
     int leakcompId;
     int UnitNumber;
-    int SubID,LeakId;
+    int SubID,LeakId,LeakID;
     private int mDay, mMonth, mYear;
     private int mHour, mMinute, mSeconds;
     static int SELECT_FROM_CAMERA = 0;
@@ -185,7 +185,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         RepairType=intent.getStringExtra("RepairTypeName");
         LeakDate=intent.getStringExtra("LeakDate");
         repairRate=intent.getFloatExtra("RepairRate",0.0f);
-
+        LeakID=intent.getIntExtra("LeakID",0);
         // Toast.makeText(this, "Leak Report Activity::"+SubID, Toast.LENGTH_SHORT).show();
 
         tvReadingRepo.setText(String.format("%.2f",Reading+0.00));
@@ -215,12 +215,12 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_layout,LeakPathTypeName);
         LeakPathSpinner.setAdapter(adapter);
 
-        //set eakpath to spinner when flow comes from edit leak and repair
+        //set leakpath to spinner when flow comes from edit leak and repair
         if(leakedit_Flag){
             SQLiteHelper sqLiteHelper=new SQLiteHelper(getApplicationContext());
             if(sqLiteHelper.compIsInspected(InvId)){
                 //sqLiteHelper.deleteReInspectLeakRepair(InvId);
-                sqLiteHelper.deleteReInspectLeak(InvId);
+                //sqLiteHelper.deleteReInspectLeak(InvId);
             }
             if(leakpath!=null){
                 path=leakpath;
@@ -412,14 +412,20 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                         RuleCompTypeId=sqLiteHelper.getRuleCompTypeId(CompTypeId,RuleId);
                         LeakTime=sqLiteHelper.getleakRateTime(RuleCompTypeId,LeakTypeId,StrId,StrTypeId,Reading);
                     }
-                    /*Changes*/
-                    //Get The max Id and if null start new id
-                    LeakId=sqLiteHelper.getmaxLeakID();
-                    if (LeakId==0){
-                        LeakId=1;
-                    }
-                    else{
-                        LeakId=LeakId+1;
+
+
+                    if(new SQLiteHelper(getApplicationContext()).isLeakIDIsPresentLeakreport(InvId)){
+                        LeakId=LeakID;
+                    }else{
+                        /*Changes*/
+                        //Get The max Id and if null start new id
+                        LeakId=sqLiteHelper.getmaxLeakID();
+                        if (LeakId==0){
+                            LeakId=1;
+                        }
+                        else{
+                            LeakId=LeakId+1;
+                        }
                     }
                     int count = sqLiteHelper.countLeaks(RouteId,SubID,InvId);
                     if (count == 0){
@@ -434,14 +440,6 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                     bottomSheetDialog= new BottomSheetDialog(LeakReportActivity.this);
                     bottomSheetDialog.setContentView(dialogView);
                     bottomSheetDialog.show();
-                    Intent intent1 = new Intent();
-                    intent1.putExtra("CompId",leakcompId);
-                    intent1.putExtra("SubId",SubID);
-                    intent1.putExtra("Unit",Unit);
-                    intent1.putExtra("Grid",grid);
-                    intent1.putExtra("EmpId",EmpID);
-                    intent1.putExtra("RepairDate",RepairDate);
-                    intent1.putExtra("RepairTypeName",RepairType);
                 }
                 else{
                     builder = new AlertDialog.Builder(LeakReportActivity.this);
@@ -731,9 +729,6 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    public void repairCancel(View view){
-
-    }
 
     @Override
     public void onBackPressed() {
@@ -759,12 +754,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-    public void cameraTapped(View view) {
-        Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePicture.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePicture, SELECT_FROM_CAMERA);
-        }
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -800,7 +790,8 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                 putExtra("LeakID",LeakId).putExtra("SubID",SubID).putExtra("Unit",Unit).
                 putExtra("PermOrLeak",PermOrLeak).putExtra("LeakDateTime",DateTime).
                 putExtra("LeakRate",Reading).putExtra("last",last).putExtra("EmpId",EmpID).
-                putExtra("RepairDate",RepairDate).putExtra("RepairTypeName",RepairType).putExtra("RepairRate",repairRate));
+                putExtra("RepairDate",RepairDate).putExtra("RepairTypeName",RepairType).
+                putExtra("RepairRate",repairRate));
 //        leakReportBottom.dismiss();
         finish();
     }

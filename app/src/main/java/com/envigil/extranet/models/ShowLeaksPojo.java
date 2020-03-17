@@ -22,6 +22,16 @@ public class ShowLeaksPojo {
     int leakTypeID;
     int RouteID;
 
+    public int getLeakID() {
+        return LeakID;
+    }
+
+    public void setLeakID(int leakID) {
+        LeakID = leakID;
+    }
+
+    int LeakID;
+
     public String getRepairTypeName() {
         return RepairTypeName;
     }

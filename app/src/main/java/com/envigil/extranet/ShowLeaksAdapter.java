@@ -217,6 +217,7 @@ public class ShowLeaksAdapter extends RecyclerView.Adapter<ShowLeaksAdapter.Show
                     leakReportActivity.putExtra("RepairTypeName",showLeaksPojo.getRepairTypeName());
                     leakReportActivity.putExtra("RepairDate",showLeaksPojo.getRepairDate());
                     leakReportActivity.putExtra("LeakDate",showLeaksPojo.getLeakDate());
+                    leakReportActivity.putExtra("LeakID",showLeaksPojo.getLeakID());
                     leakReportActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(leakReportActivity);
             }

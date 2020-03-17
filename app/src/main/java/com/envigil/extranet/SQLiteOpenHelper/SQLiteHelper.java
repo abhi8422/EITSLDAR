@@ -2307,7 +2307,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String TagNo,Subarea,Service,Component,repairTypeName,RepairTypeName,RepairDate;
         String leakPathName,leakCritical,leakEssential,AreaName,LeakDate;
         float componentSize,leakRate,repairRate;
-        int leakTypeID,InvID,CompID,EmpID;
+        int leakTypeID,InvID,CompID,EmpID,LeakID;
         String Path="\"\" as LeakRepairRate , \"--\" as LeakRepairTypeAbbr,";
         List<ShowLeaksPojo> showLeaksPojoList = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -2315,18 +2315,18 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "                LeakRate as LeakRate, LeakRepairRate as LeakRepairRate, LeakRepairTypeAbbr as LeakRepairTypeAbbr,\n" +
                 "                SubName as SubName, AreaName as AreaName, StrTypeName as StrTypeName, CompName as CompName, LeakPathTypeAbbr as LeakPathTypeAbbr, \n" +
                 "                LeakTypeID as LeakTypeID, CRITICAL as CRITICAL,ESSENTIAL as ESSENTIAL,LeakImage as LeakImage,EmpID as EmpID,LeakRepairDate as LeakRepairDate,\n" +
-                "\t\t\t\tLeakRepairTypeName as LeakRepairTypeName, InvID as InvID,LeakDate as LeakDate  \n" +
+                "\t\t\t\tLeakRepairTypeName as LeakRepairTypeName, InvID as InvID,LeakDate as LeakDate,LeakID as LeakID  \n" +
                 "                FROM \n" +
                 "                ( \n" +
                 "                SELECT X.InvOrder, X.InvTag, X.SubID,  X.StrTypeID, X.CompID,   X.InvSize, \n" +
                 "                X.LeakRate,\"--\" as LeakRepairRate , \"--\" as LeakRepairTypeAbbr, \n" +
                 "                SubAreas.SubName as SubName, SubAreas.AreaName as AreaName, StreamTypes.StrTypeName as StrTypeName, Components.CompName as CompName, \n" +
                 "                 X.LeakPathTypeAbbr as LeakPathTypeAbbr, X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage,\n" +
-                "\t\t\t\t\"--\" as EmpID,\"--\" as LeakRepairDate, \"--\" as LeakRepairTypeName ,X.InvID,X.LeakDate \n" +
+                "\t\t\t\t\"--\" as EmpID,\"--\" as LeakRepairDate, \"--\" as LeakRepairTypeName ,X.InvID,X.LeakDate,X.LeakID \n" +
                 "                FROM \n" +
                 "                ( \n" +
                 "                SELECT A.InvOrder, A.InvTag, B.InvTag, A.SubID, A.CompID, A.InvSize, A.StrTypeID, B.LeakRate, B.LeakPathTypeID, B.LeakTypeID, \n" +
-                "                B.LeakPathTypeAbbr, B.LeakImage,B.InvID,B.LeakDate, \n" +
+                "                B.LeakPathTypeAbbr, B.LeakImage,B.InvID,B.LeakDate,B.LeakID, \n" +
                 "                CASE WHEN B.LeakBit1 = 1 THEN 'CRITICAL' \n" +
                 "                END AS [CRITICAL], \n" +
                 "                CASE WHEN B.LeakBit5 = 1 THEN 'ESSENTIAL' \n" +
@@ -2334,7 +2334,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "                FROM Inventory A INNER JOIN \n" +
                 "                ( \n" +
                 "                SELECT Leaks.LeakId, Leaks.InvTag, Leaks.LeakRate, Leaks.LeakPathTypeID, Leaks.LeakTypeID, \n" +
-                "                Leaks.LeakBit1, Leaks.LeakBit5, LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage,Leaks.InvID,Leaks.LeakDate \n" +
+                "                Leaks.LeakBit1, Leaks.LeakBit5, LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage,Leaks.InvID,Leaks.LeakDate,Leaks.LeakID \n" +
                 "                FROM Leaks INNER JOIN LeakPathTypes ON Leaks.LeakPathTypeID = LeakPathTypes.LeakPathTypeID \n" +
                 "                WHERE LeakId NOT IN \n" +
                 "                (SELECT Leaks.LeakId FROM Leaks INNER JOIN LeakRepairs ON Leaks.LeakId = LeakRepairs.LeakId) \n" +
@@ -2350,18 +2350,19 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "                X.LeakRate as LeakRate, X.LeakRepairRate as LeakRepairRate, X.LeakRepairTypeAbbr as LeakRepairTypeAbbr, \n" +
                 "                SubAreas.SubName as SubName, SubAreas.AreaName as AreaName, StreamTypes.StrTypeName as StrTypeName, Components.CompName as CompName, \n" +
                 "                X.LeakPathTypeAbbr as LeakPathTypeAbbr,X.LeakTypeID as LeakTypeID, X.CRITICAL as CRITICAL,X.ESSENTIAL as ESSENTIAL,X.LeakImage,\n" +
-                "\t\t\t\tX.EmpID,X.LeakRepairDate,X.LeakRepairTypeName,X.InvID,X.LeakDate  \n" +
+                "\t\t\t\tX.EmpID,X.LeakRepairDate,X.LeakRepairTypeName,X.InvID,X.LeakDate,X.LeakID  \n" +
                 "                FROM \n" +
                 "                ( \n" +
                 "                SELECT A.InvOrder, A.InvTag, A.SubID, A.StrTypeID, A.CompID, A.InvSize, \n" +
                 "                B.LeakRate, B.LeakRepairRate, B.LeakRepairTypeAbbr,B.LeakPathTypeAbbr,B.LeakTypeID,B.CRITICAL,B.ESSENTIAL,B.LeakImage,B.EmpID,B.LeakRepairDate,\n" +
-                "\t\t\t\tB.LeakRepairTypeName,B.InvID,B.LeakDate  \n" +
+                "\t\t\t\tB.LeakRepairTypeName,B.InvID,B.LeakDate,B.LeakID  \n" +
                 "                FROM Inventory A INNER JOIN \n" +
                 "                ( \n" +
                 "                SELECT Leaks.LeakID, Leaks.InvTag, Leaks.LeakRate,Leaks.LeakTypeID, \n" +
                 "                LeakRepairs.LeakID, LeakRepairs.LeakRepairRate, LeakRepairs.LeakRepairTypeID, \n" +
                 "                LeakRepairTypes.LeakRepairTypeID, LeakRepairTypes.LeakRepairTypeAbbr, \n" +
-                "                LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage, LeakRepairs.EmpID , LeakRepairs.LeakRepairDate , LeakRepairTypes.LeakRepairTypeName ,Leaks.InvID,Leaks.LeakDate, \n" +
+                "                LeakPathTypes.LeakPathTypeAbbr,Leaks.LeakImage, LeakRepairs.EmpID , LeakRepairs.LeakRepairDate , LeakRepairTypes.LeakRepairTypeName ,\n" +
+                "\t\t\t\tLeaks.InvID,Leaks.LeakDate,Leaks.LeakID, \n" +
                 "                CASE WHEN Leaks.LeakBit1 = 1 THEN 'CRITICAL' \n" +
                 "                END AS [CRITICAL], \n" +
                 "                CASE WHEN Leaks.LeakBit5 = 1 THEN 'ESSENTIAL' \n" +
@@ -2402,6 +2403,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 RepairTypeName=cursor.getString(cursor.getColumnIndex("LeakRepairTypeName"));
                 RepairDate=cursor.getString(cursor.getColumnIndex("LeakRepairDate"));
                 LeakDate=cursor.getString(cursor.getColumnIndex("LeakDate"));
+                LeakID=cursor.getInt(cursor.getColumnIndex("LeakID"));
                 ShowLeaksPojo showLeaksPojo = new ShowLeaksPojo(TagNo, Subarea, AreaName, Service, Component, repairTypeName, leakPathName, componentSize, leakRate, repairRate, leakTypeID, leakCritical, leakEssential);
                 showLeaksPojo.setRouteID(routeID);
                 showLeaksPojo.setPath(Path);
@@ -2412,6 +2414,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 showLeaksPojo.setRepairDate(RepairDate);
                 showLeaksPojo.setRepairTypeName(RepairTypeName);
                 showLeaksPojo.setLeakDate(LeakDate);
+                showLeaksPojo.setLeakID(LeakID);
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -2693,6 +2696,44 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         cursor.close();
         database.close();
         return Name;
+    }
+
+    public boolean isLeakIDIsPresent(int leakid){
+        SQLiteDatabase database=getWritableDatabase();
+        String query="Select LeakID from LeakRepairs where LeakID="+leakid;
+        Cursor cursor=database.rawQuery(query,null);
+        cursor.moveToFirst();
+        cursor.close();
+        database.close();
+        if(cursor.getCount()>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public boolean isLeakIDIsPresentLeakreport(int invid){
+        SQLiteDatabase database=getWritableDatabase();
+        String query="Select LeakID from Leaks where InvID="+invid;
+        Cursor cursor=database.rawQuery(query,null);
+        cursor.moveToFirst();
+        cursor.close();
+        database.close();
+        if(cursor.getCount()>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public void updateLeakReapir(int leakId, int empId, int leakRepairTypeId, float leakRepairRate, String dateTime){
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("EmpID",empId);
+        contentValues.put("LeakRepairTypeID",leakRepairTypeId);
+        contentValues.put("LeakRepairRate",leakRepairRate);
+        contentValues.put("LeakRepairDate",dateTime);
+        database.update(TAB_LeakRepairs,contentValues,"LeakId = " + leakId,null);
+        database.close();
     }
 
 
