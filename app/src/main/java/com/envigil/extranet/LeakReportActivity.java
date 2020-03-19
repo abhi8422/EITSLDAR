@@ -444,7 +444,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                 else{
                     builder = new AlertDialog.Builder(LeakReportActivity.this);
                     //Setting message manually and performing action on button click
-                    builder.setMessage("Please Select A Leak Path !")
+                    builder.setMessage("Please Select A Leak Path ")
                             .setCancelable(false)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
@@ -458,7 +458,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
                     //Creating dialog box
                     AlertDialog alert = builder.create();
                     //Setting the title manually
-                    alert.setTitle("Leak Path Not Selected!!");
+                    alert.setTitle("Leak Path Not Selected");
                     alert.show();
                 }
 
@@ -750,7 +750,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             //Creating dialog box
             AlertDialog alert = builder.create();
             //Setting the title manually
-            alert.setTitle("Saving Leak Summary is Mandatory !!");
+            alert.setTitle("Saving Leak Summary is Mandatory !");
             alert.show();
 
     }

@@ -316,7 +316,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                     //Creating dialog box
                     AlertDialog alert = builder.create();
                     //Setting the title manually
-                    alert.setTitle("This is the last component !!");
+                    alert.setTitle("This is the last component");
                     alert.show();
                     btnNext.setBackgroundResource(R.drawable.button_layout_onclick);
                     btnNext.setClickable(false);
@@ -413,7 +413,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                     //Creating dialog box
                     AlertDialog alert = builder.create();
                     //Setting the title manually
-                    alert.setTitle("This is the first component !!");
+                    alert.setTitle("This is the first component ");
                     alert.show();
                   btnPrevious.setBackgroundResource(R.drawable.button_layout_onclick);
                   btnPrevious.setClickable(false);
@@ -577,7 +577,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                         //Creating dialog box
                         AlertDialog alert = builder.create();
                         //Setting the title manually
-                        alert.setTitle("The Component is already inspected !");
+                        alert.setTitle("The Component is already inspected");
                         alert.show();
                     }
                     else{
@@ -663,7 +663,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                                     }
                                                     builder = new AlertDialog.Builder(ComponentReading.this);
                                                     //Setting message manually and performing action on button click
-                                                    builder.setMessage("Navigating to Leak Summary !")
+                                                    builder.setMessage("Navigating to Leak Summary ")
                                                             .setCancelable(false)
                                                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                 public void onClick(DialogInterface dialog, int id) {
@@ -676,7 +676,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                                     //Creating dialog box
                                                     AlertDialog alert = builder.create();
                                                     //Setting the title manually
-                                                    alert.setTitle("A Leak has been Identified !!");
+                                                    alert.setTitle("A Leak has been Identified ");
                                                     alert.show();
                                                 } else {
 
@@ -731,7 +731,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
 
                                                             builder = new AlertDialog.Builder(ComponentReading.this);
                                                             //Setting message manually and performing action on button click
-                                                            builder.setMessage("Navigating to Leak Summary !")
+                                                            builder.setMessage("Navigating to Leak Summary ")
                                                                     .setCancelable(false)
                                                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                         public void onClick(DialogInterface dialog, int id) {
@@ -745,7 +745,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                                             //Creating dialog box
                                                             AlertDialog alert = builder.create();
                                                             //Setting the title manually
-                                                            alert.setTitle("A Leak has been Identified !!");
+                                                            alert.setTitle("A Leak has been Identified ");
                                                             alert.show();
                                                         }
                                                         else {
@@ -806,7 +806,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
 
                                                         builder = new AlertDialog.Builder(ComponentReading.this);
                                                         //Setting message manually and performing action on button click
-                                                        builder.setMessage("Navigating to Leak Summary !")
+                                                        builder.setMessage("Navigating to Leak Summary ")
                                                                 .setCancelable(false)
                                                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                     public void onClick(DialogInterface dialog, int id) {
@@ -820,7 +820,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                                         //Creating dialog box
                                                         AlertDialog alert = builder.create();
                                                         //Setting the title manually
-                                                        alert.setTitle("A Leak has been Identified !!");
+                                                        alert.setTitle("A Leak has been Identified ");
                                                         alert.show();
                                                     }
                                                     else {
@@ -855,7 +855,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                         //Creating dialog box
                         AlertDialog alert = builder.create();
                         //Setting the title manually
-                        alert.setTitle("The Component is already inspected !");
+                        alert.setTitle("The Component is already inspected ");
                         alert.show();
                     }
                     //If Not Inspected
@@ -907,7 +907,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                     }
                                     builder = new AlertDialog.Builder(ComponentReading.this);
                                     //Setting message manually and performing action on button click
-                                    builder.setMessage("Navigating to Leak Summary !")
+                                    builder.setMessage("Navigating to Leak Summary ")
                                             .setCancelable(false)
                                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int id) {
@@ -920,7 +920,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                     //Creating dialog box
                                     AlertDialog alert = builder.create();
                                     //Setting the title manually
-                                    alert.setTitle("A Leak has been Identified !!");
+                                    alert.setTitle("A Leak has been Identified ");
                                     alert.show();
                                 }
                                 else {
@@ -980,7 +980,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
 
                                             builder = new AlertDialog.Builder(ComponentReading.this);
                                             //Setting message manually and performing action on button click
-                                            builder.setMessage("Navigating to Leak Summary !")
+                                            builder.setMessage("Navigating to Leak Summary ")
                                                     .setCancelable(false)
                                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                         public void onClick(DialogInterface dialog, int id) {
@@ -994,7 +994,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                             //Creating dialog box
                                             AlertDialog alert = builder.create();
                                             //Setting the title manually
-                                            alert.setTitle("A Leak has been Identified !!");
+                                            alert.setTitle("A Leak has been Identified ");
                                             alert.show();
                                         }
                                         else {
@@ -1055,7 +1055,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
 
                                         builder = new AlertDialog.Builder(ComponentReading.this);
                                         //Setting message manually and performing action on button click
-                                        builder.setMessage("Navigating to Leak Summary !")
+                                        builder.setMessage("Navigating to Leak Summary ")
                                                 .setCancelable(false)
                                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                     public void onClick(DialogInterface dialog, int id) {
@@ -1069,7 +1069,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                         //Creating dialog box
                                         AlertDialog alert = builder.create();
                                         //Setting the title manually
-                                        alert.setTitle("A Leak has been Identified !!");
+                                        alert.setTitle("A Leak has been Identified");
                                         alert.show();
                                     }
                                     else {
@@ -1329,7 +1329,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
             //Creating dialog box
             AlertDialog alert = builder.create();
             //Setting the title manually
-            alert.setTitle("This is the last component !!");
+            alert.setTitle("This is the last component");
             alert.show();
             btnNext.setBackgroundResource(R.drawable.button_layout_onclick);
         }

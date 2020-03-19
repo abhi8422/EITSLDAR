@@ -102,7 +102,7 @@ public class PrevInspection extends AppCompatActivity {
                 }
                 else {
                     builder = new AlertDialog.Builder(PrevInspection.this);
-                    builder.setTitle("Not connected to internet!!");
+                    builder.setTitle("Not connected to internet");
                     builder.setMessage("Check your internet connection and try again.");
                     builder.setCancelable(false);
                     builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {

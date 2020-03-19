@@ -325,13 +325,13 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
                 String repair = ed_repair.getText().toString();
                 String reinspect = ed_reinspect.getText().toString();
                 if (inspec_date.equals(""))
-                    tv_insp_date.setError("Date Cannot be Empty !");
+                    tv_insp_date.setError("Date Cannot be Empty ");
                 else if (start_time.equals(""))
-                    tv_insp_strt.setError("Time Cannot Be Empty !");
+                    tv_insp_strt.setError("Time Cannot Be Empty ");
                 else if (end_time.equals(""))
-                    tv_insp_end.setError("Time Cannot Be Empty !");
+                    tv_insp_end.setError("Time Cannot Be Empty ");
                 else if (lunch.equals(""))
-                    ed_lunch.setError("Lunch Time Cannot Be Empty !");
+                    ed_lunch.setError("Lunch Time Cannot Be Empty ");
                 else if (travel.equals(""))
                     ed_travel.setError("Enter Travel Time");
                 else if (admin.equals(""))
@@ -430,7 +430,7 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
                      public void run() {
                          AlertDialog.Builder builder = new AlertDialog.Builder(Inspections.this);
                          //Setting message manually and performing action on button click
-                         builder.setMessage("Please Enter A Valid Inspection !!")
+                         builder.setMessage("Please Enter A Valid Inspection")
                                  .setCancelable(false)
                                  .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                                      public void onClick(DialogInterface dialog, int id) {

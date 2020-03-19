@@ -63,6 +63,9 @@
         <activity android:name="com.envigil.extranet.AddInspectionDate.AddInspectionDate" >
         </activity>
         <activity
+            android:name="com.envigil.extranet.DeleteRoute"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.envigil.extranet.InternetCheck"
             android:screenOrientation="portrait" >
             <intent-filter>

@@ -34,6 +34,8 @@
         <activity android:name=".AddInspectionDate.AddInspectionDate">
 
         </activity>
+        <activity android:name=".DeleteRoute"
+            android:screenOrientation="portrait"/>
         <activity android:name=".InternetCheck"
             android:screenOrientation="portrait">
 

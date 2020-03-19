@@ -42,7 +42,7 @@ public class DeleteRoute extends AppCompatActivity {
         int adapterSize = deleteRouteAdapter.getItemCount();
         if (adapterSize == 0){
             androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("No Routes Are Downloaded !");
+            builder.setTitle("No Routes Are Downloaded");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int i) {

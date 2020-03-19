@@ -145,7 +145,7 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
                         if (DAEP.equals("0")||DAEP.equals("false")){
                             builder = new AlertDialog.Builder(getContext());
                             //Setting message manually and performing action on button click
-                            builder.setMessage("Do you want to mark all components as inspected and proceed !")
+                            builder.setMessage("Do you want to mark all components as inspected and proceed ")
                                     .setCancelable(false)
                                     .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
@@ -171,7 +171,7 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
                         else {
                             builder = new AlertDialog.Builder(getContext());
                             //Setting message manually and performing action on button click
-                            builder.setMessage("Route is not Inspected you cannot upload the route !")
+                            builder.setMessage("Route is not Inspected you cannot upload the route ")
                                     .setCancelable(false)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
@@ -217,7 +217,7 @@ public class DownloadedBottomSheetFrag extends BottomSheetDialogFragment{
                 else {
                     builder = new AlertDialog.Builder(getContext());
                     //Setting message manually and performing action on button click
-                    builder.setMessage("Only "+compCnt+" Of "+compCntTotal+" Components are Inspected ! Do you want to upload it partially ?")
+                    builder.setMessage("Only "+compCnt+" Of "+compCntTotal+" Components are Inspected. Do you want to upload it partially ?")
                             .setCancelable(false)
                             .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {

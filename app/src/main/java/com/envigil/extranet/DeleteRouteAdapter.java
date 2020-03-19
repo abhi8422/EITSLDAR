@@ -125,7 +125,7 @@ public class DeleteRouteAdapter extends RecyclerView.Adapter<DeleteRouteAdapter.
             String inspdate = list.get(pos).getInspdate();
             LeakImagePath = sqLiteHelper.getAllLeakImagePath(Id);
             final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getRootView().getContext());
-            alertDialogBuilder.setMessage("Are you sure you want to delete "+RouteName+" Route?");
+            alertDialogBuilder.setTitle("Are you sure you want to delete "+RouteName+" Route?");
             alertDialogBuilder.setCancelable(false);
             alertDialogBuilder.setPositiveButton("Yes",
                     new DialogInterface.OnClickListener() {
@@ -149,7 +149,7 @@ public class DeleteRouteAdapter extends RecyclerView.Adapter<DeleteRouteAdapter.
                             sqLiteHelper.deleteRoutesConfig(Id);
 
                             AlertDialog.Builder alertdialogBuilder= new AlertDialog.Builder(v.getRootView().getContext());
-                            alertdialogBuilder.setMessage("Route "+RouteName+" has been Deleted !");
+                            alertdialogBuilder.setTitle("Route "+RouteName+" has been Deleted");
                             alertdialogBuilder.setCancelable(false);
                             alertdialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override

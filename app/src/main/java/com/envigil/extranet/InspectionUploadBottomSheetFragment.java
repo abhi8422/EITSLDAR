@@ -228,7 +228,7 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
                 }
                 else{
                         builder = new AlertDialog.Builder(context);
-                        builder.setTitle("Not connected to internet!!");
+                        builder.setTitle("Not connected to internet");
                         builder.setMessage("Check your internet connection and try again.");
                         builder.setCancelable(false);
                         builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
@@ -515,7 +515,7 @@ public class InspectionUploadBottomSheetFragment extends BottomSheetDialogFragme
                 //Creating dialog box
                 AlertDialog alert = builder.create();
                 //Setting the title manually
-                alert.setTitle("Upload failed !!");
+                alert.setTitle("Upload failed");
                 alert.show();
             }
         }
