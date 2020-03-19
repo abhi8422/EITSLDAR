@@ -606,6 +606,7 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         drawerLayout = findViewById(R.id.activity_repair_request);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_leak_repair);
         navigationView.getMenu().removeItem(R.id.home_app);
+        navigationView.getMenu().removeItem(R.id.delete_route);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -672,6 +673,7 @@ public class RepairRequest extends AppCompatActivity implements View.OnClickList
         super.onBackPressed();
         if(leakedit_Flag){
             startActivity(new Intent(RepairRequest.this,ShowLeaksActivity.class).putExtra("RouteID",RouteID));
+            finish();
             leakedit_Flag=false;
         }else {
             startActivity(new Intent(RepairRequest.this,LeakReportActivity.class).putExtra("SubId",SubId).putExtra("RouteID",RouteID).putExtra("InvID",InvID).putExtra("CompId",repaircompID).putExtra("Unit",Unit).putExtra("PermOrLeak",PermOrLeak).putExtra("LeakRate",leakRate).putExtra("Grid",grid));

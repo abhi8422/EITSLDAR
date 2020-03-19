@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Extranet.iml" filepath="$PROJECT_DIR$/Extranet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ksoap2-android-assembly-3.4.0-jar-with-dependencies/ksoap2-android-assembly-3.4.0-jar-with-dependencies.iml" filepath="$PROJECT_DIR$/ksoap2-android-assembly-3.4.0-jar-with-dependencies/ksoap2-android-assembly-3.4.0-jar-with-dependencies.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tableview/tableview.iml" filepath="$PROJECT_DIR$/tableview/tableview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Extranet.iml" filepath="$PROJECT_DIR$/Extranet.iml" group="Extranet" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Extranet/app" />
+      <module fileurl="file://$PROJECT_DIR$/ksoap2-android-assembly-3.4.0-jar-with-dependencies/ksoap2-android-assembly-3.4.0-jar-with-dependencies.iml" filepath="$PROJECT_DIR$/ksoap2-android-assembly-3.4.0-jar-with-dependencies/ksoap2-android-assembly-3.4.0-jar-with-dependencies.iml" group="Extranet/ksoap2-android-assembly-3.4.0-jar-with-dependencies" />
+      <module fileurl="file://$PROJECT_DIR$/tableview/tableview.iml" filepath="$PROJECT_DIR$/tableview/tableview.iml" group="Extranet/tableview" />
     </modules>
   </component>
 </project>

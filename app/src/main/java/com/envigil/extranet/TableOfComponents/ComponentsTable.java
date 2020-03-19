@@ -179,6 +179,7 @@ public class ComponentsTable extends AppCompatActivity {
         drawerLayout = findViewById(R.id.cmptable_layout);
         NavigationView navigationView = findViewById(R.id.nav_view_cmptable);
         navigationView.getMenu().removeItem(R.id.home_app);
+        navigationView.getMenu().removeItem(R.id.delete_route);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

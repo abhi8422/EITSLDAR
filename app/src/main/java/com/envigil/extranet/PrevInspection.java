@@ -192,6 +192,7 @@ public class PrevInspection extends AppCompatActivity {
         drawerLayout = findViewById(R.id.activity_prev_inspection);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_perv_inspection);
         navigationView.getMenu().removeItem(R.id.home_app);
+        navigationView.getMenu().removeItem(R.id.delete_route);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

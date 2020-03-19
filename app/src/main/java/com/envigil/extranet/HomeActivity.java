@@ -322,6 +322,10 @@ public class HomeActivity extends AppCompatActivity {
 //                    Toast.makeText(getApplicationContext(),"Redirecting to bluetooth configuration",Toast.LENGTH_SHORT).show();
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }
+                else if (menuId==R.id.delete_route){
+                    startActivity(new Intent(HomeActivity.this,DeleteRoute.class));
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }
                 else {
                     finish();
                 }

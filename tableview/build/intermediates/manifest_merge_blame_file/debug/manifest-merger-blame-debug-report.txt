@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/tableview/src/main/AndroidManifest.xml
+8-->C:\Users\Sudarshan\Desktop\Extranet18Mar\tableview\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/apple/Desktop/Extranet_14_FEB_TRUNCK/Extranet/tableview/src/main/AndroidManifest.xml
+9-->C:\Users\Sudarshan\Desktop\Extranet18Mar\tableview\src\main\AndroidManifest.xml
 10
 11</manifest>

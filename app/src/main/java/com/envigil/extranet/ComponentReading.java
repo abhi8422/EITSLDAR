@@ -614,15 +614,15 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
 
                                         //Delete Previous LeakRepair and Leaks.
                                         // Delete Leak Image if existed.
-                                        String path=sqLiteHelper.LeakImagePath(InvId);
-                                        if (path!=null){
-                                            File fp=new File(path);
-                                            if (fp.exists()){
-                                                fp.delete();
-                                            }
-                                        }
-                                        sqLiteHelper.deleteReInspectLeakRepair(InvId);
-                                        sqLiteHelper.deleteReInspectLeak(InvId);
+//                                        String path=sqLiteHelper.LeakImagePath(InvId);
+//                                        if (path!=null){
+//                                            File fp=new File(path);
+//                                            if (fp.exists()){
+//                                                fp.delete();
+//                                            }
+//                                        }
+//                                        sqLiteHelper.deleteReInspectLeakRepair(InvId);
+//                                        sqLiteHelper.deleteReInspectLeak(InvId);
 
                                         //Get Facility ID
                                         FacId = sqLiteHelper.getFacId(RouteId);
@@ -1167,6 +1167,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
         drawerLayout = findViewById(R.id.ComponentReadingDrawer);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_screening_value);
         navigationView.getMenu().removeItem(R.id.home_app);
+        navigationView.getMenu().removeItem(R.id.delete_route);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

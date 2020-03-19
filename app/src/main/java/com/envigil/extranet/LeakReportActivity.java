@@ -571,6 +571,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.DONUT)
     private void displayLocationSettingsRequest(Context context) {
         GoogleApiClient googleApiClient = new GoogleApiClient.Builder(context)
                 .addApi(LocationServices.API).build();
@@ -802,6 +803,7 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
             int routeid=RouteId;
             startActivity(new Intent(LeakReportActivity.this,ShowLeaksActivity.class).putExtra("RouteID",routeid));
             bottomSheetDialog.dismiss();
+            finish();
         }else {
             if (last){
             /*startActivity(new Intent(LeakReportActivity.this, ComponentDashboard.class).putExtra("SubId",SubID).putExtra("RouteID",RouteId));
@@ -832,69 +834,6 @@ public class LeakReportActivity extends AppCompatActivity implements View.OnClic
         date=sqLiteHelper.getRouteConfigDate(RouteID);
         return date;
     }
-
-   /* private void configureToolbar() {
-        Toolbar nav_toolbar = findViewById(R.id.nav_toolbar_leak_summary);
-        setSupportActionBar(nav_toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
-
-    private void configureNavDrawer() {
-        drawerLayout = findViewById(R.id.activity_leak_report);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_leak_report);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction, fragmentTransaction1, fragmentTransaction2;
-                int menuId = item.getItemId();
-
-
-                if (menuId == R.id.home_app) {
-                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.example.mainapplication");
-                    startActivity(intent);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    finish();
-                } else if (menuId == R.id.inspect_routes) {
-                    finish();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (menuId == R.id.down_routes) {
-//                    fraglayout.setCurrentItem(1);
-//                    startActivity(new Intent(ComponentDashboard.this,HomeActivity.class));
-                    HomeActivity.fraglayout.setCurrentItem(1);
-                    finish();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (menuId == R.id.upload_routes) {
-//                    fraglayout.setCurrentItem(0);
-                    finish();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (menuId == R.id.bt_config) {
-                    startActivity(new Intent(LeakReportActivity.this, Bluetooth.class));
-
-//                    Toast.makeText(getApplicationContext(),"Redirecting to bluetooth configuration",Toast.LENGTH_SHORT).show();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    moveTaskToBack(true);
-                    finish();
-                }
-                return true;
-            }
-        });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId){
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return true;
-    }*/
 
     @Override
     protected void onDestroy() {

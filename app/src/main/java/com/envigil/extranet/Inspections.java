@@ -84,6 +84,7 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
     ProgressDialog progressDialog;
     LinearLayout insp_layout;
     ProgressBar insp_progress_bar;
+    boolean partial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +129,7 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
         Intent intent=getIntent();
         WorkID = intent.getIntExtra("WorkID",0);
         RouteID = intent.getIntExtra("RouteID", 0);
+        partial=intent.getBooleanExtra("Partially",false);
         //Toast.makeText(this, "Work ID : : "+WorkID, Toast.LENGTH_SHORT).show();
         Names.add("Select Employee Name");
         EmpIds.add(0);
@@ -491,7 +493,7 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
                                  insp_layout.setVisibility(View.VISIBLE);
                                  insp_progress_bar.setVisibility(View.GONE);
                                  insp_progress_txt.setVisibility(View.GONE);
-                                 startActivity(new Intent(Inspections.this,PrevInspection.class).putExtra("WorkId",WorkID).putExtra("RouteID",RouteID));
+                                 startActivity(new Intent(Inspections.this,PrevInspection.class).putExtra("WorkId",WorkID).putExtra("RouteID",RouteID).putExtra("Partially",partial));
                                  finish();
                              }
                          });
@@ -532,7 +534,7 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
         drawerLayout = findViewById(R.id.activity_inspections);
         NavigationView navigationView = findViewById(R.id.nav_view_inspections);
         navigationView.getMenu().removeItem(R.id.home_app);
-
+        navigationView.getMenu().removeItem(R.id.delete_route);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

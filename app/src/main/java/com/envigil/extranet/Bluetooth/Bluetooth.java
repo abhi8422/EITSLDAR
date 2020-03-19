@@ -542,6 +542,9 @@ public class Bluetooth extends AppCompatActivity {
     private void configureNavDrawer() {
         drawerLayout = findViewById(R.id.layout);
         NavigationView navigationView = findViewById(R.id.nav_view_bluetooth);
+        navigationView.getMenu().removeItem(R.id.delete_route);
+        navigationView.getMenu().removeItem(R.id.home_app);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -549,13 +552,13 @@ public class Bluetooth extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction, fragmentTransaction1, fragmentTransaction2;
                 int menuId = item.getItemId();
 
-                if (menuId == R.id.home_app){
-                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.example.mainapplication");
-                    startActivity(intent);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    finish();
-                }
-                else if (menuId == R.id.inspect_routes){
+//                if (menuId == R.id.home_app){
+//                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.example.mainapplication");
+//                    startActivity(intent);
+//                    drawerLayout.closeDrawer(GravityCompat.START);
+//                    finish();
+//                }
+                 if (menuId == R.id.inspect_routes){
 
                     finish();
                     drawerLayout.closeDrawer(GravityCompat.START);

@@ -87,6 +87,7 @@ public class ComponentDashboard extends AppCompatActivity {
         drawerLayout = findViewById(R.id.activity_route_component);
         NavigationView navigationView = findViewById(R.id.nav_view_component_dashboard);
         navigationView.getMenu().removeItem(R.id.home_app);
+        navigationView.getMenu().removeItem(R.id.delete_route);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
