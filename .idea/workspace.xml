@@ -7,117 +7,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b27ba44-c11e-4069-add4-2c1395fa0546" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/release/24March_LDAR_v2.2_DEV.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/release/24March_LDAR_v2.2_PROD.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/envigil/extranet/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/envigil/extranet/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/com/envigil/extranet/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/com/envigil/extranet/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/release/single/release.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/release/single/release.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AddInspectionDate/AddInspectionDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AddInspectionDate/AddInspectionDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AllBottomSheetFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AllBottomSheetFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AvailableArrayAdapter$AvailableViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AvailableArrayAdapter$AvailableViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AvailableArrayAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AvailableArrayAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AvailableWorkOrderFrag.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/AvailableWorkOrderFrag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Bluetooth/Bluetooth$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Bluetooth/Bluetooth$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Bluetooth/Bluetooth.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Bluetooth/Bluetooth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentBottomFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentBottomFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentDashboard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentDashboard$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentDashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/release/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/release/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/release/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/BuildConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/BuildConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$ProgressRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading$ProgressRunnable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/ComponentReading.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/DownloadedBottomSheetFrag$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/DownloadedBottomSheetFrag$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment$Async.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment$Async.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/Inspections$async$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/Inspections$async$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/Inspections.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/Inspections.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/LeakReportActivity$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/LeakReportActivity$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/LeakReportActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/LeakReportActivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/PrevInspection$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/PrevInspection$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/WebService/WebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/envigil/extranet/WebService/WebService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/BuildConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/BuildConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$ProgressRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading$ProgressRunnable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentReading.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentsInspectedFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentsInspectedFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentsUninspectedFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ComponentsUninspectedFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/DownloadedBottomSheetFrag.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/DownloadedBottomSheetFrag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/DownloadedWorkOrderFrag.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/DownloadedWorkOrderFrag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeActivity$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeActivity$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeRecyclerAdapter$DownloadedRecyclerViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeRecyclerAdapter$DownloadedRecyclerViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeRecyclerAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/HomeRecyclerAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/InspectionUploadBottomSheetFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async2$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections$async2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/Inspections.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/InternetCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/InternetCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$6$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$6$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/LeakReportActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspection$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspection$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspection.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspectionAdapter$InspectionViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspectionAdapter$InspectionViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspectionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/PrevInspectionAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RepairRequest$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RepairRequest$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RepairRequest$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RepairRequest$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RepairRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RepairRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteAllFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteAllFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboardAdapter$ViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboardAdapter$ViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboardAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteDashboardAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteInspectedAdapter$ViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteInspectedAdapter$ViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteInspectedAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteInspectedAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteInspectedFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteInspectedFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteReadingBottomSheetFrag.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteReadingBottomSheetFrag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteRecyclerAdapter$RouteRecyclerViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteRecyclerAdapter$RouteRecyclerViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteRecyclerAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteRecyclerAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteUnInspectedFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteUnInspectedFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteUninspectedAdapter$ViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteUninspectedAdapter$ViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteUninspectedAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/RouteUninspectedAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksActivity$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksActivity$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksAdapter$ShowLeaksViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksAdapter$ShowLeaksViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ShowLeaksAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/SubAreaBackgroundReadingFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/SubAreaBackgroundReadingFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TableOfComponents/ComponentsTable$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TableOfComponents/ComponentsTable$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TableOfComponents/ComponentsTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TableOfComponents/ComponentsTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TableOfComponents/adapter/ContentAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TableOfComponents/adapter/ContentAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TestRecycler$DownloadedRecyclerViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TestRecycler$DownloadedRecyclerViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TestRecycler.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/TestRecycler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/UninspectedCmpBottomSheet/UninspectedCmpBottomSheetFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/UninspectedCmpBottomSheet/UninspectedCmpBottomSheetFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/UninspectedCompoAdapter$UnViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/UninspectedCompoAdapter$UnViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/UninspectedCompoAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/UninspectedCompoAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ViewComponentAdapter$ViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ViewComponentAdapter$ViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ViewComponentAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/ViewComponentAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/fragments/CompReadingBottomFrag.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/fragments/CompReadingBottomFrag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/WebService/WebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/release/classes/com/envigil/extranet/WebService/WebService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/release/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/release/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/release/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_leak_reporting_bottom.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_leak_reporting_bottom.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/release/layout_fragment_leak_reporting_bottom.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/release/layout_fragment_leak_reporting_bottom.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/DeleteRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/DeleteRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/DeleteRouteAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/DeleteRouteAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/DownloadedBottomSheetFrag.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/DownloadedBottomSheetFrag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/InspectionUploadBottomSheetFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/InspectionUploadBottomSheetFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/Inspections.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/Inspections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/LeakReportActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/LeakReportActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/PrevInspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/PrevInspection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_leak_reporting_bottom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_leak_reporting_bottom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,6 +122,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ApkExportedModule" value="app" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="emulator-5554" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-16T04:49:16.707Z" />
@@ -295,6 +261,9 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -377,6 +346,106 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/LeakReportActivity.java</url>
           <line>423</line>
           <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>881</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>882</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>883</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>868</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>870</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>872</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>878</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>895</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>899</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>953</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>955</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>956</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>957</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>959</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>961</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>875</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.java</url>
+          <line>1556</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.java</url>
+          <line>1559</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/SQLiteOpenHelper/SQLiteHelper.java</url>
+          <line>1563</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/envigil/extranet/ComponentReading.java</url>
+          <line>885</line>
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

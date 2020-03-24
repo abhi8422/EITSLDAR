@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Leak is reported. Would you like to add a Repair ?"
+                android:text="Leak is reported. Would you like to add/change a Repair ?"
                 android:textAppearance="@style/FontStyle"
                 android:textSize="20sp"
                 android:textStyle="normal" />

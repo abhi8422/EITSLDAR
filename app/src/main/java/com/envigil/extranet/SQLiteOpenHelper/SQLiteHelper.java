@@ -1533,11 +1533,14 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     //Get Permit Rates.Permit rate Start and permit rate id.
-    public Pair<Integer,Float> getPemitThresholdValue(int permId,int leakTypeId){
+    public Pair<Integer,Float> getPemitThresholdValue(int InvId,int leakTypeId){
         int PermRateID = 0;
         float PermRateStart = 0;
         SQLiteDatabase database=getWritableDatabase();
-        String q="SELECT PermRateID, PermRateStart FROM PermitRates WHERE PermID = "+permId+" AND LeakTypeID = "+leakTypeId;
+//        String q="SELECT PermRateID, PermRateStart FROM PermitRates WHERE InvID = "+InvId+" AND LeakTypeID = "+leakTypeId;
+        String q="SELECT PermRateStart, PermRateTime FROM PermitRates WHERE PermID IN (SELECT Permits.PermID FROM Permits"+
+                " INNER JOIN PermitInventory ON Permits.PermID = PermitInventory.PermID "+
+                "WHERE InvID = " + InvId + " AND LeakTypeID = " + leakTypeId+ ")";
         Cursor cursor=database.rawQuery(q,null);
         while (cursor.moveToNext()){
             PermRateID=cursor.getInt(cursor.getColumnIndex("PermRateID"));
@@ -1551,10 +1554,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public  int getPermIdCount(int routeId,int invId,int permId){
         int Count=0;
         SQLiteDatabase database=getWritableDatabase();
-        String q="SELECT COUNT(PermID) FROM PermitInventory WHERE RouteID ="+routeId+" AND InvID = "+invId+" AND PermID = "+permId;
+        String q="SELECT PermID FROM PermitInventory WHERE RouteID ="+routeId+" AND InvID = "+invId;
         Cursor cursor=database.rawQuery(q,null);
         while (cursor.moveToNext()){
-            Count=cursor.getInt(cursor.getColumnIndex("COUNT(PermID)"));
+            Count=cursor.getInt(cursor.getColumnIndex("PermID"));
         }
         cursor.close();
         database.close();

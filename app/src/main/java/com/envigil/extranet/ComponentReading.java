@@ -636,9 +636,12 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                                 Count = sqLiteHelper.getPermIdCount(RouteId, InvId, PermId);
                                                 if (Count != 0) {
                                                     PermOrLeak = true;
-                                                    Pair<Integer, Float> integerFloatPair = sqLiteHelper.getPemitThresholdValue(PermId, LeakTypeID);
+                                                    Pair<Integer, Float> integerFloatPair = sqLiteHelper.getPemitThresholdValue(InvId, LeakTypeID);
                                                     PermRateId = integerFloatPair.first;
                                                     PermStartRate = integerFloatPair.second;
+                                                    if (PermStartRate==0){
+                                                        PermOrLeak=false;
+                                                    }
                                                 } else {
                                                     PermOrLeak = false;
                                                 }
@@ -876,9 +879,12 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                                 Count = sqLiteHelper.getPermIdCount(RouteId, InvId, PermId);
                                 if (Count != 0) {
                                     PermOrLeak = true;
-                                    Pair<Integer, Float> integerFloatPair = sqLiteHelper.getPemitThresholdValue(PermId, LeakTypeID);
+                                    Pair<Integer, Float> integerFloatPair = sqLiteHelper.getPemitThresholdValue(InvId, LeakTypeID);
                                     PermRateId = integerFloatPair.first;
                                     PermStartRate = integerFloatPair.second;
+                                    if (PermStartRate==0){
+                                        PermOrLeak=false;
+                                    }
                                 } else {
                                     PermOrLeak = false;
 

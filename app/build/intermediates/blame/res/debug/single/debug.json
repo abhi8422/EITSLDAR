@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\layout\\progress_dialog_create_inspection.xml"
     },
     {
-        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_2.jpg.flat",
-        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\drawable\\image_2.jpg"
-    },
-    {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_2.jpg.flat",
+        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\drawable\\image_2.jpg"
     },
     {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_logo_background.png.flat",
@@ -136,12 +136,12 @@
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\spinner_arrow.png"
     },
     {
-        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logo1_round.png.flat",
-        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\mipmap-mdpi\\logo1_round.png"
-    },
-    {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_arrow_drop_down_black_24dp.xml.flat",
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_drop_down_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logo1_round.png.flat",
+        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\mipmap-mdpi\\logo1_round.png"
     },
     {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_bluetooth_reading.xml.flat",
@@ -152,16 +152,16 @@
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\drawable-v24\\ic_date.xml"
     },
     {
-        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_barcode.png.flat",
-        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\drawable-v24\\barcode.png"
+        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_file_upload_black_24dp.png.flat",
+        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_file_upload_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_logo_background.png.flat",
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\logo_background.png"
     },
     {
-        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_file_upload_black_24dp.png.flat",
-        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_file_upload_black_24dp.png"
+        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_barcode.png.flat",
+        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\drawable-v24\\barcode.png"
     },
     {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_file_download_black_24dp.png.flat",
@@ -216,12 +216,12 @@
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_check_circle.png.flat",
-        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_check_circle.png"
-    },
-    {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_border.xml.flat",
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\drawable\\layout_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_check_circle.png.flat",
+        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_check_circle.png"
     },
     {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_home_black_24dp.png.flat",
@@ -264,12 +264,12 @@
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_exit_to_app_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\layout_back_up_layout.xml.flat",
-        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\layout\\back_up_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_menu_black_24dp.png.flat",
         "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_menu_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\layout_back_up_layout.xml.flat",
+        "source": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\src\\main\\res\\layout\\back_up_layout.xml"
     },
     {
         "merged": "C:\\Users\\Sudarshan\\Desktop\\Extranet18Mar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_grid_bckgrnd.xml.flat",
