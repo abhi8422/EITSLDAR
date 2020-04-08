@@ -4,10 +4,11 @@ public class SubAreasPojo {
     int SubId;
     int RouteId,cnt;
     Integer inspected;
-    String SubArea,AreaName;
+    String SubArea,AreaName,SubDesc;
     float Background;
     String Date;
     float per;
+
 
     public float getPer() {
         return per;
@@ -31,6 +32,14 @@ public class SubAreasPojo {
         SubArea = subArea;
         Background = background;
         Date = date;
+    }
+
+    public String getSubDesc() {
+        return SubDesc;
+    }
+
+    public void setSubDesc(String subDesc) {
+        SubDesc = subDesc;
     }
 
     public int getRouteId() {

@@ -244,7 +244,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
 
     public SQLiteHelper(@Nullable Context context) {
-            super(context, DATABASE_NAME, null, 2);
+            super(context, DATABASE_NAME, null, 3);
 
     }
 
@@ -367,6 +367,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "Status,LeakLat,LeakLng,LeakImage from Leaks_old");
         sqLiteDatabase.execSQL("DROP TABLE Leaks_old");
 
+        //For adding sub area description coloumn in sub area table
+        sqLiteDatabase.execSQL("ALTER TABLE SubAreas ADD SubDesc TEXT");
+        sqLiteDatabase.execSQL("Update SubAreas SET SubDesc = null");
+
     }
 
 
@@ -385,6 +389,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                             "Status,LeakLat,LeakLng,LeakImage from Leaks_old");
                     sqLiteDatabase.execSQL("DROP TABLE Leaks_old");
                     break;
+       //For adding sub area description coloumn in sub area table
+            case 3:
+                sqLiteDatabase.execSQL("ALTER TABLE SubAreas ADD SubDesc TEXT");
+                sqLiteDatabase.execSQL("Update SubAreas SET SubDesc = null");
         }
         }
 
@@ -447,6 +455,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             contentValues.put("SubName", subarea.getSubName());
             contentValues.put("AreaName", subarea.getAreaName());
             contentValues.put("SubOrder", subarea.getSubOrder());
+            contentValues.put("SubDesc",subarea.getSubDesc());
             database.insert(TAB_SubAreas, null, contentValues);
             database.close();
 
@@ -524,12 +533,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public List<SubAreasPojo> getSubareas(int routeid) {
         int Subid,RouteId,count;
-        String Date,AreaName;
+        String Date,AreaName,SubDesc;
         int inspected;
         float background,countDiv,inspCnt,per;
         String SubName;
         SQLiteDatabase database=getReadableDatabase();
-        String query="Select SubID,RouteID,SubName,AreaName,Inspected,TimeStamp,Background from SubAreas where RouteID = "+routeid+ " ORDER BY SubOrder ASC";
+        String query="Select SubID,RouteID,SubName,AreaName,Inspected,TimeStamp,Background,SubDesc from SubAreas where RouteID = "+routeid+ " ORDER BY SubOrder ASC";
         Cursor c=database.rawQuery(query,null);
         while(c.moveToNext()){
             Subid=c.getInt(c.getColumnIndex("SubID"));
@@ -539,6 +548,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
            SubName=c.getString(c.getColumnIndex("SubName"));
            AreaName=c.getString(c.getColumnIndex("AreaName"));
            Date = c.getString(c.getColumnIndex("TimeStamp"));
+           SubDesc=c.getString(c.getColumnIndex("SubDesc"));
            count=getCompCnt(Subid,RouteId);
            countDiv=(float)getCompCnt(Subid,RouteId);
            inspCnt=(float)getInspCnt(Subid,RouteId);
@@ -547,6 +557,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
            subAreasPojo.setRouteId(RouteId);
            subAreasPojo.setCnt(count);
            subAreasPojo.setPer(per);
+           subAreasPojo.setSubDesc(SubDesc);
            subAreasPojo.setAreaName(AreaName);
             arrayList.add(subAreasPojo);
         }
@@ -589,9 +600,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String Date;
         int inspected;
         float background,countDiv,inspCnt,per;
-        String SubName,AreaName;
+        String SubName,AreaName,SubDesc;
         SQLiteDatabase database=getReadableDatabase();
-        String query="Select SubID,RouteID,SubName,AreaName,Inspected,TimeStamp,Background from SubAreas where Inspected =1 and RouteID = "+ routeid+ " ORDER BY SubOrder ASC";
+        String query="Select SubID,RouteID,SubName,AreaName,Inspected,TimeStamp,Background,SubDesc from SubAreas where Inspected =1 and RouteID = "+ routeid+ " ORDER BY SubOrder ASC";
         Cursor c=database.rawQuery(query,null);
         while(c.moveToNext()){
             Subid=c.getInt(c.getColumnIndex("SubID"));
@@ -601,6 +612,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             SubName=c.getString(c.getColumnIndex("SubName"));
             AreaName=c.getString(c.getColumnIndex("AreaName"));
             Date = c.getString(c.getColumnIndex("TimeStamp"));
+            SubDesc = c.getString(c.getColumnIndex("SubDesc"));
             count=getCompCnt(Subid,RouteId);
             countDiv=(float)getCompCnt(Subid,RouteId);
             inspCnt=(float)getInspCnt(Subid,RouteId);
@@ -610,6 +622,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             subAreasPojo.setCnt(count);
             subAreasPojo.setPer(per);
             subAreasPojo.setAreaName(AreaName);
+            subAreasPojo.setSubDesc(SubDesc);
             arrayList.add(subAreasPojo);
         }
         c.close();
@@ -624,9 +637,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String Date;
         int inspected;
         float background,countDiv,inspCnt,per;
-        String SubName,AreaName;
+        String SubName,AreaName,SubDesc;
         SQLiteDatabase database=getReadableDatabase();
-        String query="Select SubID,RouteID,SubName,AreaName,Inspected,TimeStamp,Background from SubAreas where Inspected = 0 and RouteID = "+routeid+ " ORDER BY SubOrder ASC";
+        String query="Select SubID,RouteID,SubName,AreaName,Inspected,TimeStamp,Background,SubDesc from SubAreas where Inspected = 0 and RouteID = "+routeid+ " ORDER BY SubOrder ASC";
         Cursor c=database.rawQuery(query,null);
         while(c.moveToNext()){
             Subid=c.getInt(c.getColumnIndex("SubID"));
@@ -636,6 +649,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             SubName=c.getString(c.getColumnIndex("SubName"));
             AreaName=c.getString(c.getColumnIndex("AreaName"));
             Date = c.getString(c.getColumnIndex("TimeStamp"));
+            SubDesc = c.getString(c.getColumnIndex("SubDesc"));
             count=getCompCnt(Subid,RouteId);
             countDiv=(float)getCompCnt(Subid,RouteId);
             inspCnt=(float)getInspCnt(Subid,RouteId);
@@ -645,6 +659,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             subAreasPojo.setCnt(count);
             subAreasPojo.setPer(per);
             subAreasPojo.setAreaName(AreaName);
+            subAreasPojo.setSubDesc(SubDesc);
             arrayList.add(subAreasPojo);
         }
         c.close();

@@ -183,8 +183,10 @@ public class DownloadRouteAsync extends AsyncTask {
                 int SubOrder = object.getInt("SubOrder");
                 String SubName = object.getString("SubName");
                 String AreaName = object.getString("AreaName");
+                String SubDesc = object.getString("SubDesc");
 //                Log.d(TAG, "Routes Config :::" + JsonArray);
                 Subarea subarea = new Subarea(AreaID, RouteID, SubID, SubName, false, SubOrder, null, false, 0.0f);
+                subarea.setSubDesc(SubDesc);
                 subarea.setAreaName(AreaName);
                 sqLiteHelper.InsertSubAreas(subarea);
             } catch (JSONException e) {

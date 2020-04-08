@@ -59,6 +59,13 @@ public class RouteInspectedAdapter extends RecyclerView.Adapter<RouteInspectedAd
         holder.InspCount.setText(String.valueOf(subAreasPojo.getCnt()));
         holder.InspPer.setText(String.format("%.2f",subAreasPojo.getPer()) + " %");
         holder.InspArea.setText(subAreasPojo.getAreaName());
+        String SubDesc=subAreasPojo.getSubDesc();
+        if (SubDesc==null){
+            holder.InspSubDesc.setText("--");
+        }
+        else {
+            holder.InspSubDesc.setText(SubDesc);
+        }
     }
 
     @Override
@@ -68,7 +75,7 @@ public class RouteInspectedAdapter extends RecyclerView.Adapter<RouteInspectedAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView titleSubRouteIn, InspectedSubRouteIn, BackgroundSubRouteIn,InspectionDateIn,InspCount,InspPer,InspArea;
+        TextView titleSubRouteIn, InspectedSubRouteIn, BackgroundSubRouteIn,InspectionDateIn,InspCount,InspPer,InspArea,InspSubDesc;
         ImageView InsptrueSubIn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +86,7 @@ public class RouteInspectedAdapter extends RecyclerView.Adapter<RouteInspectedAd
             InspCount = itemView.findViewById(R.id.TotalCompInsp);
             InspPer = itemView.findViewById(R.id.InspPerInsp);
             InspArea = itemView.findViewById(R.id.InspArea);
+            InspSubDesc = itemView.findViewById(R.id.InspSubDesc);
             itemView.setOnClickListener(this);
         }
 

@@ -61,6 +61,13 @@ public class RouteUninspectedAdapter extends RecyclerView.Adapter<RouteUninspect
         holder.UnInspCount.setText(String.valueOf(subAreasPojo.getCnt()));
         holder.UnInspPer.setText(String.format("%.2f",subAreasPojo.getPer()) + " %");
         holder.UnInspArea.setText(subAreasPojo.getAreaName());
+        String SubDesc = subAreasPojo.getSubDesc();
+        if (SubDesc==null){
+            holder.UnInspSubDesc.setText("--");
+        }
+        else {
+            holder.UnInspSubDesc.setText(SubDesc);
+        }
 
     }
 
@@ -70,7 +77,7 @@ public class RouteUninspectedAdapter extends RecyclerView.Adapter<RouteUninspect
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView titleSubRouteUnIn, InspectedSubRouteUnIn, BackgroundSubRouteUnIn,InspectionDateUnIn,UnInspCount,UnInspPer,UnInspArea;
+        TextView titleSubRouteUnIn, InspectedSubRouteUnIn, BackgroundSubRouteUnIn,InspectionDateUnIn,UnInspCount,UnInspPer,UnInspArea,UnInspSubDesc;
         ImageView InsptrueSubUn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +90,7 @@ public class RouteUninspectedAdapter extends RecyclerView.Adapter<RouteUninspect
                 UnInspCount = itemView.findViewById(R.id.UnInspCount);
                 UnInspPer = itemView.findViewById(R.id.UnInspPer);
                 UnInspArea = itemView.findViewById(R.id.UnInspArea);
+                UnInspSubDesc = itemView.findViewById(R.id.UnInspSubDesc);
                 itemView.setOnClickListener(this);
         }
 

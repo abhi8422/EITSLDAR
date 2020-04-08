@@ -59,6 +59,14 @@ public class RouteDashboardAdapter extends RecyclerView.Adapter<RouteDashboardAd
         holder.TotalComp.setText(String.valueOf(subAreasPojo.getCnt()));
         holder.InspPer.setText(String.format("%.2f",subAreasPojo.getPer()) + " %");
         holder.AllAreaName.setText(subAreasPojo.getAreaName());
+        String SubDesc=subAreasPojo.getSubDesc();
+        if (SubDesc==null){
+            holder.AllSubDesc.setText("--");
+        }
+        else{
+            holder.AllSubDesc.setText(SubDesc);
+        }
+
 
     }
 
@@ -72,7 +80,7 @@ public class RouteDashboardAdapter extends RecyclerView.Adapter<RouteDashboardAd
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView titleSubRoute, InspectedSubRoute, BackgroundSubRoute,InspectionDate,TotalComp,InspPer,AllAreaName;
+        TextView titleSubRoute, InspectedSubRoute, BackgroundSubRoute,InspectionDate,TotalComp,InspPer,AllAreaName,AllSubDesc;
         ImageView InsptrueSub;
 
         public ViewHolder(@NonNull View itemView) {
@@ -85,6 +93,7 @@ public class RouteDashboardAdapter extends RecyclerView.Adapter<RouteDashboardAd
             InspPer=itemView.findViewById(R.id.InspPer);
             AllAreaName =itemView.findViewById(R.id.AllAreaName);
             InsptrueSub  =itemView.findViewById(R.id.InspTrueSub);
+            AllSubDesc = itemView.findViewById(R.id.AllSubDesc);
             itemView.setOnClickListener(this);
         }
 

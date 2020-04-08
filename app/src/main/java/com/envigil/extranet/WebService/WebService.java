@@ -29,7 +29,7 @@ Context context;
     String METHOD_getRoutesData="getRoutesData";*/
     //new
     public static String WSDL_URL="http://98.173.13.62:8080/web/getroutes.asmx?WSDL";
-    /*public static String WSDL_URL="https://www.avantienv.com/web/getroutes.asmx?WSDL";*/
+//    public static String WSDL_URL="https://www.avantienv.com/web/getroutes.asmx?WSDL";
     String SOAP_ACTION="Avanti";
     String NAME_SPACE="Avanti";
     String METHOD_NAME_getRoutesDataJSON="getRoutesDataJSON";

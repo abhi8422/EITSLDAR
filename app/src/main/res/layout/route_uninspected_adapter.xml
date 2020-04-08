@@ -69,13 +69,41 @@
                     android:textColor="#000000"
                     android:textStyle="bold" />
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/UnLL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/UnLL1"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/tV3UnIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="Description:"
+                    android:textAppearance="@style/FontStyle"
+                    android:textColor="#000000"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/UnInspSubDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="PipeLine 99"
+                    android:textAppearance="@style/FontStyle"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/UnLL2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/UnLL1"
+                app:layout_constraintTop_toBottomOf="@+id/UnLL"
                 app:layout_constraintStart_toStartOf="parent">
 
                 <TextView

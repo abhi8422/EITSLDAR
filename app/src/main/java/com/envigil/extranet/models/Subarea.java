@@ -10,7 +10,7 @@ public class Subarea {
     int AreaID;
     int RouteID;
     int SubID;
-    String SubName,AreaName;
+    String SubName,AreaName,SubDesc;
     boolean Inspected;
     int SubOrder;
     Date TimeStamp;
@@ -30,6 +30,14 @@ public class Subarea {
     }
 
     public Subarea() {
+    }
+
+    public String getSubDesc() {
+        return SubDesc;
+    }
+
+    public void setSubDesc(String subDesc) {
+        SubDesc = subDesc;
     }
 
     public int getAreaID() {

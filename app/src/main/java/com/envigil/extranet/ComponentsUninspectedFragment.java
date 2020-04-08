@@ -169,6 +169,9 @@ public class ComponentsUninspectedFragment extends Fragment {
             }
             else {
                 uninspectedResult = result.getContents();
+                while(uninspectedResult.indexOf("0") == 0){
+                    uninspectedResult = uninspectedResult.substring(1);
+                }
 //                Toast.makeText(getContext(),uninspectedResult,Toast.LENGTH_SHORT).show();
                 SearchTag.setText(uninspectedResult);
             }

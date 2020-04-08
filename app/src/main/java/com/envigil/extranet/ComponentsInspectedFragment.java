@@ -163,6 +163,9 @@ public class ComponentsInspectedFragment extends Fragment {
             }
             else {
                 scannedResult = result.getContents();
+                while(scannedResult.indexOf("0") == 0){
+                    scannedResult = scannedResult.substring(1);
+                }
                 TagSearch.setText(scannedResult);
             }
         }

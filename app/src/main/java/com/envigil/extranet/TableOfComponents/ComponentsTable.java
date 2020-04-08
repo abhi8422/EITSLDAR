@@ -257,6 +257,9 @@ public class ComponentsTable extends AppCompatActivity {
             if (result.getContents() == null) {
             } else {
                 scannedResult = result.getContents();
+                while(scannedResult.indexOf("0") == 0){
+                    scannedResult = scannedResult.substring(1);
+                }
                 TagSearch.setText(scannedResult);
             }
         }
