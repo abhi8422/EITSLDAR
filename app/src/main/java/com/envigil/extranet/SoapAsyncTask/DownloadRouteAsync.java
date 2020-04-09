@@ -42,6 +42,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -210,8 +211,8 @@ public class DownloadRouteAsync extends AsyncTask {
                 int CompTypeID = object.getInt("CompTypeID");
                 int StrTypeID = object.getInt("StrTypeID");
                 int StrID = object.getInt("StrID");
-                float InvSize = (float) object.getInt("InvSize");
-                float Total = (float) object.getInt("Total");
+                float InvSize = BigDecimal.valueOf(object.getDouble("InvSize")).floatValue();
+                float Total = BigDecimal.valueOf(object.getDouble("Total")).floatValue();
                 String ScanSeconds = String.valueOf(object.getInt("ScanSeconds"));
                 String InvLocation = object.getString("InvLocation");
                 boolean Critical = Boolean.parseBoolean(String.valueOf(object.getInt("Critical")));
@@ -410,8 +411,8 @@ public class DownloadRouteAsync extends AsyncTask {
                     int RuleCompTypeID = object.getInt("RuleCompTypeID");
                     int StrTypeID = object.getInt("StrTypeID");
                     int LeakRateID = object.getInt("LeakRateID");
-                    float LeakRateStart = (float) object.getInt("LeakRateStart");
-                    float LeakRateEnd = (float) object.getInt("LeakRateEnd");
+                    float LeakRateStart = BigDecimal.valueOf(object.getDouble("LeakRateStart")).floatValue();
+                    float LeakRateEnd = BigDecimal.valueOf(object.getDouble("LeakRateEnd")).floatValue();
                     int LeakRateTime = object.getInt("LeakRateTime");
                     int StrID = object.getInt("StrID");
 //                    Log.d(TAG,"leakRatesArray :::"+leakRatesArray);
@@ -547,8 +548,8 @@ public class DownloadRouteAsync extends AsyncTask {
                 int PermId = object.getInt("PermID");
                 int LeakTypeID = object.getInt("LeakTypeID");
                 int PermRateId = object.getInt("PermRateID");
-                float PermRateStart = (float) object.getInt("PermRateStart");
-                float PermRateTime = (float) object.getInt("PermRateTime");
+                float PermRateStart = BigDecimal.valueOf(object.getDouble("PermRateStart")).floatValue();
+                float PermRateTime = BigDecimal.valueOf( object.getDouble("PermRateTime")).floatValue();
                 PermitRates permitRates = new PermitRates(PermId, LeakTypeID, PermRateId, PermRateStart, PermRateTime);
                 sqLiteHelper.InsertPermitRates(permitRates);
             } catch (JSONException e) {

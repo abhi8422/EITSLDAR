@@ -86,13 +86,16 @@ public class ComponentsUninspectedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(getContext(),R.animator.animate));
-                String TAG = SearchTag.getText().toString();
-                if (TAG.equals("")){
+                String Tagno = SearchTag.getText().toString();
+                while(Tagno.indexOf("0") == 0){
+                    Tagno = Tagno.substring(1);
+                }
+                if (Tagno.equals("")){
                     SearchTag.setError("Please Enter a Tag no.");
                 }
                 else {
 //                    Toast.makeText(getContext(), "TAG :: " + TAG, Toast.LENGTH_SHORT).show();
-                    UninspectedCompoAdapter uninspectedCompoAdapter = new UninspectedCompoAdapter(sqLiteHelper.getUnInspectedIDSort(SubId, RouteId, TAG));
+                    UninspectedCompoAdapter uninspectedCompoAdapter = new UninspectedCompoAdapter(sqLiteHelper.getUnInspectedIDSort(SubId, RouteId, Tagno));
                     rvCompoUninspected.setAdapter(uninspectedCompoAdapter);
                 }
 
@@ -107,6 +110,9 @@ public class ComponentsUninspectedFragment extends Fragment {
 //                    InputMethodManager imm=(InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
                     //imm.hideSoftInputFromWindow(TagSearch.getWindowToken(), 0);
                     String Tagno= SearchTag.getText().toString();
+                    while(Tagno.indexOf("0") == 0){
+                        Tagno = Tagno.substring(1);
+                    }
                     if(Tagno.equals("")){
                         SearchTag.setError("Please Enter a Tag no.");
                     }

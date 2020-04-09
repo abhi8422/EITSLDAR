@@ -87,6 +87,9 @@ public class ComponentsInspectedFragment extends Fragment {
 //                    InputMethodManager imm=(InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
                     //imm.hideSoftInputFromWindow(TagSearch.getWindowToken(), 0);
                     String Tagno= TagSearch.getText().toString();
+                    while(Tagno.indexOf("0") == 0){
+                        Tagno = Tagno.substring(1);
+                    }
                     if(Tagno.equals("")){
                         TagSearch.setError("Please Enter a Tag no.");
                     }
@@ -135,15 +138,18 @@ public class ComponentsInspectedFragment extends Fragment {
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(getContext(),R.animator.animate));
                 String Tagno= TagSearch.getText().toString();
+                while(Tagno.indexOf("0") == 0){
+                    Tagno = Tagno.substring(1);
+                }
                 if(Tagno.equals("")){
                     TagSearch.setError("Please Enter a Tag no.");
                 }
                 else{
+
                     ViewComponentAdapter viewComponentAdapter=new ViewComponentAdapter(sqLiteHelper.getInspectedIDSort(SubID,RouteId,Tagno));
                     rvComponentInspection.setAdapter(viewComponentAdapter);
                     viewComponentAdapter.notifyDataSetChanged();
                 }
-
             }
         });
 
