@@ -480,7 +480,7 @@ public class Inspections extends AppCompatActivity implements View.OnClickListen
          protected void onPostExecute(Object o) {
              super.onPostExecute(o);
              System.out.println("AC ::"+ac);
-             if(!ac.isEmpty()){
+             if(!ac.equals("-1")||!ac.equals(" ")){
                  /*progressDialog.dismiss();*/
                  AlertDialog.Builder builder = new AlertDialog.Builder(Inspections.this);
                  //Setting message manually and performing action on button click

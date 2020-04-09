@@ -338,8 +338,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
                         ComponentsListPojo componentsListPojo = readinglistPojos.get(i);
                         String reading=String.valueOf(componentsListPojo.getReading());
                         tvComponent.setText(String.valueOf(componentsListPojo.getCompName()));
-                        /*tvSize.setText(String.valueOf(componentsListPojo.getInvSize()));*/
-                        tvSize.setText(String.valueOf(componentsListPojo.getReading()));
+                        tvSize.setText(String.valueOf(componentsListPojo.getInvSize()));
                         tvLocation.setText(String.valueOf(componentsListPojo.getInvLocation()));
                         tvAreaName.setText(componentsListPojo.getAreaName());
                         tvBackground.setText(String.format("%.2f",componentsListPojo.getBackread()+0.00));
@@ -1348,8 +1347,7 @@ public class ComponentReading extends AppCompatActivity implements View.OnClickL
             ComponentsListPojo componentsListPojo = readinglistPojos.get(i);
             String reading=String.valueOf(componentsListPojo.getReading());
             tvComponent.setText(String.valueOf(componentsListPojo.getCompName()));
-            /*tvSize.setText(String.valueOf(componentsListPojo.getInvSize()));*/
-            tvSize.setText(String.valueOf(componentsListPojo.getReading()));
+            tvSize.setText(String.valueOf(componentsListPojo.getInvSize()));
             tvLocation.setText(String.valueOf(componentsListPojo.getInvLocation()));
             tvAreaName.setText(componentsListPojo.getAreaName());
             tvBackground.setText(String.format("%.2f",componentsListPojo.getBackread()+0.00));
