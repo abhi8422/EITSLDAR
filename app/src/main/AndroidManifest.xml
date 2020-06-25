@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.envigil.extranet">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:name=".LogFileHandling.LogFileHandling"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/logo1"
+        android:label="LDAR"
+        android:roundIcon="@mipmap/logo1_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="stateHidden">
+        <activity android:name=".DeleteRoute"></activity>
+        <activity
+            android:name=".RouteUninspectedAdapter"
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".TableOfComponents.ComponentsTable" />
+        <activity
+            android:name=".RouteInspectedAdapter"
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".AddInspectionDate.AddInspectionDate"></activity>
+        <activity
+            android:name=".InternetCheck"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RouteDashboardAdapter"
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ShowLeaksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RouteInspectedFragment"
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".RouteDashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ComponentDashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ComponentReading"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Inspections"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ScannerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LeakReportActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".RepairRequest"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".PrevInspection"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Bluetooth.Bluetooth"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

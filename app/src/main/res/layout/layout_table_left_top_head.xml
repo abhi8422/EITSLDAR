@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#8BC34A">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/grid_bckgrnd">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/left_top_head_table_layout_text"-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginLeft="2dp"-->
+<!--            android:layout_marginRight="9dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Insp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@android:color/white" />-->
+
+<!--    </LinearLayout>-->
+
+</FrameLayout>
